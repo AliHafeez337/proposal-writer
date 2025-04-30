@@ -8,7 +8,7 @@ const ProposalSchema = new mongoose.Schema({ // Proposal Schema
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // User who created the proposal
   status: {
     type: String,
-    enum: ['draft', 'generating', 'complete'],
+    enum: ['draft', 'initial_analysis', 'reviewing', 'complete'],
     default: 'draft'
   },
   files: [{
@@ -19,10 +19,8 @@ const ProposalSchema = new mongoose.Schema({ // Proposal Schema
     fileType: String,  // Add this line
     uploadDate: { type: Date, default: Date.now }
   }],
-  requirements: {
-    userInput: String,  // Text area content
-    extractedRequirements: [String]  // For AI-processed requirements
-  },
+  userRequirements: String,
+  userFeedback: String,
   content: {            // Extracted text from files
     executiveSummary: String,
     scopeOfWork: String,

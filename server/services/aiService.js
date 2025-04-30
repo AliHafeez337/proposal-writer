@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const openai = new OpenAI(process.env.OPENAI_API_KEY);
 
-const analyzeScopeAndDeliverables = async (description, requirements) => {
+const analyzeScopeAndDeliverables = async (description, userRequirements) => {
   const prompt = `
     Analyze this project documentation and generate:
     1. Scope of Work (bullet points)
@@ -38,7 +38,7 @@ const analyzeScopeAndDeliverables = async (description, requirements) => {
     ${description}
 
     My Requirements:
-    ${requirements}
+    ${userRequirements}
   `;
 
   const response = await openai.chat.completions.create({
@@ -50,10 +50,64 @@ const analyzeScopeAndDeliverables = async (description, requirements) => {
   return JSON.parse(response.choices[0].message.content);
 };
 
-// Second pass - Full proposal generation
-const generateFullProposal = async (scopeOfWork, deliverables, requirements) => {
+// Analyze scope and deliverables with feedback
+const analyzeScopeAndDeliverablesWithFeedback = async (scopeOfWork, deliverables, userRequirements, userFeeback) => {
   const prompt = `
-    Analyze this project documentation and generate:
+    Analyze this project scope and deliverables with provided feedback and regenerate:
+    1. Scope of Work (bullet points)
+    2. Deliverables - MUST include:
+      - item: string
+      - unit: string
+      - count: NUMBER (no text, only digits)
+      - description: string
+    
+    Example:
+    "deliverables": [
+      {
+        "item": "Web Pages",
+        "unit": "pages",
+        "count": 5,  // MUST BE A NUMBER
+        "description": "Responsive landing pages"
+      }
+    ]
+
+    Return JSON with this structure:
+    {
+      "scopeOfWork": string,
+      "deliverables": [{
+        "item": string,
+        "unit": string,
+        "count": number,
+        "description": string
+      }]
+    }
+    
+    Scope of Work:
+    ${scopeOfWork}
+
+    Deliverables:
+    ${deliverables}
+
+    My Requirements:
+    ${userRequirements}
+
+    My Feedback:
+    ${userFeeback}
+  `;
+
+  const response = await openai.chat.completions.create({
+    model: "gpt-3.5-turbo-1106",
+    messages: [{ role: "user", content: prompt }],
+    response_format: { type: "json_object" }
+  });
+
+  return JSON.parse(response.choices[0].message.content);
+};
+
+// Last pass - Full proposal generation
+const generateFullProposal = async (scopeOfWork, deliverables, userRequirements, userFeeback) => {
+  const prompt = `
+    Analyze this project scope and deliverables and generate:
     1. Executive Summary (1 paragraph)
     2. Key Requirements (technical/business)
     3. Work Breakdown Structure - tasks with durations IN DAYS (not weeks)
@@ -83,7 +137,10 @@ const generateFullProposal = async (scopeOfWork, deliverables, requirements) => 
     ${deliverables}
 
     My Requirements:
-    ${requirements}
+    ${userRequirements}
+
+    My Feedback:
+    ${userFeeback}
   `;
 
   const response = await openai.chat.completions.create({
@@ -95,4 +152,4 @@ const generateFullProposal = async (scopeOfWork, deliverables, requirements) => 
   return JSON.parse(response.choices[0].message.content);
 };
 
-module.exports = { analyzeScopeAndDeliverables, generateFullProposal };
+module.exports = { analyzeScopeAndDeliverables, analyzeScopeAndDeliverablesWithFeedback, generateFullProposal };

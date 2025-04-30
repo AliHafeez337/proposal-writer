@@ -61,7 +61,7 @@ router.patch('/:id/title', auth, async (req, res) => {
   try {
     const proposal = await Proposal.findOneAndUpdate(
       { _id: req.params.id, user: req.userId },
-      { title: req.body.title },
+      { title: req.body.title, description: req.body.description },
       { new: true }
     );
 
@@ -114,33 +114,6 @@ router.post('/:id/files', auth, (req, res) => {
       res.status(500).json({ error: 'Server error' });
     }
   });
-});
-
-// Update proposal requirements
-router.put('/:id/requirements', auth, async (req, res) => {
-  logger.info('Updating proposal requirements', { userId: req.userId, proposalId: req.params.id });
-  try {
-    const proposal = await Proposal.findOneAndUpdate(
-      { _id: req.params.id, user: req.userId },
-      { 
-        $set: { 
-          'requirements.userInput': req.body.requirements,
-          status: 'draft' 
-        } 
-      },
-      { new: true }
-    );
-    
-    if (!proposal) {
-      logger.warn('Proposal not found for requirements update', { userId: req.userId, proposalId: req.params.id });
-      return res.status(404).json({ error: 'Proposal not found' });
-    }
-    
-    res.json(proposal);
-  } catch (error) {
-    logger.error('Failed to update requirements', { error: error.message, stack: error.stack, userId: req.userId, proposalId: req.params.id });
-    res.status(500).json({ error: 'Server error' });
-  }
 });
 
 // Update proposal section
