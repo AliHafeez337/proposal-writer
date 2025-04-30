@@ -1,0 +1,34 @@
+About the Role
+
+We're building a consumer-focused privacy SaaS MVP and looking for a Full-Stack Developer to take the lead on technical development.
+This is a contract/freelance role with flexible work, paid milestone by milestone, and potential for long-term collaboration.
+
+Responsibilities
+
+-  Build a modern, responsive frontend using Next.js + TailwindCSS.
+
+-  Develop and maintain a scalable backend with Node.js + Express.
+
+-  Set up and manage a PostgreSQL database.
+
+-  Develop locally using Docker containers (no cloud deployment until later).
+
+-  Write clear, modular, well-documented code.
+
+-  Collaborate using Jira and Confluence.
+
+Ideal Experience
+
+✔ Frontend: Next.js + TailwindCSS
+✔ Backend: Node.js + Express
+✔ Database: PostgreSQL
+✔ Familiarity with Azure Cloud (preferred)
+✔ Privacy, security, and secure data storage best practices
+What We Offer
+
+🏡 Remote and async-friendly
+🚀 Small, clearly scoped milestones
+💬 Potential for longer-term collaboration post-MVP
+Apply
+
+📩 Send your resume, GitHub, or portfolio link + a short note about why you're a good fit.
