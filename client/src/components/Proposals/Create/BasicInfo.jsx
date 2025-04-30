@@ -1,45 +1,36 @@
-import React, { useState } from 'react';
-import { TextField, Button, Box, Typography } from '@mui/material';
+import { TextField, Box } from '@mui/material';
 
-export default function ProposalBasicInfo({ data, updateData, onNext }) {
-  const [errors, setErrors] = useState({});
-
-  const validate = () => {
-    const newErrors = {};
-    if (!data.title) newErrors.title = 'Title is required';
-    return newErrors;
-  };
-
-  const handleNext = () => {
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      return setErrors(validationErrors);
-    }
-    onNext();
+export default function ProposalBasicInfo({ data, updateData, errors }) {
+  const handleChange = (field) => (e) => {
+    updateData(prev => ({
+      ...prev,
+      [field]: e.target.value || '' // Ensure empty string instead of undefined
+    }));
   };
 
   return (
     <Box>
-      <Typography variant="h6" gutterBottom>
-        Basic Information
-      </Typography>
       <TextField
+        label="Title"
         fullWidth
-        label="Proposal Title"
+        margin="normal"
         value={data.title}
-        onChange={(e) => updateData({ title: e.target.value })}
-        error={!!errors.title}
-        helperText={errors.title}
-        sx={{ mb: 3 }}
+        onChange={handleChange('title')}
+        error={errors.title}
+        helperText={errors.title && "Title is required"}
+        required
       />
       <TextField
-        fullWidth
+        label="Description"
         multiline
         rows={4}
-        label="Description"
+        fullWidth
+        margin="normal"
         value={data.description}
-        onChange={(e) => updateData({ description: e.target.value })}
-        sx={{ mb: 3 }}
+        onChange={handleChange('description')}
+        error={errors.description}
+        helperText={errors.description && "Description is required"}
+        required
       />
     </Box>
   );

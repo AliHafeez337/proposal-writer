@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography, Button, CardActions } from '@mui/material';
+import { Card, CardContent, Typography, Button, CardActions, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 export default function ProposalCard({ proposal }) {
@@ -8,6 +8,9 @@ export default function ProposalCard({ proposal }) {
         <Typography gutterBottom variant="h5" component="div">
           {proposal.title || 'Untitled Proposal'}
         </Typography>
+        <Typography gutterBottom variant="p" component="div">
+          {proposal.description || ''}
+        </Typography>
         <Typography variant="body2" color="text.secondary">
           Status: {proposal.status}
         </Typography>
@@ -15,15 +18,26 @@ export default function ProposalCard({ proposal }) {
           Created: {new Date(proposal.createdAt).toLocaleDateString()}
         </Typography>
       </CardContent>
-      <CardActions sx={{ mt: 'auto' }}>
-        <Button 
-          size="small" 
-          component={Link} 
-          to={`/proposals/${proposal._id}`}
-        >
-          View Details
-        </Button>
-      </CardActions>
+      <Box sx={{ display: 'flex', flexDirection: 'row',  mt: 'auto' }}>
+        <CardActions>
+          <Button
+            component={Link}
+            to={`/proposals/edit/${proposal._id}`}
+            size="small"
+          >
+            Edit
+          </Button>
+        </CardActions>
+        <CardActions>
+          <Button 
+            size="small" 
+            component={Link} 
+            to={`/proposals/${proposal._id}`}
+          >
+            View Details
+          </Button>
+        </CardActions>
+      </Box>
     </Card>
   );
 }

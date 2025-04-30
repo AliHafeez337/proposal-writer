@@ -25,7 +25,8 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/proposals" element={<ProposalList />} />
               <Route path="/proposals/new" element={<CreateProposal />} />
-              <Route path="/proposals/:id" element={<ProposalDetail />} />
+              <Route path="/proposals/edit/:id" element={<CreateProposal />} />
+              {/* <Route path="/proposals/:id" element={<ProposalDetail />} /> */}
             </Route>
           </Route>
         </Routes>

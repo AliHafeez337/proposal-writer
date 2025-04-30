@@ -1,74 +1,93 @@
-import { useState } from 'react';
-import { Container, Stepper, Step, StepLabel, Box, Button } from '@mui/material';
+import { useState, useEffect } from 'react';
+import { Container, Stepper, Step, StepLabel, Box, Button, CircularProgress } from '@mui/material';
+import { createProposal, getProposal, updateTitleDescription } from '../../services/proposals';
+import { useParams, useNavigate } from 'react-router-dom';
 import ProposalBasicInfo from '../../components/Proposals/Create/BasicInfo';
 import ProposalDocuments from '../../components/Proposals/Create/Documents';
 import ProposalReview from '../../components/Proposals/Create/Review';
-import api from '../../services/api';
-import { useNavigate } from 'react-router-dom';
 
 const steps = ['Basic Info', 'Documents', 'Review'];
 
 export default function CreateProposal() {
+  const { id } = useParams(); // Will be undefined for create mode
+  const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const [proposalData, setProposalData] = useState({
     title: '',
     description: '',
     files: []
   });
-  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(!!id); // Loading only in edit mode
+  const [errors, setErrors] = useState({ title: false, description: false });
 
-  // Centralized step handler
-  const handleStep = (direction) => {
-    if (direction === 'next' && activeStep < steps.length - 1) {
-      setActiveStep(prev => prev + 1);
-    } else if (direction === 'back') {
-      setActiveStep(prev => prev - 1);
-    }
+  // Load proposal data in edit mode
+  useEffect(() => {
+    if (!id) return;
+
+    const loadProposal = async () => {
+      try {
+        const proposal = await getProposal(id);
+        setProposalData({
+          title: proposal.title,
+          description: proposal.description,
+          files: proposal.files || []
+        });
+      } catch (error) {
+        console.error('Failed to load proposal:', error);
+        navigate('/proposals');
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    loadProposal();
+  }, [id, navigate]);
+
+  const handleCancel = () => navigate('/proposals');
+
+  const validate = () => {
+    const newErrors = {
+      title: !proposalData.title.trim(),
+      description: !proposalData.description.trim()
+    };
+    setErrors(newErrors);
+    return Object.values(newErrors).some(Boolean);
   };
 
-  // Single cancel handler (reusable)
-  const handleCancel = () => {
-    if (window.confirm('Discard this proposal?')) {
-      navigate('/proposals');
-    }
-  };
+  const handleNext = async () => {
+    if (validate()) return; // Stop if validation fails
 
-  const handleSubmit = async () => {
     try {
-      const response = await api.post('/proposals', proposalData);
-      navigate(`/proposals/${response.data._id}`);
+      setIsLoading(true);
+
+      if (id) {
+        await updateTitleDescription(id, {
+          title: proposalData.title,
+          description: proposalData.description
+        });
+      } 
+      // In create mode, make new proposal
+      else if (activeStep === 0) {
+        const { _id } = await createProposal({
+          title: proposalData.title,
+          description: proposalData.description
+        });
+        setProposalData(prev => ({ ...prev, _id }));
+      }
+      
+      setActiveStep(prev => prev + 1);
     } catch (error) {
-      console.error('Submission failed:', error);
+      console.error('API Error:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  // Dynamically render current step
-  const renderStepContent = () => {
-    switch (activeStep) {
-      case 0:
-        return (
-          <ProposalBasicInfo
-            data={proposalData}
-            updateData={(newData) => setProposalData(prev => ({ ...prev, ...newData }))}
-          />
-        );
-      case 1:
-        return (
-          <ProposalDocuments
-            data={proposalData}
-            updateData={(newData) => setProposalData(prev => ({ ...prev, ...newData }))}
-          />
-        );
-      case 2:
-        return <ProposalReview data={proposalData} />;
-      default:
-        return null;
-    }
-  };
+  const handleBack = () => setActiveStep(prev => prev - 1);
+
+  if (isLoading) return <CircularProgress sx={{ display: 'block', mx: 'auto', mt: 4 }} />;
 
   return (
-    <>
-      {/* Stepper */}
+    <Container maxWidth="md">
       <Stepper activeStep={activeStep} sx={{ mb: 4 }}>
         {steps.map((label) => (
           <Step key={label}>
@@ -77,40 +96,49 @@ export default function CreateProposal() {
         ))}
       </Stepper>
 
-      {/* Step Content */}
       <Box sx={{ minHeight: '400px' }}>
-        {renderStepContent()}
+      {activeStep === 0 && (
+          <ProposalBasicInfo 
+            data={proposalData}
+            updateData={setProposalData}
+            errors={errors}
+          />
+        )}
+        {activeStep === 1 && (
+          <ProposalDocuments 
+            data={proposalData}
+            updateData={setProposalData}
+            id={id}
+          />
+        )}
+        {activeStep === 2 && (
+          <ProposalReview 
+            data={proposalData}
+            id={id}
+          />
+        )}
       </Box>
 
-      {/* Global Action Buttons (Fixed at bottom) */}
+      {/* Navigation buttons */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 4 }}>
         <Button onClick={handleCancel} color="error">
           Cancel
         </Button>
         <Box>
           {activeStep > 0 && (
-            <Button onClick={() => handleStep('back')} sx={{ mr: 2 }}>
+            <Button onClick={handleBack} sx={{ mr: 2 }}>
               Back
             </Button>
           )}
-          {activeStep < steps.length - 1 ? (
-            <Button 
-              variant="contained" 
-              onClick={() => handleStep('next')}
-            >
-              Next
-            </Button>
-          ) : (
-            <Button 
-              variant="contained" 
-              color="success" 
-              onClick={handleSubmit}
-            >
-              Submit Proposal
-            </Button>
-          )}
+          <Button 
+            variant="contained" 
+            onClick={handleNext}
+            disabled={isLoading}
+          >
+            {isLoading ? <CircularProgress size={24} /> : 'Next'}
+          </Button>
         </Box>
       </Box>
-    </>
+    </Container>
   );
 }
