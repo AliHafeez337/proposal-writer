@@ -22,17 +22,16 @@ process.on('unhandledRejection', (reason) => {
 });
 
 // Request logger
+app.use(requestLogger);
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path}`);
   next();
 });
-
-// Middleware
-app.use(requestLogger);
+// Configure CORS
 app.use(cors({
-  origin: 'http://localhost:3000', // Or '*' for testing
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: 'http://localhost:5173', // Your frontend URL
+  credentials: true, // Required for cookies/sessions
+  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
 }));
 app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);

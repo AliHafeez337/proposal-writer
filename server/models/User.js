@@ -31,4 +31,13 @@ UserSchema.methods.comparePassword = async function(candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 };
 
+UserSchema.methods.toJSON = function() {
+  const user = this.toObject();
+  delete user.password;
+  delete user.resetToken;
+  delete user.createdAt;
+  delete user.__v; // Remove version key
+  return user;
+}
+
 module.exports = mongoose.model('User', UserSchema);

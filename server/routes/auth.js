@@ -1,6 +1,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const auth = require('../middleware/auth');
 const logger = require('../utils/logger');
 const router = express.Router();
 
@@ -61,11 +62,38 @@ router.post('/login', async (req, res) => {
       expiresIn: '1d'
     });
 
-    res.json({ token });
+    res.json({ user, token });
   } catch (error) {
     logger.error('User login failed', { error: error.message, stack: error.stack, email: req.body.email });
     res.status(500).json({ message: 'Something went wrong' });
   }
+});
+
+// Login
+router.get('/me', auth, async (req, res) => {
+  logger.info(`GET /auth/me initiated by user ${req.userId}`);
+
+  try {
+    const user = await User.findById(req.userId);
+
+    if (!user) {
+      logger.warn(`User not found for ID: ${req.userId}`);
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    logger.info(`Successfully fetched user data for ${user.email}`);
+    res.json(user);
+  } catch (error) {
+    logger.error(`Error in GET /auth/me for user ${req.userId}:`, {
+      error: error.message,
+      stack: error.stack
+    });
+    res.status(500).json({ error: 'Failed to fetch user data' });
+  }
+});
+
+router.post('/logout', auth, (req, res) => {
+  res.json({ message: 'Logged out successfully' });
 });
 
 module.exports = router;

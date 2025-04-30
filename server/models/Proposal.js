@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 
 const ProposalSchema = new mongoose.Schema({ // Proposal Schema
   title: { type: String, required: true }, // Proposal title
+  description: { type: String, required: false }, // Proposal description
+  createdAt: { type: Date, default: Date.now }, // Date of creation
+  updatedAt: { type: Date, default: Date.now }, // Date of last update
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // User who created the proposal
   status: {
     type: String,
@@ -137,7 +140,17 @@ ProposalSchema.pre('save', function(next) {
     throw new Error('Total milestone percentages exceed 100%');
   }
 
+  this.updatedAt = Date.now(); // Update timestamp
+
   next();
+});
+
+ProposalSchema.pre('findOneAndUpdate', function() {
+  this.set({ updatedAt: Date.now() }); // Update timestamp
+});
+
+ProposalSchema.pre('updateOne', function() {
+  this.set({ updatedAt: new Date() });
 });
 
 module.exports = mongoose.model('Proposal', ProposalSchema);

@@ -24,6 +24,7 @@ router.post('/', auth, async (req, res) => {
   try {
     const proposal = new Proposal({ 
       title: req.body.title || 'Untitled Proposal',
+      description: req.body.description || '',
       user: req.userId 
     });
     await proposal.save();
@@ -163,8 +164,7 @@ router.patch('/:id/section/:section', auth, async (req, res) => {
     const proposal = await Proposal.findOneAndUpdate(
       { _id: req.params.id, user: req.userId },
       { 
-        [`content.${req.params.section}`]: req.body.value,
-        updatedAt: Date.now() 
+        [`content.${req.params.section}`]: req.body.value
       },
       { new: true }
     );
