@@ -5,6 +5,7 @@ const multer = require('multer');
 const Proposal = require('../models/Proposal');
 const upload = require('../utils/upload');
 const logger = require('../utils/logger');
+const { deleteFileFromStorage } = require('../utils/file');
 
 // Get all proposals for user
 router.get('/', auth, async (req, res) => {
@@ -114,6 +115,47 @@ router.post('/:id/files', auth, (req, res) => {
       res.status(500).json({ error: 'Server error' });
     }
   });
+});
+
+router.delete('/:id/files/:fileId', auth, async (req, res) => {
+  logger.info('Deleting file from proposal', { userId: req.userId, proposalId: req.params.id, fileId: req.params.fileId });
+  const { id, fileId } = req.params;
+  
+  try {
+    // 1. Find the proposal
+    const proposal = await Proposal.findOne({ 
+      _id: id, 
+      user: req.userId // Ensure user owns this proposal
+    });
+
+    if (!proposal) {
+      logger.warn('Proposal not found for file deletion', { userId: req.userId, proposalId: id });
+      return res.status(404).json({ error: 'Proposal not found' });
+    }
+
+    // 2. Find the file to remove
+    const fileIndex = proposal.files.findIndex(f => f._id == fileId);
+    if (fileIndex === -1) {
+      logger.warn('File not found in proposal', { userId: req.userId, proposalId: id, fileId });
+      return res.status(404).json({ error: 'File not found' });
+    }
+
+    const fileToDelete = proposal.files[fileIndex];
+
+    // 3. Remove file from storage (implement this function)
+    await deleteFileFromStorage(fileToDelete.path);
+
+    // 4. Update proposal
+    proposal.files.splice(fileIndex, 1);
+    await proposal.save();
+
+    logger.info('File deleted successfully', { userId: req.userId, proposalId: id, fileId });
+
+    res.json({ message: 'File deleted successfully' });
+  } catch (error) {
+    logger.error('Failed to delete file', { error: error.message, stack: error.stack, userId: req.userId, proposalId: id, fileId });
+    res.status(500).json({ error: 'Failed to delete file' });
+  }
 });
 
 // Update proposal section

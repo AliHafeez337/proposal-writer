@@ -1,4 +1,4 @@
-import { TextField, Box } from '@mui/material';
+import { TextField, Paper } from '@mui/material';
 
 export default function ProposalBasicInfo({ data, updateData, errors }) {
   const handleChange = (field) => (e) => {
@@ -9,7 +9,7 @@ export default function ProposalBasicInfo({ data, updateData, errors }) {
   };
 
   return (
-    <Box>
+    <Paper elevation={1} sx={{ p: 3 }}>
       <TextField
         label="Title"
         fullWidth
@@ -32,6 +32,6 @@ export default function ProposalBasicInfo({ data, updateData, errors }) {
         helperText={errors.description && "Description is required"}
         required
       />
-    </Box>
+    </Paper>
   );
 }

@@ -1,37 +1,69 @@
-import { useState, useEffect } from 'react';
-import { Container, Stepper, Step, StepLabel, Box, Button, CircularProgress } from '@mui/material';
+import { useState, useEffect, useRef } from 'react';
+import { Container, Stepper, Step, StepLabel, Box, Button, CircularProgress, Alert } from '@mui/material';
 import { createProposal, getProposal, updateTitleDescription } from '../../services/proposals';
 import { useParams, useNavigate } from 'react-router-dom';
 import ProposalBasicInfo from '../../components/Proposals/Create/BasicInfo';
 import ProposalDocuments from '../../components/Proposals/Create/Documents';
+import GenerateProposal from '../../components/Proposals/Create/Generate';
 import ProposalReview from '../../components/Proposals/Create/Review';
 
-const steps = ['Basic Info', 'Documents', 'Review'];
+const steps = ['Basic Info', 'Analysis', 'Generate', 'Review'];
 
 export default function CreateProposal() {
-  const { id } = useParams(); // Will be undefined for create mode
   const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const [proposalData, setProposalData] = useState({
+    _id: useParams().id || null,
     title: '',
     description: '',
     files: []
   });
-  const [isLoading, setIsLoading] = useState(!!id); // Loading only in edit mode
-  const [errors, setErrors] = useState({ title: false, description: false });
+  const [isLoading, setIsLoading] = useState(!!proposalData._id); // Loading only in edit mode
+  const [errors, setErrors] = useState({ title: false, description: false, pricing: false });
+  const initialStatusSet = useRef(false);
+
+  useEffect(() => {
+    if (activeStep === 3) {
+      // check if pricing is set
+      let pricing = 0;
+      if (proposalData.content.deliverables && proposalData.pricing.items && proposalData.content.deliverables.length === proposalData.pricing.items.length) {
+        proposalData.content.deliverables.forEach(deliverable => {
+          let pricedItem = proposalData.pricing.items.find(item => item.deliverableId === deliverable._id);
+          if (pricedItem && pricedItem.unitPrice) {
+            pricing += pricedItem.unitPrice * deliverable.count;
+          }
+        });
+      }
+      if (pricing === 0) {
+        setActiveStep(2);
+        setErrors({ ...errors, pricing: true });
+      }
+    }
+  }, [activeStep]);
+
+  useEffect(() => {
+    if (!initialStatusSet.current && proposalData.status) {
+      if (proposalData.status === 'draft') {
+        setActiveStep(1);
+      } else if (proposalData.status === 'initial_analysis') {
+        setActiveStep(1);
+      } else if (proposalData.status === 'reviewing') {
+        setActiveStep(2);
+      } else if (proposalData.status === 'complete') {
+        setActiveStep(3);
+      }
+      initialStatusSet.current = true;
+    }
+  }, [proposalData.status]); // Only depend on status
 
   // Load proposal data in edit mode
   useEffect(() => {
-    if (!id) return;
+    if (!proposalData._id) return;
 
     const loadProposal = async () => {
       try {
-        const proposal = await getProposal(id);
-        setProposalData({
-          title: proposal.title,
-          description: proposal.description,
-          files: proposal.files || []
-        });
+        const proposal = await getProposal(proposalData._id);
+        setProposalData(proposal);
       } catch (error) {
         console.error('Failed to load proposal:', error);
         navigate('/proposals');
@@ -40,7 +72,7 @@ export default function CreateProposal() {
       }
     };
     loadProposal();
-  }, [id, navigate]);
+  }, [proposalData._id, navigate]);
 
   const handleCancel = () => navigate('/proposals');
 
@@ -59,8 +91,8 @@ export default function CreateProposal() {
     try {
       setIsLoading(true);
 
-      if (id) {
-        await updateTitleDescription(id, {
+      if (proposalData._id) {
+        await updateTitleDescription(proposalData._id, {
           title: proposalData.title,
           description: proposalData.description
         });
@@ -108,16 +140,30 @@ export default function CreateProposal() {
           <ProposalDocuments 
             data={proposalData}
             updateData={setProposalData}
-            id={id}
           />
         )}
         {activeStep === 2 && (
+          <GenerateProposal 
+            data={proposalData}
+            updateData={setProposalData}
+            errors={errors}
+          />
+        )}
+        {activeStep === 3 && (
           <ProposalReview 
             data={proposalData}
-            id={id}
           />
         )}
       </Box>
+
+      {/* Error message */}
+      {(errors.title || errors.description || errors.pricing) && (
+        <Alert severity="error" sx={{ mt: 3 }}>
+          {errors.title && <div>Title is required</div>}
+          {errors.description && <div>Description is required</div>}
+          {errors.pricing && <div>Pricing is required</div>}
+        </Alert>
+      )}
 
       {/* Navigation buttons */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 4 }}>

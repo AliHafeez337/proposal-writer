@@ -30,6 +30,26 @@ const theme = createTheme({
         },
       },
     },
+    MuiListItemText: {
+      styleOverrides: {
+        primary: {
+          fontSize: '1rem',
+          lineHeight: 1.5
+        },
+        secondary: {
+          fontSize: '0.875rem',
+          lineHeight: 1.5
+        }
+      }
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          marginLeft: 16,
+          marginRight: 16
+        }
+      }
+    }
   },
 });
 

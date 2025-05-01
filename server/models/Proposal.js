@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { deleteFileFromStorage } = require('../utils/file'); // Import file deletion utility
 
 const ProposalSchema = new mongoose.Schema({ // Proposal Schema
   title: { type: String, required: true }, // Proposal title
@@ -150,5 +151,23 @@ ProposalSchema.pre('findOneAndUpdate', function() {
 ProposalSchema.pre('updateOne', function() {
   this.set({ updatedAt: new Date() });
 });
+
+ProposalSchema.pre('remove', async function(next) {
+  // Delete all associated files when proposal is deleted
+  try {
+    await Promise.all(
+      this.files.map(file => deleteFileFromStorage(file.path))
+    );
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
+
+ProposalSchema.methods.toJSON = function() {
+  const proposal = this.toObject();
+  delete proposal.__v; // Remove version key
+  return proposal;
+}
 
 module.exports = mongoose.model('Proposal', ProposalSchema);

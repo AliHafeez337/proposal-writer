@@ -9,6 +9,7 @@ export default function RootLayout() {
       maxWidth="xl"
       sx={{
         mt: 4,
+        mb: 4,
         mx: 'auto',
         width: '100%',
         maxWidth: 'lg', // Default MUI breakpoint (1280px)

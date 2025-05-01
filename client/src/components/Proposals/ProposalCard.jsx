@@ -1,7 +1,8 @@
 import { Card, CardContent, Typography, Button, CardActions, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { deleteProposal } from '../../services/proposals.js';
 
-export default function ProposalCard({ proposal }) {
+export default function ProposalCard({ proposal, onDelete }) {
   return (
     <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       <CardContent>
@@ -14,11 +15,16 @@ export default function ProposalCard({ proposal }) {
         <Typography variant="body2" color="text.secondary">
           Status: {proposal.status}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Created: {new Date(proposal.createdAt).toLocaleDateString()}
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography variant="body2" color="text.secondary">
+            Created: {new Date(proposal.createdAt).toLocaleDateString()}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Updated: {new Date(proposal.updatedAt).toLocaleDateString()}
+          </Typography>
+        </Box>
       </CardContent>
-      <Box sx={{ display: 'flex', flexDirection: 'row',  mt: 'auto' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between',  mt: 'auto' }}>
         <CardActions>
           <Button
             component={Link}
@@ -35,6 +41,15 @@ export default function ProposalCard({ proposal }) {
             to={`/proposals/${proposal._id}`}
           >
             View Details
+          </Button>
+        </CardActions>
+        <CardActions>
+          <Button 
+            size="small" 
+            onClick={onDelete}
+            color="error"
+          >
+            Delete
           </Button>
         </CardActions>
       </Box>

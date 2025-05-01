@@ -4,6 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import api from '../../services/api';
 import ProposalCard from '../../components/Proposals/ProposalCard';
+import { deleteProposal } from '../../services/proposals';
 
 export default function ProposalList() {
   const [proposals, setProposals] = useState([]);
@@ -23,6 +24,12 @@ export default function ProposalList() {
     };
     fetchProposals();
   }, []);
+
+  const handleDeleteProposal = async (id) => {
+    await deleteProposal(id);
+    setProposals(proposals.filter(proposal => proposal._id !== id));
+  }
+
 
   if (loading) {
     return (
@@ -57,7 +64,7 @@ export default function ProposalList() {
       ) : (
         <Box display="grid" gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))" gap={3}>
           {proposals.map((proposal) => (
-            <ProposalCard key={proposal._id} proposal={proposal} />
+            <ProposalCard key={proposal._id} proposal={proposal} onDelete={() => handleDeleteProposal(proposal._id)} />
           ))}
         </Box>
       )}
