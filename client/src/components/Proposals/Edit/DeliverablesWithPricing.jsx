@@ -12,7 +12,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import { saveSection } from '../../../services/proposals.js';
 import { savePricing } from '../../../services/pricing.js';
 
-export default function DeliverablesWithPricing({ id, deliverables, onUpdate, errors }) {
+export default function DeliverablesWithPricing({ id, deliverables, onUpdate }) {
   const [localDeliverables, setLocalDeliverables] = useState(deliverables || []);
   const [totalPrice, setTotalPrice] = useState(0);
   const [isSaving, setIsSaving] = useState(false);
@@ -112,9 +112,19 @@ export default function DeliverablesWithPricing({ id, deliverables, onUpdate, er
 
   return (
     <Paper elevation={1} sx={{ p: 3 }}>
-      <Typography variant="h6" gutterBottom>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+        <Typography variant="h6" gutterBottom>
         Deliverables & Pricing
-      </Typography>
+        </Typography>
+        <Button 
+          startIcon={<AddIcon />}
+          onClick={handleAddDeliverable}
+          variant="outlined"
+          size="small"
+        >
+          Add Deliverable
+        </Button>
+      </Box>
 
       <List disablePadding>
         {localDeliverables.map((item, index) => (
@@ -147,15 +157,7 @@ export default function DeliverablesWithPricing({ id, deliverables, onUpdate, er
         ))}
       </List>
 
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 3 }}>
-        <Button 
-          startIcon={<AddIcon />}
-          onClick={handleAddDeliverable}
-          variant="outlined"
-        >
-          Add Deliverable
-        </Button>
-        
+      <Box sx={{ float: 'right' }}>
         <Stack direction="row" spacing={2} alignItems="center">
           <Typography variant="subtitle1">
             Total: ${totalPrice}
@@ -166,7 +168,7 @@ export default function DeliverablesWithPricing({ id, deliverables, onUpdate, er
             disabled={isSaving || localDeliverables.length === 0 || localDeliverables.some(item => !item.item || !item.unit || !item.unitPrice)}
             startIcon={isSaving ? <CircularProgress size={20} /> : null}
           >
-            {isSaving ? 'Saving...' : 'Save All'}
+            {isSaving ? 'Saving...' : 'Save'}
           </Button>
         </Stack>
       </Box>

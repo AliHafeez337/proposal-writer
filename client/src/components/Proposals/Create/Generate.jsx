@@ -7,6 +7,7 @@ import DeliverablesWithPricing from '../Edit/DeliverablesWithPricing';
 import WorkPlanDisplay from '../View/WorkPlanDisplay';
 import TimelineDisplay from '../View/TimelineDisplay';
 import EditableText from '../Edit/EditableText';
+import EditableWorkPlan from '../Edit/WorkPlanDisplay';
 
 export default function GenerateProposal({ data, updateData, errors }) {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -76,10 +77,11 @@ export default function GenerateProposal({ data, updateData, errors }) {
             id={data._id}
             deliverables={data.content.deliverables}
             onUpdate={handleUpdate}
-            errors={errors}
           />
-          <WorkPlanDisplay 
-            workBreakdown={data.content.workBreakdown}
+          <EditableWorkPlan 
+            id={data._id}
+            workBreakdown={data.content?.workBreakdown}
+            onUpdate={handleUpdate}
           />
           <TimelineDisplay timeline={data.content.timeline} />
         </>

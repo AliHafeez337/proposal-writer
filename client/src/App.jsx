@@ -9,7 +9,6 @@ import Register from './pages/Auth/Register';
 import Dashboard from './pages/Dashboard';
 import ProposalList from './pages/Proposals/List';
 import CreateProposal from './pages/Proposals/Create';
-import ProposalDetail from './pages/Proposals/Detail';
 
 function App() {
   return (
@@ -26,7 +25,6 @@ function App() {
               <Route path="/proposals" element={<ProposalList />} />
               <Route path="/proposals/new" element={<CreateProposal />} />
               <Route path="/proposals/edit/:id" element={<CreateProposal />} />
-              {/* <Route path="/proposals/:id" element={<ProposalDetail />} /> */}
             </Route>
           </Route>
         </Routes>

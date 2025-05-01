@@ -50,7 +50,7 @@ const ProposalSchema = new mongoose.Schema({ // Proposal Schema
           message: 'Duration must be whole days'
         }
       },
-      dependencies: [String] // task IDs
+      dependencies: [String]
     }],
     timeline: [{
       phase: String,

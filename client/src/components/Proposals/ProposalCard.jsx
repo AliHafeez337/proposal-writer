@@ -31,16 +31,7 @@ export default function ProposalCard({ proposal, onDelete }) {
             to={`/proposals/edit/${proposal._id}`}
             size="small"
           >
-            Edit
-          </Button>
-        </CardActions>
-        <CardActions>
-          <Button 
-            size="small" 
-            component={Link} 
-            to={`/proposals/${proposal._id}`}
-          >
-            View Details
+            Continue
           </Button>
         </CardActions>
         <CardActions>

@@ -24,21 +24,6 @@ export default function CreateProposal() {
 
   useEffect(() => {
     if (activeStep === 3) {
-      // check if pricing is set
-      // let pricing = 0;
-      // // if (proposalData.content.deliverables && proposalData.pricing.items && proposalData.content.deliverables.length === proposalData.pricing.items.length) {
-      // //   proposalData.content.deliverables.forEach(deliverable => {
-      // //     let pricedItem = proposalData.pricing.items.find(item => item.deliverableId === deliverable._id);
-      // //     if (pricedItem && pricedItem.unitPrice) {
-      // //       pricing += pricedItem.unitPrice * deliverable.count;
-      // //     }
-      // //   });
-      // // }
-      // proposalData.content.deliverables.forEach(deliverable => {
-      //   pricing += deliverable.unitPrice * deliverable.count;
-      // });
-      // console.log("proposalData", proposalData, pricing);
-      // if (!pricing) {
       if (proposalData.content.deliverables.some(deliverable => !deliverable.unitPrice)) {
         setActiveStep(2);
         setErrors({ ...errors, pricing: true });
