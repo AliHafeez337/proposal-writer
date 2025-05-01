@@ -62,7 +62,11 @@ const ProposalSchema = new mongoose.Schema({ // Proposal Schema
   pricing: {  
     items: [{
       deliverableId: mongoose.Schema.Types.ObjectId, // Reference to content.deliverables._id
-      unitPrice: Number,
+      unitPrice: {
+        type: Number,
+        required: true,
+        min: 0.01
+      },
       notes: String // Optional field for pricing specifics
     }],
     // Auto-calculated fields
@@ -166,6 +170,12 @@ ProposalSchema.pre('remove', async function(next) {
 
 ProposalSchema.methods.toJSON = function() {
   const proposal = this.toObject();
+  proposal.content.deliverables.forEach(deliverable => {
+    let pricedItem = proposal.pricing.items.find(item => item.deliverableId.toString() === deliverable._id.toString());
+    if (pricedItem && pricedItem.unitPrice) {
+      deliverable.unitPrice = pricedItem.unitPrice;
+    }
+  });
   delete proposal.__v; // Remove version key
   return proposal;
 }

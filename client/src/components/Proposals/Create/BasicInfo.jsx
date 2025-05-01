@@ -28,9 +28,6 @@ export default function ProposalBasicInfo({ data, updateData, errors }) {
         margin="normal"
         value={data.description}
         onChange={handleChange('description')}
-        error={errors.description}
-        helperText={errors.description && "Description is required"}
-        required
       />
     </Paper>
   );

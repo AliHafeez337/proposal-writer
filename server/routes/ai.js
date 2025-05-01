@@ -109,7 +109,10 @@ router.post('/:id/generate', auth, async (req, res) => {
     const proposal = await Proposal.findOne({ 
       _id: req.params.id, 
       user: req.userId,
-      status: 'reviewing' // Ensure first pass completed
+      $or: [
+        { status: 'initial_analysis' },
+        { status: 'reviewing' },
+      ]
     });
 
     if (!proposal) {

@@ -33,8 +33,8 @@ export default function GenerateProposal({ data, updateData, errors }) {
     updateData({ ...data, content: { ...data.content, [key1]: data1 } })
   };
 
-  const handlePricingChange = (updatedDeliverables) => {
-    updateData({ ...data, deliverables: updatedDeliverables });
+  const handleUpdate = (data) => {
+    updateData({ ...data, ...data });
   };
 
   return (
@@ -74,8 +74,8 @@ export default function GenerateProposal({ data, updateData, errors }) {
           <EditableText id={data._id} key1="scopeOfWork" key2="Scope of Work" text1={data.content.scopeOfWork} onUpdate={handleExecutiveSummaryChange} />
           <DeliverablesWithPricing
             id={data._id}
-            deliverables={data.content.deliverables} 
-            onPricingChange={handlePricingChange}
+            deliverables={data.content.deliverables}
+            onUpdate={handleUpdate}
             errors={errors}
           />
           <WorkPlanDisplay 
