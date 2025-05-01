@@ -108,10 +108,13 @@ export default function EditableWorkPlan({ id, workBreakdown = [], onUpdate }) {
               }>
                 <ListItemText
                   primary={`${task.task} (${task.duration} days)`}
+                  secondaryTypographyProps={{ component: 'div' }}
                   secondary={
                     task.dependencies?.length > 0 ? (
-                      <Box sx={{ mt: 1 }}>
-                        <Typography variant="caption">Depends on:</Typography>
+                      <div>
+                        <Typography variant="caption" component="div">
+                          Depends on:
+                        </Typography>
                         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mt: 0.5 }}>
                           {task.dependencies.map((depIndex, i) => (
                             <Chip 
@@ -121,8 +124,10 @@ export default function EditableWorkPlan({ id, workBreakdown = [], onUpdate }) {
                             />
                           ))}
                         </Box>
-                      </Box>
-                    ) : 'No dependencies'
+                      </div>
+                    ) : (
+                      <div>No dependencies</div>
+                    )
                   }
                   primaryTypographyProps={{ fontWeight: 'medium' }}
                 />

@@ -3,11 +3,12 @@ import { useState } from 'react';
 import { Box, Button, CircularProgress, Typography, Paper } from '@mui/material';
 import { generateProposal } from '../../../services/ai';
 import Scope from '../../Proposals/View/Scope';
-import DeliverablesWithPricing from '../Edit/DeliverablesWithPricing';
+import DeliverablesWithPricing from '../Edit/EditableDeliverablesWithPricing';
 import WorkPlanDisplay from '../View/WorkPlanDisplay';
 import TimelineDisplay from '../View/TimelineDisplay';
 import EditableText from '../Edit/EditableText';
-import EditableWorkPlan from '../Edit/WorkPlanDisplay';
+import EditableWorkPlan from '../Edit/EditableWorkPlan';
+import EditableTimeline from '../Edit/EditableTimeline';
 
 export default function GenerateProposal({ data, updateData, errors }) {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -83,7 +84,12 @@ export default function GenerateProposal({ data, updateData, errors }) {
             workBreakdown={data.content?.workBreakdown}
             onUpdate={handleUpdate}
           />
-          <TimelineDisplay timeline={data.content.timeline} />
+          <EditableTimeline 
+            id={data._id}
+            timeline={data.content?.timeline}
+            workBreakdown={data.content?.workBreakdown || []}
+            onUpdate={handleUpdate}
+          />
         </>
       )}
       {/* <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>

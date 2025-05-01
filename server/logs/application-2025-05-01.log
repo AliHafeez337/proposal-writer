@@ -2705,3 +2705,356 @@
 2025-05-01 21:31:40 [[32minfo[39m]: Fetching single proposal
 2025-05-01 21:31:40 [[32minfo[39m]: Token
 2025-05-01 21:31:40 [[32minfo[39m]: Fetching single proposal
+2025-05-01 21:44:57 [[32minfo[39m]: Token
+2025-05-01 21:44:57 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 21:44:57 [[32minfo[39m]: Token
+2025-05-01 21:44:57 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 21:44:57 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 21:44:57 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 21:44:57 [[32minfo[39m]: Token
+2025-05-01 21:44:57 [[32minfo[39m]: Fetching single proposal
+2025-05-01 21:44:58 [[32minfo[39m]: Token
+2025-05-01 21:44:58 [[32minfo[39m]: Fetching single proposal
+2025-05-01 21:48:37 [[32minfo[39m]: Token
+2025-05-01 21:48:37 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 21:48:37 [[32minfo[39m]: Token
+2025-05-01 21:48:37 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 21:48:37 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 21:48:37 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 21:48:37 [[32minfo[39m]: Token
+2025-05-01 21:48:37 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 21:48:37 [[32minfo[39m]: Token
+2025-05-01 21:48:37 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 21:48:39 [[32minfo[39m]: Token
+2025-05-01 21:48:39 [[32minfo[39m]: Fetching single proposal
+2025-05-01 21:48:39 [[32minfo[39m]: Token
+2025-05-01 21:48:39 [[32minfo[39m]: Fetching single proposal
+2025-05-01 21:48:48 [[32minfo[39m]: Token
+2025-05-01 21:48:48 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 21:48:48 [[32minfo[39m]: Token
+2025-05-01 21:48:48 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 21:48:50 [[32minfo[39m]: Token
+2025-05-01 21:48:50 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 21:48:50 [[32minfo[39m]: Token
+2025-05-01 21:48:50 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 21:48:50 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 21:48:50 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 21:48:50 [[32minfo[39m]: Token
+2025-05-01 21:48:50 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 21:48:50 [[32minfo[39m]: Token
+2025-05-01 21:48:50 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 21:48:51 [[32minfo[39m]: Token
+2025-05-01 21:48:51 [[32minfo[39m]: Fetching single proposal
+2025-05-01 21:48:51 [[32minfo[39m]: Token
+2025-05-01 21:48:51 [[32minfo[39m]: Fetching single proposal
+2025-05-01 21:50:11 [[32minfo[39m]: Token
+2025-05-01 21:50:11 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 21:50:11 [[32minfo[39m]: Token
+2025-05-01 21:50:11 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 21:50:11 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 21:50:11 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 21:50:11 [[32minfo[39m]: Token
+2025-05-01 21:50:11 [[32minfo[39m]: Fetching single proposal
+2025-05-01 21:50:11 [[32minfo[39m]: Token
+2025-05-01 21:50:11 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:02:20 [[32minfo[39m]: User login attempt
+2025-05-01 22:02:20 [[32minfo[39m]: User logged in successfully
+2025-05-01 22:02:21 [[32minfo[39m]: Token
+2025-05-01 22:02:21 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:02:21 [[32minfo[39m]: Token
+2025-05-01 22:02:21 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:02:23 [[32minfo[39m]: Token
+2025-05-01 22:02:23 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:02:23 [[32minfo[39m]: Token
+2025-05-01 22:02:23 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:07:54 [[32minfo[39m]: User login attempt
+2025-05-01 22:07:54 [[32minfo[39m]: User logged in successfully
+2025-05-01 22:07:57 [[32minfo[39m]: Token
+2025-05-01 22:07:57 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:07:57 [[32minfo[39m]: Token
+2025-05-01 22:07:57 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:07:58 [[32minfo[39m]: Token
+2025-05-01 22:07:58 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:07:58 [[32minfo[39m]: Token
+2025-05-01 22:07:58 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:09:23 [[32minfo[39m]: Token
+2025-05-01 22:09:23 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:09:23 [[32minfo[39m]: Token
+2025-05-01 22:09:23 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:09:23 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:09:23 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:09:23 [[32minfo[39m]: Token
+2025-05-01 22:09:23 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:09:23 [[32minfo[39m]: Token
+2025-05-01 22:09:23 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:12:59 [[32minfo[39m]: Token
+2025-05-01 22:12:59 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:12:59 [[32minfo[39m]: Token
+2025-05-01 22:12:59 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:12:59 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:12:59 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:12:59 [[32minfo[39m]: Token
+2025-05-01 22:12:59 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:12:59 [[32minfo[39m]: Token
+2025-05-01 22:12:59 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:15:54 [[32minfo[39m]: Token
+2025-05-01 22:15:54 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:15:54 [[32minfo[39m]: Token
+2025-05-01 22:15:54 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:15:54 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:15:54 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:15:54 [[32minfo[39m]: Token
+2025-05-01 22:15:54 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:15:54 [[32minfo[39m]: Token
+2025-05-01 22:15:54 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:16:34 [[32minfo[39m]: Token
+2025-05-01 22:16:34 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:16:34 [[32minfo[39m]: Token
+2025-05-01 22:16:34 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:16:34 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:16:34 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:16:34 [[32minfo[39m]: Token
+2025-05-01 22:16:34 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:16:34 [[32minfo[39m]: Token
+2025-05-01 22:16:34 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:17:02 [[32minfo[39m]: Token
+2025-05-01 22:17:02 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:17:02 [[32minfo[39m]: Token
+2025-05-01 22:17:02 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:17:02 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:17:02 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:17:02 [[32minfo[39m]: Token
+2025-05-01 22:17:02 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:17:02 [[32minfo[39m]: Token
+2025-05-01 22:17:02 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:19:02 [[32minfo[39m]: Token
+2025-05-01 22:19:02 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:19:02 [[32minfo[39m]: Token
+2025-05-01 22:19:02 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:19:02 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:19:02 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:19:02 [[32minfo[39m]: Token
+2025-05-01 22:19:02 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:19:02 [[32minfo[39m]: Token
+2025-05-01 22:19:02 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:20:51 [[32minfo[39m]: Token
+2025-05-01 22:20:51 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:20:51 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:20:51 [[32minfo[39m]: Token
+2025-05-01 22:20:51 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:20:51 [[32minfo[39m]: Token
+2025-05-01 22:20:51 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:20:51 [[32minfo[39m]: Token
+2025-05-01 22:20:51 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:20:52 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:21:18 [[32minfo[39m]: Token
+2025-05-01 22:21:18 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:21:18 [[32minfo[39m]: Token
+2025-05-01 22:21:18 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:21:18 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:21:18 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:21:18 [[32minfo[39m]: Token
+2025-05-01 22:21:18 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:21:18 [[32minfo[39m]: Token
+2025-05-01 22:21:18 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:24:05 [[32minfo[39m]: Token
+2025-05-01 22:24:05 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:24:05 [[32minfo[39m]: Token
+2025-05-01 22:24:05 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:24:05 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:24:05 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:24:05 [[32minfo[39m]: Token
+2025-05-01 22:24:05 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:24:05 [[32minfo[39m]: Token
+2025-05-01 22:24:05 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:25:58 [[32minfo[39m]: Token
+2025-05-01 22:25:58 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:25:58 [[32minfo[39m]: Token
+2025-05-01 22:25:58 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:25:58 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:25:58 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:25:58 [[32minfo[39m]: Token
+2025-05-01 22:25:58 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:25:58 [[32minfo[39m]: Token
+2025-05-01 22:25:58 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:28:39 [[32minfo[39m]: Token
+2025-05-01 22:28:39 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:28:40 [[32minfo[39m]: Token
+2025-05-01 22:28:40 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:28:40 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:28:40 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:28:40 [[32minfo[39m]: Token
+2025-05-01 22:28:40 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:28:40 [[32minfo[39m]: Token
+2025-05-01 22:28:40 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:28:40 [[32minfo[39m]: Token
+2025-05-01 22:28:40 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:28:40 [[32minfo[39m]: Token
+2025-05-01 22:28:40 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:28:41 [[32minfo[39m]: Token
+2025-05-01 22:28:41 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:28:41 [[32minfo[39m]: Token
+2025-05-01 22:28:41 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:28:41 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:28:41 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:28:41 [[32minfo[39m]: Token
+2025-05-01 22:28:41 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:28:41 [[32minfo[39m]: Token
+2025-05-01 22:28:41 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:28:43 [[32minfo[39m]: Token
+2025-05-01 22:28:43 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:28:43 [[32minfo[39m]: Token
+2025-05-01 22:28:43 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:28:43 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:28:43 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:28:43 [[32minfo[39m]: Token
+2025-05-01 22:28:43 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:28:43 [[32minfo[39m]: Token
+2025-05-01 22:28:43 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:28:45 [[32minfo[39m]: Token
+2025-05-01 22:28:45 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:28:45 [[32minfo[39m]: Token
+2025-05-01 22:28:45 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:29:30 [[32minfo[39m]: Token
+2025-05-01 22:29:30 [[32minfo[39m]: Updating proposal section
+2025-05-01 22:30:02 [[32minfo[39m]: Token
+2025-05-01 22:30:02 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:30:02 [[32minfo[39m]: Token
+2025-05-01 22:30:02 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:30:03 [[32minfo[39m]: Token
+2025-05-01 22:30:03 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:30:03 [[32minfo[39m]: Token
+2025-05-01 22:30:03 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:31:31 [[32minfo[39m]: Token
+2025-05-01 22:31:31 [[32minfo[39m]: Updating proposal section
+2025-05-01 22:32:39 [[32minfo[39m]: Token
+2025-05-01 22:32:39 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:32:39 [[32minfo[39m]: Token
+2025-05-01 22:32:39 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:32:40 [[32minfo[39m]: Token
+2025-05-01 22:32:40 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:32:40 [[32minfo[39m]: Token
+2025-05-01 22:32:40 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:32:52 [[32minfo[39m]: Token
+2025-05-01 22:32:52 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:32:52 [[32minfo[39m]: Token
+2025-05-01 22:32:52 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:32:56 [[32minfo[39m]: Token
+2025-05-01 22:32:56 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:32:56 [[32minfo[39m]: Token
+2025-05-01 22:32:56 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:33:02 [[32minfo[39m]: Token
+2025-05-01 22:33:02 [[32minfo[39m]: Creating a new proposal
+2025-05-01 22:33:02 [[32minfo[39m]: Token
+2025-05-01 22:33:02 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:33:15 [[32minfo[39m]: Token
+2025-05-01 22:33:15 [[32minfo[39m]: Starting AI processing for proposal
+2025-05-01 22:33:15 [[32minfo[39m]: Extracting text from proposal files
+2025-05-01 22:33:15 [[32minfo[39m]: Analyzing scope and deliverables
+2025-05-01 22:33:17 [[32minfo[39m]: Cleaning deliverables
+2025-05-01 22:33:18 [[32minfo[39m]: AI processing completed successfully
+2025-05-01 22:33:37 [[32minfo[39m]: Token
+2025-05-01 22:33:37 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-01 22:33:37 [[32minfo[39m]: Generating full proposal content
+2025-05-01 22:33:39 [[32minfo[39m]: Cleaning deliverables
+2025-05-01 22:33:39 [[32minfo[39m]: AI processing completed successfully
+2025-05-01 22:33:43 [[32minfo[39m]: Token
+2025-05-01 22:33:43 [[32minfo[39m]: Starting full proposal generation
+2025-05-01 22:33:43 [[32minfo[39m]: Generating full proposal content
+2025-05-01 22:33:47 [[32minfo[39m]: Parsing work breakdown
+2025-05-01 22:33:47 [[32minfo[39m]: Full proposal generation completed successfully
+2025-05-01 22:33:54 [[32minfo[39m]: Token
+2025-05-01 22:33:54 [[32minfo[39m]: Updating proposal section
+2025-05-01 22:33:58 [[32minfo[39m]: Token
+2025-05-01 22:33:58 [[32minfo[39m]: Updating proposal section
+2025-05-01 22:35:56 [[32minfo[39m]: Token
+2025-05-01 22:35:56 [[32minfo[39m]: Updating proposal section
+2025-05-01 22:35:57 [[32minfo[39m]: Token
+2025-05-01 22:35:57 [[32minfo[39m]: Updating deliverable prices
+2025-05-01 22:35:57 [[32minfo[39m]: Deliverable prices updated successfully
+2025-05-01 22:36:23 [[32minfo[39m]: Token
+2025-05-01 22:36:23 [[32minfo[39m]: Updating proposal section
+2025-05-01 22:36:30 [[32minfo[39m]: Token
+2025-05-01 22:36:30 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:36:30 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:36:30 [[32minfo[39m]: Token
+2025-05-01 22:36:30 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:36:30 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:36:33 [[32minfo[39m]: Token
+2025-05-01 22:36:33 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:36:33 [[32minfo[39m]: Token
+2025-05-01 22:36:33 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:36:35 [[32minfo[39m]: Token
+2025-05-01 22:36:35 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:36:35 [[32minfo[39m]: Token
+2025-05-01 22:36:35 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:37:13 [[32minfo[39m]: Token
+2025-05-01 22:37:13 [[32minfo[39m]: Updating proposal section
+2025-05-01 22:37:25 [[32minfo[39m]: Token
+2025-05-01 22:37:25 [[32minfo[39m]: Updating proposal section
+2025-05-01 22:37:33 [[32minfo[39m]: Token
+2025-05-01 22:37:33 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:37:33 [[32minfo[39m]: Token
+2025-05-01 22:37:33 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:37:33 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:37:33 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:37:33 [[32minfo[39m]: Token
+2025-05-01 22:37:33 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:37:33 [[32minfo[39m]: Token
+2025-05-01 22:37:33 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:37:43 [[32minfo[39m]: Token
+2025-05-01 22:37:43 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:37:43 [[32minfo[39m]: Token
+2025-05-01 22:37:43 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:37:44 [[32minfo[39m]: Token
+2025-05-01 22:37:44 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:37:44 [[32minfo[39m]: Token
+2025-05-01 22:37:44 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:39:03 [[32minfo[39m]: Token
+2025-05-01 22:39:03 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:39:03 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:39:03 [[32minfo[39m]: Token
+2025-05-01 22:39:03 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:39:03 [[32minfo[39m]: Token
+2025-05-01 22:39:03 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:39:03 [[32minfo[39m]: Token
+2025-05-01 22:39:03 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:39:04 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:39:09 [[32minfo[39m]: Token
+2025-05-01 22:39:09 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:39:09 [[32minfo[39m]: Token
+2025-05-01 22:39:09 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:39:09 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:39:09 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:39:09 [[32minfo[39m]: Token
+2025-05-01 22:39:09 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:39:09 [[32minfo[39m]: Token
+2025-05-01 22:39:09 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:39:20 [[32minfo[39m]: Token
+2025-05-01 22:39:20 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:39:20 [[32minfo[39m]: Token
+2025-05-01 22:39:20 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:39:20 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:39:20 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:39:20 [[32minfo[39m]: Token
+2025-05-01 22:39:20 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:39:20 [[32minfo[39m]: Token
+2025-05-01 22:39:20 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:39:26 [[32minfo[39m]: Token
+2025-05-01 22:39:26 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:39:26 [[32minfo[39m]: Token
+2025-05-01 22:39:26 [[32minfo[39m]: GET /auth/me initiated by user 6811f67dfec89448cc1f5461
+2025-05-01 22:39:26 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:39:26 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2025-05-01 22:39:26 [[32minfo[39m]: Token
+2025-05-01 22:39:26 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:39:26 [[32minfo[39m]: Token
+2025-05-01 22:39:26 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:39:30 [[32minfo[39m]: Token
+2025-05-01 22:39:30 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:39:30 [[32minfo[39m]: Token
+2025-05-01 22:39:30 [[32minfo[39m]: Fetching all proposals for user
+2025-05-01 22:39:33 [[32minfo[39m]: Token
+2025-05-01 22:39:33 [[32minfo[39m]: Fetching single proposal
+2025-05-01 22:39:33 [[32minfo[39m]: Token
+2025-05-01 22:39:33 [[32minfo[39m]: Fetching single proposal

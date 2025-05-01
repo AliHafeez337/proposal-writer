@@ -144,9 +144,9 @@ export default function DeliverablesWithPricing({ id, deliverables, onUpdate }) 
                 secondary={
                   <>
                     {item.description}
-                    <Typography variant="body2" sx={{ mt: 1 }}>
+                    <Box component="span" sx={{ display: 'block', mt: 1, fontSize: '0.875rem' }}>
                       Price: ${(item.unitPrice || 0) * (item.count || 1)}
-                    </Typography>
+                    </Box>
                   </>
                 }
                 primaryTypographyProps={{ fontWeight: 'medium' }}
