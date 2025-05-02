@@ -75,20 +75,16 @@ export default function DeliverablesWithPricing({ id, deliverables, onUpdate }) 
       .then(data => {
           if (data.content?.deliverables) {
             const dataToSave = { items: data.content.deliverables?.map(item => {
-              let unitPrice = item.unitPrice;
-              if (!unitPrice) {
-                let localDeliverable = localDeliverables.find(d => {
-                  if (d._id) {
-                    return d._id.toString() === item._id.toString();
-                  } else {
-                    return d.item === item.item && d.count === item.count && d.description === item.description && d.unit === item.unit;
-                  }
-                });
-                unitPrice = localDeliverable?.unitPrice || 0;
-              }
+              let localDeliverable = localDeliverables.find(d => {
+                if (d._id) {
+                  return d._id.toString() === item._id.toString();
+                } else {
+                  return d.item === item.item && d.count === item.count && d.description === item.description && d.unit === item.unit;
+                }
+              });
               return {
                 deliverableId: item._id,
-                unitPrice: unitPrice,
+                unitPrice:  localDeliverable?.unitPrice || item.unitPrice || 0,
                 quantity: item.count
               };
             }) };
@@ -165,7 +161,7 @@ export default function DeliverablesWithPricing({ id, deliverables, onUpdate }) 
           <Button
             variant="contained"
             onClick={handleSavePricing}
-            disabled={isSaving || localDeliverables.length === 0 || localDeliverables.some(item => !item.item || !item.unit || !item.unitPrice)}
+            disabled={isSaving || localDeliverables.length === 0 || localDeliverables.some(item => !item.item || !item.unitPrice)}
             startIcon={isSaving ? <CircularProgress size={20} /> : null}
           >
             {isSaving ? 'Saving...' : 'Save'}

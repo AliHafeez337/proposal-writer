@@ -10,7 +10,7 @@ import EditableText from '../Edit/EditableText';
 import EditableWorkPlan from '../Edit/EditableWorkPlan';
 import EditableTimeline from '../Edit/EditableTimeline';
 
-export default function GenerateProposal({ data, updateData, errors }) {
+export default function GenerateProposal({ data, updateData }) {
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState(null);
   console.log('GenerateProposal data:', data);
@@ -62,7 +62,7 @@ export default function GenerateProposal({ data, updateData, errors }) {
             variant="contained"
             size="large"
             onClick={handleGenerate}
-            disabled={isGenerating}
+            disabled={isGenerating || data.content.timeline?.length > 0}
             startIcon={isGenerating ? <CircularProgress size={20} /> : null}
           >
             {isGenerating ? 'Generating...' : 'Generate Full Proposal'}
@@ -88,6 +88,7 @@ export default function GenerateProposal({ data, updateData, errors }) {
             id={data._id}
             timeline={data.content?.timeline}
             workBreakdown={data.content?.workBreakdown || []}
+            total={data.pricing?.total || 0}
             onUpdate={handleUpdate}
           />
         </>

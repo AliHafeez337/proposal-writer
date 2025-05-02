@@ -56,7 +56,48 @@ const ProposalSchema = new mongoose.Schema({ // Proposal Schema
       phase: String,
       startDate: Date,
       endDate: Date,
-      tasks: [String] // task IDs from workBreakdown
+      tasks: [String],
+      milestones: [{
+        name: String,
+        percentage: {
+          type: Number,
+          required: true,
+          min: 1,
+          max: 100
+        },
+        dueDate: {
+          type: Date,
+          required: false,
+          validate: {
+            validator: function(v) {
+              // Get the parent phase (this is the milestone document)
+              const phase = this.parent();
+              // Ensure we have valid dates to compare against
+              if (!phase.startDate && !phase.endDate) { // both not returned by AI
+                return true;
+              }
+              if (!phase.startDate || !phase.endDate) {
+                return false;
+              }
+              
+              // Convert all dates to timestamps for comparison
+              const dueDate = new Date(v).getTime();
+              const startDate = new Date(phase.startDate).getTime();
+              const endDate = new Date(phase.endDate).getTime();
+              
+              return dueDate >= startDate && dueDate <= endDate;
+            },
+            message: props => `Milestone due date (${new Date(props.value).toLocaleDateString()}) must be between phase start (${this.startDate.toLocaleDateString()}) and end (${this.endDate.toLocaleDateString()}) dates`
+          }
+        },
+        paymentAmount: {
+          type: Number,
+          default: function() {
+            const proposal = this.parent().parent().parent(); // timeline -> proposal -> pricing
+            return (proposal.pricing.total * this.percentage) / 100;
+          }
+        }
+      }]
     }]
   },
   pricing: {  
@@ -73,36 +114,7 @@ const ProposalSchema = new mongoose.Schema({ // Proposal Schema
     total: {
       type: Number,
       default: 0 // Initialize as 0
-    },
-    milestones: [{
-      phaseId: mongoose.Schema.Types.ObjectId,
-      percentage: {
-        type: Number,
-        required: true,
-        min: 1,
-        max: 100
-      },
-      dueDate: {
-        type: Date,
-        required: true,
-        validate: {
-          validator: function(v) {
-            if (!this.parent().content?.timeline) return false;
-            const phase = this.parent().content.timeline.id(this.phaseId);
-            if (!phase) return false;
-            return v >= phase.startDate && v <= phase.endDate;
-          },
-          message: props => `Due date must be within the phase's timeline`
-        }
-      },
-      paymentAmount: {
-        type: Number,
-        default: function() {
-          const proposal = this.parent().parent();
-          return (proposal.pricing.total * this.percentage) / 100;
-        }
-      }
-    }]
+    }
   }
 }, { timestamps: true });
 
@@ -132,13 +144,18 @@ ProposalSchema.pre('save', function(next) {
   
   // Auto-calculate payment amounts
   if (this.isModified('pricing.milestones') || this.isModified('pricing.total')) {
-    this.pricing.milestones.forEach(milestone => {
+    this.content.timeline?.milestones?.forEach(milestone => {
       milestone.paymentAmount = (this.pricing.total * milestone.percentage) / 100;
     });
   }
 
   // Validate percentages
-  const totalPercent = this.pricing.milestones.reduce((sum, m) => sum + m.percentage, 0);
+  let totalPercent = 0;
+  this.pricing.content?.timeline.forEach(phase => {
+    phase.milestones.forEach(milestone => {
+      totalPercent += milestone.percentage;
+    });
+  });
   if (totalPercent > 100) {
     throw new Error('Total milestone percentages exceed 100%');
   }
@@ -170,7 +187,7 @@ ProposalSchema.pre('remove', async function(next) {
 
 ProposalSchema.methods.toJSON = function() {
   const proposal = this.toObject();
-  proposal.content.deliverables.forEach(deliverable => {
+  proposal.content?.deliverables.forEach(deliverable => {
     let pricedItem = proposal.pricing.items.find(item => item.deliverableId.toString() === deliverable._id.toString());
     if (pricedItem && pricedItem.unitPrice) {
       deliverable.unitPrice = pricedItem.unitPrice;

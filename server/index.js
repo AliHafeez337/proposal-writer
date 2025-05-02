@@ -9,6 +9,7 @@ const aiRoutes = require('./routes/ai');
 const financialRoutes = require('./routes/financial');
 const pricingRoutes = require('./routes/pricing');
 const requestLogger = require('./middleware/requestLogger');
+const logger = require('./utils/logger');
 
 const app = express();
 

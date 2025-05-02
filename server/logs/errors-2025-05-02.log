@@ -1,0 +1,111 @@
+2025-05-02 13:59:22 [[31merror[39m]: ReferenceError: proposa is not defined
+    at /Volumes/Office/Mine/proposal-writer/server/routes/pricing.js:38:5
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-05-02 14:00:25 [[31merror[39m]: TypeError: Cannot read properties of undefined (reading 'forEach')
+    at ProposalSchema.methods.toJSON (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:180:29)
+    at JSON.stringify (<anonymous>)
+    at stringify (/Volumes/Office/Mine/proposal-writer/server/node_modules/express/lib/response.js:1020:12)
+    at ServerResponse.json (/Volumes/Office/Mine/proposal-writer/server/node_modules/express/lib/response.js:243:14)
+    at /Volumes/Office/Mine/proposal-writer/server/routes/ai.js:54:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-05-02 14:03:04 [[31merror[39m]: ReferenceError: milestonestones is not defined
+    at /Volumes/Office/Mine/proposal-writer/server/routes/pricing.js:47:9
+    at Proxy.forEach (<anonymous>)
+    at /Volumes/Office/Mine/proposal-writer/server/routes/pricing.js:45:33
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-05-02 14:03:49 [[31merror[39m]: ValidationError: Proposal validation failed: pricing.milestones.0.dueDate: Path `dueDate` is required., pricing.milestones.1.dueDate: Path `dueDate` is required., pricing.milestones.2.dueDate: Path `dueDate` is required.
+    at Document.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3343:32)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3104:17
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/schemaType.js:1407:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-02 14:49:36 [[31merror[39m]: TypeError: Cannot read properties of undefined (reading 'reduce')
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:141:48)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-02 14:49:49 [[31merror[39m]: TypeError: Cannot read properties of undefined (reading 'reduce')
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:141:48)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-02 14:51:32 [[31merror[39m]: TypeError: Cannot read properties of undefined (reading 'timeline')
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:142:24)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-02 15:00:59 [[31merror[39m]: ValidationError: Proposal validation failed: content.timeline.0.milestones.0.dueDate: Due date must be within the phase's timeline, content.timeline.1.milestones.0.dueDate: Due date must be within the phase's timeline, content.timeline.2.milestones.0.dueDate: Due date must be within the phase's timeline, content.timeline.3.milestones.0.dueDate: Due date must be within the phase's timeline, content.timeline.4.milestones.0.dueDate: Due date must be within the phase's timeline, content.timeline.5.milestones.0.dueDate: Due date must be within the phase's timeline
+    at Document.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3343:32)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3104:17
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/schemaType.js:1407:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-02 15:01:55 [[31merror[39m]: ValidationError: Proposal validation failed: content.timeline.0.milestones.0.dueDate: Due date must be within the phase's timeline, content.timeline.1.milestones.0.dueDate: Due date must be within the phase's timeline, content.timeline.2.milestones.0.dueDate: Due date must be within the phase's timeline, content.timeline.3.milestones.0.dueDate: Due date must be within the phase's timeline, content.timeline.4.milestones.0.dueDate: Due date must be within the phase's timeline, content.timeline.5.milestones.0.dueDate: Due date must be within the phase's timeline
+    at Document.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3343:32)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3104:17
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/schemaType.js:1407:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-02 15:07:13 [[31merror[39m]: TypeError: Cannot read properties of undefined (reading 'forEach')
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:145:29)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-02 15:09:39 [[31merror[39m]: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at analyzeScopeAndDeliverables (/Volumes/Office/Mine/proposal-writer/server/services/aiService.js:50:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Volumes/Office/Mine/proposal-writer/server/routes/ai.js:42:22
+2025-05-02 15:10:12 [[31merror[39m]: ValidationError: Proposal validation failed: content.timeline.0.milestones.0.dueDate: Path `dueDate` is required., content.timeline.1.milestones.0.dueDate: Path `dueDate` is required.
+    at Document.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3343:32)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3104:17
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/schemaType.js:1407:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-02 15:18:45 [[31merror[39m]: ValidationError: Proposal validation failed: content.timeline.0.milestones.0.dueDate: Path `dueDate` is required., content.timeline.1.milestones.0.dueDate: Path `dueDate` is required., content.timeline.2.milestones.0.dueDate: Path `dueDate` is required., content.timeline.3.milestones.0.dueDate: Path `dueDate` is required.
+    at Document.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3343:32)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3104:17
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/schemaType.js:1407:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-02 15:21:23 [[31merror[39m]: ValidationError: Proposal validation failed: content.timeline.0.milestones.0.dueDate: Path `dueDate` is required., content.timeline.1.milestones.0.dueDate: Path `dueDate` is required., content.timeline.2.milestones.0.dueDate: Path `dueDate` is required., content.timeline.3.milestones.0.dueDate: Path `dueDate` is required.
+    at Document.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3343:32)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3104:17
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/schemaType.js:1407:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-02 15:25:09 [[31merror[39m]: TypeError: Cannot read properties of undefined (reading 'toLocaleDateString')
+    at message (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:88:145)
+    at formatMessage (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/error/validator.js:82:12)
+    at new ValidatorError (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/error/validator.js:25:21)
+    at validate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/schemaType.js:1404:13)
+    at SchemaType.doValidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/schemaType.js:1388:7)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3096:18
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-02 15:29:59 [[31merror[39m]: ValidationError: Proposal validation failed: content.timeline.0.milestones.0.dueDate: Path `dueDate` is required., content.timeline.1.milestones.0.dueDate: Path `dueDate` is required., content.timeline.2.milestones.0.dueDate: Path `dueDate` is required., content.timeline.3.milestones.0.dueDate: Path `dueDate` is required.
+    at Document.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3343:32)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3104:17
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/schemaType.js:1407:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-02 15:47:47 [[31merror[39m]: TypeError: Cannot read properties of undefined (reading 'deliverables')
+    at ProposalSchema.methods.toJSON (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:190:20)
+    at JSON.stringify (<anonymous>)
+    at stringify (/Volumes/Office/Mine/proposal-writer/server/node_modules/express/lib/response.js:1020:12)
+    at ServerResponse.json (/Volumes/Office/Mine/proposal-writer/server/node_modules/express/lib/response.js:243:14)
+    at /Volumes/Office/Mine/proposal-writer/server/routes/ai.js:54:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

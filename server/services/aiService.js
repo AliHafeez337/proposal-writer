@@ -111,7 +111,7 @@ const generateFullProposal = async (scopeOfWork, deliverables, userRequirements,
     1. Executive Summary (1 paragraph)
     2. Key Requirements (technical/business)
     3. Work Breakdown Structure - tasks with durations IN DAYS (not weeks)
-    4. Timeline (phases with start/end dates)
+    4. Timeline (phases with start and end dates, must specify dates)
     
     Example:
     "workBreakdown": [
@@ -119,6 +119,13 @@ const generateFullProposal = async (scopeOfWork, deliverables, userRequirements,
         "task": "UI Development",
         "duration": 14, // MUST BE NUMBER OF DAYS
         "dependencies": []
+      }
+    ]
+    "timeline": [
+      {
+        "phase": "UI Development",
+        "start": "2023-01-01",
+        "end": "2023-01-15"
       }
     ]
 

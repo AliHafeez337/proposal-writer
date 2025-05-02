@@ -33,13 +33,42 @@ router.post('/:id/items', auth, async (req, res) => {
 
     // Replace all pricing items
     proposal.pricing.items = req.body.items;
+
+    proposal.pricing.total = proposal.pricing.items.reduce((sum, item) => {
+      const deliverable = proposal.content.deliverables.id(item.deliverableId);
+      return sum + (item.unitPrice * (deliverable?.count || 0));
+    }, 0);
+
+    // we also want to edit milestones...
+    if (proposal.content.timeline && proposal.content.timeline.length > 0) {
+      if (proposal.content.timeline[0].milestones && proposal.content.timeline[0].milestones.length > 0) { // if milestones exist, update them
+        proposal.content.timeline.forEach(phase => {
+          phase.milestones.forEach(milestone => {
+            milestone.paymentAmount = Number(milestone.percentage * proposal.pricing.total / 100);
+          });
+        });
+      } else {
+        // generate default milestones if they don't exist
+        let percentage = 100 / proposal.content.timeline.length;
+        proposal.content.timeline.forEach(phase => {
+          phase.milestones = [{
+            phaseId: phase._id,
+            name: "Initial",
+            percentage: percentage,
+            paymentAmount: Number(percentage * proposal.pricing.total / 100),
+            dueDate: phase.endDate,
+          }];
+        })
+      }
+    }
+
     await proposal.save(); // Auto-calculates total
 
     logger.info('Deliverable prices updated successfully', { proposalId: req.params.id });
     res.json(proposal);
   } catch (error) {
     logger.error('Failed to update deliverable prices', { error: error.message, stack: error.stack, userId: req.userId, proposalId: req.params.id });
-    res.status(500).json({ error: 'Failed to update pricing' });
+    res.status(500).json({ error: 'Failed to update pricing', error });
   }
 });
 
