@@ -2,18 +2,15 @@
 import { useState } from 'react';
 import { Box, Button, CircularProgress, Typography, Paper } from '@mui/material';
 import { generateProposal } from '../../../services/ai';
-import Scope from '../../Proposals/View/Scope';
-import DeliverablesWithPricing from '../Edit/EditableDeliverablesWithPricing';
-import WorkPlanDisplay from '../View/WorkPlanDisplay';
-import TimelineDisplay from '../View/TimelineDisplay';
 import EditableText from '../Edit/EditableText';
+import EditableRequirements from '../Edit/EditableRequirements';
+import DeliverablesWithPricing from '../Edit/EditableDeliverablesWithPricing';
 import EditableWorkPlan from '../Edit/EditableWorkPlan';
 import EditableTimeline from '../Edit/EditableTimeline';
 
 export default function GenerateProposal({ data, updateData }) {
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState(null);
-  console.log('GenerateProposal data:', data);
 
   const handleGenerate = async () => {
     try {
@@ -74,6 +71,11 @@ export default function GenerateProposal({ data, updateData }) {
         <>
           <EditableText id={data._id} key1="executiveSummary" key2="Executive Summary" text1={data.content.executiveSummary} onUpdate={handleExecutiveSummaryChange} />
           <EditableText id={data._id} key1="scopeOfWork" key2="Scope of Work" text1={data.content.scopeOfWork} onUpdate={handleExecutiveSummaryChange} />
+          <EditableRequirements
+            id={data._id}
+            requirements={data.content?.requirements || []}
+            onUpdate={handleUpdate}
+          />
           <DeliverablesWithPricing
             id={data._id}
             deliverables={data.content.deliverables}
@@ -93,8 +95,6 @@ export default function GenerateProposal({ data, updateData }) {
           />
         </>
       )}
-      {/* <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-      </Box> */}
     </Box>
   );
 }

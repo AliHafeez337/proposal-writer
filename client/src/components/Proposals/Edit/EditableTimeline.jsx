@@ -250,11 +250,31 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
                 <ListItemText
                   primary={phase.phase}
                   secondary={
-                    <Box component="span">
+                    <>
+                      <Typography 
+                        component="span" 
+                        variant="body2" 
+                        display="block" 
+                        sx={{ mt: 1 }}
+                      >
+                        {phase.startDate && phase.endDate ? (
+                          `${new Date(phase.startDate).toLocaleDateString()} - ${new Date(phase.endDate).toLocaleDateString()}`
+                        ) : 'Dates not specified'}
+                      </Typography>
+                      
                       {phase.tasks?.length > 0 && (
-                        <Box sx={{ mt: 1 }}>
+                        <Typography 
+                          component="span" 
+                          variant="body2" 
+                          display="block" 
+                          sx={{ mt: 1 }}
+                        >
                           <Typography component="span" variant="caption">Tasks:</Typography>
-                          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mt: 0.5 }}>
+                          <Box 
+                            component="span" 
+                            display="block"
+                            sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mt: 0.5 }}
+                          >
                             {phase.tasks.map((taskIndex, i) => (
                               <Chip
                                 key={i}
@@ -263,16 +283,12 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
                               />
                             ))}
                           </Box>
-                        </Box>
+                        </Typography>
                       )}
-                      <Box component="span" sx={{ mt: 1, display: 'block' }}>
-                        {phase.startDate && phase.endDate ? (
-                          `${new Date(phase.startDate).toLocaleDateString()} - ${new Date(phase.endDate).toLocaleDateString()}`
-                        ) : 'Dates not specified'}
-                      </Box>
-                    </Box>
+                    </>
                   }
                   primaryTypographyProps={{ fontWeight: 'medium' }}
+                  secondaryTypographyProps={{ component: 'div' }}
                 />
               </ListItem>
               {index < phases.length - 1 && <Divider component="li" />}

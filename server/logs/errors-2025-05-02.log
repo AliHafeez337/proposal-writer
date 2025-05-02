@@ -109,3 +109,46 @@
     at ServerResponse.json (/Volumes/Office/Mine/proposal-writer/server/node_modules/express/lib/response.js:243:14)
     at /Volumes/Office/Mine/proposal-writer/server/routes/ai.js:54:9
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-05-02 22:08:10 [[31merror[39m]: TokenExpiredError: jwt expired
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/jsonwebtoken/verify.js:190:21
+    at getSecret (/Volumes/Office/Mine/proposal-writer/server/node_modules/jsonwebtoken/verify.js:97:14)
+    at module.exports [as verify] (/Volumes/Office/Mine/proposal-writer/server/node_modules/jsonwebtoken/verify.js:101:10)
+    at auth (/Volumes/Office/Mine/proposal-writer/server/middleware/auth.js:13:25)
+    at Layer.handleRequest (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/layer.js:152:17)
+    at next (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/route.js:117:3)
+    at handle (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/layer.js:152:17)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:295:15
+    at processParams (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:582:12)
+    at next (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:291:5)
+    at Function.handle (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:186:3)
+    at router (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:60:12)
+    at Layer.handleRequest (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:342:13)
+2025-05-02 22:08:10 [[31merror[39m]: TokenExpiredError: jwt expired
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/jsonwebtoken/verify.js:190:21
+    at getSecret (/Volumes/Office/Mine/proposal-writer/server/node_modules/jsonwebtoken/verify.js:97:14)
+    at module.exports [as verify] (/Volumes/Office/Mine/proposal-writer/server/node_modules/jsonwebtoken/verify.js:101:10)
+    at auth (/Volumes/Office/Mine/proposal-writer/server/middleware/auth.js:13:25)
+    at Layer.handleRequest (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/layer.js:152:17)
+    at next (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/route.js:117:3)
+    at handle (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/layer.js:152:17)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:295:15
+    at processParams (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:582:12)
+    at next (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:291:5)
+    at Function.handle (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:186:3)
+    at router (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:60:12)
+    at Layer.handleRequest (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:342:13)
+2025-05-02 22:29:27 [[31merror[39m]: Error: Deliverable 6814a7d1675f3c9d1def5714 not found
+    at /Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:133:13
+    at Proxy.forEach (<anonymous>)
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:131:22)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)

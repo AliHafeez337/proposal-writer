@@ -171,13 +171,15 @@ export default function CreateProposal() {
               Back
             </Button>
           )}
-          <Button 
-            variant="contained" 
-            onClick={handleNext}
-            disabled={isLoading}
-          >
-            {isLoading ? <CircularProgress size={24} /> : 'Next'}
-          </Button>
+          {activeStep < steps.length - 1 && (
+            <Button 
+              variant="contained" 
+              onClick={handleNext}
+              disabled={isLoading}
+            >
+              {isLoading ? <CircularProgress size={24} /> : 'Next'}
+            </Button>
+          )}
         </Box>
       </Box>
     </Container>

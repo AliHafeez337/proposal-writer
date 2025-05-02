@@ -1,11 +1,11 @@
 // src/components/Proposals/View/Scope.jsx
 import { Box, Typography, Paper } from '@mui/material';
 
-export default function Scope({ scopeOfWork }) {
+export default function Scope({ scopeOfWork, sx = {} }) {
   return (
     <Box>
       {/* Scope of Work Section */}
-      <Paper elevation={1} sx={{ p: 3 }}>
+      <Paper elevation={1} sx={{ p: 3, ...sx }}>
         <Typography variant="h6" gutterBottom>
           Scope of Work
         </Typography>

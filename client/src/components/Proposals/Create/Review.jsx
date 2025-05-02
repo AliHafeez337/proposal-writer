@@ -1,10 +1,8 @@
+import ProposalView from '../ProposalView';
 
-function ProposalReview() {
+function ProposalReview({ data }) {
   return (
-    <div>
-      <h1>Review Proposal</h1>
-      <p>Here you can review the proposal details.</p>
-    </div>
+    <ProposalView proposal={data} />
   );
 }
 export default ProposalReview;

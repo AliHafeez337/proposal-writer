@@ -1,0 +1,4 @@
+React: Built complex interfaces for Flowtrack Web Builder.
+Node.js: Developed backend services for many projects.
+PostgreSQL: Used at Airvi (my last job) and jobs before.
+Automation: Integrated various third-party APIs (Paymob, Google Maps, Air Quality Indexes)

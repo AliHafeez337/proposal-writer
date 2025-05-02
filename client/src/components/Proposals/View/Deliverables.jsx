@@ -1,11 +1,11 @@
 // src/components/Proposals/View/Deliverables.jsx
 import { Box, Typography, Divider, List, ListItem, ListItemText, Paper } from '@mui/material';
 
-export default function Deliverables({ deliverables }) {
+export default function Deliverables({ deliverables, sx = {} }) {
   return (
     <Box>
       {/* Deliverables Section */}
-      <Paper elevation={1} sx={{ p: 3 }}>
+      <Paper elevation={1} sx={{ p: 3, ...sx }}>
         <Typography variant="h6" gutterBottom>
           Deliverables
         </Typography>
