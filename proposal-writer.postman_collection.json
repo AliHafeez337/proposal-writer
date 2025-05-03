@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "3e665c28-4d79-4e8e-a668-41b89dfeda24",
+		"name": "proposal-writer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5968153"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":\"test@example.com\",\"password\":\"password123\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://localhost:5000/api/auth/register \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"email\":\"test@example.com\",\"password\":\"password123\"}'"
+					},
+					"response": []
+				},
+				{
+					"name": "protected",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBmYzhkY2I5NWYzNzk5ZWQ2YjJlZTkiLCJpYXQiOjE3NDU4NjU5ODAsImV4cCI6MTc0NTk1MjM4MH0.qy5414_mI6GGVU_E8xg2FVBs7taeZ8DWjcE2B0df718"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5001/api/protected",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"protected"
+							]
+						},
+						"description": "Generated from cURL: curl http://localhost:5000/api/protected \\\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN\""
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":\"test@example.com\",\"password\":\"password123\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://localhost:5000/api/auth/login \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"email\":\"test@example.com\",\"password\":\"password123\"}'"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "proposals",
+			"item": [
+				{
+					"name": "new proposal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBmYzhkY2I5NWYzNzk5ZWQ2YjJlZTkiLCJpYXQiOjE3NDYwMzQwODgsImV4cCI6MTc0NjEyMDQ4OH0.f8h1R2DjDbnwT5vpLPsJ6I36WJKlSa3eeYKPzbnL7Kk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"title\": \"My First Proposal\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/proposals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"proposals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload file",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBmYzhkY2I5NWYzNzk5ZWQ2YjJlZTkiLCJpYXQiOjE3NDYwMzQwODgsImV4cCI6MTc0NjEyMDQ4OH0.f8h1R2DjDbnwT5vpLPsJ6I36WJKlSa3eeYKPzbnL7Kk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/Volumes/Office/Mine/proposal-writer/test-data/job1/job1.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/proposals/68125e285fa001c17f234a9e/files",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"proposals",
+								"68125e285fa001c17f234a9e",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get proposal",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBmYzhkY2I5NWYzNzk5ZWQ2YjJlZTkiLCJpYXQiOjE3NDU5OTI3MzEsImV4cCI6MTc0NjA3OTEzMX0.JHGB4zxUpa0EiyAnLuCPX4PzZ7c5iLZeRed5Uuyu2L4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5001/api/proposals/6810d27a7a0f3e1e97cbc6a1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"proposals",
+								"6810d27a7a0f3e1e97cbc6a1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update title",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBmYzhkY2I5NWYzNzk5ZWQ2YjJlZTkiLCJpYXQiOjE3NDU4NjU5ODAsImV4cCI6MTc0NTk1MjM4MH0.qy5414_mI6GGVU_E8xg2FVBs7taeZ8DWjcE2B0df718",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"First proposals' title updated!\",\n    \"description\": \"DDD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/proposals/68107b48b9509d1961c40c26/title",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"proposals",
+								"68107b48b9509d1961c40c26",
+								"title"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete proposals",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBmYzhkY2I5NWYzNzk5ZWQ2YjJlZTkiLCJpYXQiOjE3NDU4NjU5ODAsImV4cCI6MTc0NTk1MjM4MH0.qy5414_mI6GGVU_E8xg2FVBs7taeZ8DWjcE2B0df718",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5001/api/proposals/68107b48b9509d1961c40c26",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"proposals",
+								"68107b48b9509d1961c40c26"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "initial_analysis",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBmYzhkY2I5NWYzNzk5ZWQ2YjJlZTkiLCJpYXQiOjE3NDYwMzQwODgsImV4cCI6MTc0NjEyMDQ4OH0.f8h1R2DjDbnwT5vpLPsJ6I36WJKlSa3eeYKPzbnL7Kk",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userRequirements\": \"Highlight my code writing abilities in the proposal that I write clean, documented and secure code. The reader should grasp the concept that I have full knowledge of all the skill and experience of all the skills except Next.js.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/ai/68125e285fa001c17f234a9e/process",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"ai",
+								"68125e285fa001c17f234a9e",
+								"process"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generate",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBmYzhkY2I5NWYzNzk5ZWQ2YjJlZTkiLCJpYXQiOjE3NDU4NjU5ODAsImV4cCI6MTc0NTk1MjM4MH0.qy5414_mI6GGVU_E8xg2FVBs7taeZ8DWjcE2B0df718",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5001/api/ai/6810d27a7a0f3e1e97cbc6a1/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"ai",
+								"6810d27a7a0f3e1e97cbc6a1",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item-pricing",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBmYzhkY2I5NWYzNzk5ZWQ2YjJlZTkiLCJpYXQiOjE3NDU4NjU5ODAsImV4cCI6MTc0NTk1MjM4MH0.qy5414_mI6GGVU_E8xg2FVBs7taeZ8DWjcE2B0df718",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"items\": [\n        {\n            \"deliverableId\": \"6810d54a1ef25c19c16ed6b5\",\n            \"unitPrice\": 100\n        },\n        {\n            \"deliverableId\": \"6810d54a1ef25c19c16ed6b6\",\n            \"unitPrice\": 90\n        },\n        {\n            \"deliverableId\": \"6810d54a1ef25c19c16ed6b7\",\n            \"unitPrice\": 80\n        },\n        {\n            \"deliverableId\": \"6810d54a1ef25c19c16ed6b8\",\n            \"unitPrice\": 70\n        },\n        {\n            \"deliverableId\": \"6810d54a1ef25c19c16ed6b9\",\n            \"unitPrice\": 60\n        },\n        {\n            \"deliverableId\": \"6810d54a1ef25c19c16ed6ba\",\n            \"unitPrice\": 50\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/pricing/6810d27a7a0f3e1e97cbc6a1/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"pricing",
+								"6810d27a7a0f3e1e97cbc6a1",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_content_proposal_section",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBmYzhkY2I5NWYzNzk5ZWQ2YjJlZTkiLCJpYXQiOjE3NDU5OTI3MzEsImV4cCI6MTc0NjA3OTEzMX0.JHGB4zxUpa0EiyAnLuCPX4PzZ7c5iLZeRed5Uuyu2L4",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"value\": \"This is the updated executive summary...\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/proposals/6810d27a7a0f3e1e97cbc6a1/section/requirements",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"proposals",
+								"6810d27a7a0f3e1e97cbc6a1",
+								"section",
+								"requirements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "analyze_again",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODBmYzhkY2I5NWYzNzk5ZWQ2YjJlZTkiLCJpYXQiOjE3NDYwMzQwODgsImV4cCI6MTc0NjEyMDQ4OH0.f8h1R2DjDbnwT5vpLPsJ6I36WJKlSa3eeYKPzbnL7Kk",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userFeedback\": \"Please remove the Docker containers deliverable.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/ai/68125e285fa001c17f234a9e/analyze",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"ai",
+								"68125e285fa001c17f234a9e",
+								"analyze"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
