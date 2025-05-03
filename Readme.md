@@ -12,7 +12,11 @@ A web app to create and manage project proposals with timelines, pricing, and de
      ```
 
 2. **Set Up Environment**  
-   - In the `server` folder, rename `.env.example` to `.env` and fill in the necessary environment variables.
+   - In the `server` folder, rename `.env.example` to `.env` and fill in the  environment variables:
+     - `MONGODB_URI` - MongoDB connection string
+     - `JWT_SECRET` - Secret key for JWT
+     - `PORT` - Port for the server
+     - `OPENAI_API_KEY` - OpenAI API key for LLM integration
 
 3. **Start the App**  
    - Run the backend:  

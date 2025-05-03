@@ -23,7 +23,7 @@ const ProposalTimeline = ({ timeline }) => (
                     >
                       {new Date(phase.startDate).toLocaleDateString()} - {new Date(phase.endDate).toLocaleDateString()}
                     </Typography>
-                    {phase.milestones?.length > 0 && (
+                    {phase.tasks?.length > 0 && (
                       <>
                         <Typography 
                           variant="caption" 

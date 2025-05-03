@@ -78,7 +78,10 @@ export default function DeliverablesWithPricing({ id, deliverables, onUpdate }) 
   const handleEditClick = (index) => {
     setEditingIndex(index);
     setIsEditing(true);
-    setNewDeliverable(localDeliverables[index]);
+    setNewDeliverable({
+      ...localDeliverables[index],
+      unitPrice: localDeliverables[index].unitPrice ?? 0 // Ensure no undefined
+    });
   };
 
   /**
@@ -295,12 +298,22 @@ export default function DeliverablesWithPricing({ id, deliverables, onUpdate }) 
             <TextField
               label="Unit Price"
               type="number"
-              value={newDeliverable.unitPrice}
-              onChange={(e) => setNewDeliverable({...newDeliverable, unitPrice: parseFloat(e.target.value) || 0})}
+              value={newDeliverable.unitPrice ?? 0} // Fallback to 0 if undefined
+              onChange={(e) => {
+                const value = parseFloat(e.target.value);
+                setNewDeliverable({
+                  ...newDeliverable,
+                  unitPrice: isNaN(value) ? 0 : value // Ensure it's always a number
+                });
+              }}
               InputProps={{
                 startAdornment: '$',
               }}
               sx={{ width: 200 }}
+              inputProps={{
+                min: 0,
+                step: "0.01" // Allow decimal values
+              }}
             />
           </Box>
         </DialogContent>
