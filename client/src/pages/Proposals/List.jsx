@@ -9,9 +9,9 @@ import { deleteProposal } from '../../services/proposals';
 export default function ProposalList() {
   const [proposals, setProposals] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { user } = useAuth();
 
   useEffect(() => {
+    // Fetch proposals from the server
     const fetchProposals = async () => {
       try {
         const response = await api.get('/proposals');
@@ -25,11 +25,11 @@ export default function ProposalList() {
     fetchProposals();
   }, []);
 
+  // Function to handle proposal deletion
   const handleDeleteProposal = async (id) => {
     await deleteProposal(id);
     setProposals(proposals.filter(proposal => proposal._id !== id));
   }
-
 
   if (loading) {
     return (

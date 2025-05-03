@@ -1,4 +1,22 @@
 import React, { useState, useEffect } from 'react';
+/**
+ * Imports Material-UI (MUI) components used for rendering UI elements in the EditableDeliverablesWithPricing component.
+ * These components provide pre-styled React components for creating layout, typography, input fields, dialogs, 
+ * and interactive elements with consistent Material Design styling.
+ * 
+ * @imports
+ * - Box: A layout component for flexible container styling
+ * - Typography: For rendering text with consistent styling
+ * - Divider: A visual separator between elements
+ * - List and ListItem: Components for creating structured lists
+ * - ListItemText: Text component for list items
+ * - Paper: A surface-like container with elevation
+ * - TextField: Input field for text and numeric entry
+ * - Button: Clickable action element
+ * - Dialog, DialogTitle, DialogContent, DialogActions: Components for modal dialogs
+ * - IconButton: Clickable icon button
+ * - Stack: A layout component for managing vertical or horizontal stacks of elements
+ */
 import { 
   Box, Typography, Divider, List, ListItem, 
   ListItemText, Paper, TextField, Button, 
@@ -18,6 +36,16 @@ export default function DeliverablesWithPricing({ id, deliverables, onUpdate }) 
   const [isSaving, setIsSaving] = useState(false);
   const [editingIndex, setEditingIndex] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  /** 
+   * State for a new or edited deliverable with default empty/initial values.
+   * Tracks the current deliverable being added or modified in the form.
+   * @type {Object} newDeliverable - Contains details of a deliverable item
+   * @property {string} item - Name or title of the deliverable
+   * @property {string} unit - Unit of measurement for the deliverable
+   * @property {number} count - Quantity of the deliverable (defaults to 1)
+   * @property {string} description - Detailed description of the deliverable
+   * @property {number} unitPrice - Price per unit of the deliverable (defaults to 0)
+   */
   const [newDeliverable, setNewDeliverable] = useState({
     item: '',
     unit: '',
@@ -27,17 +55,42 @@ export default function DeliverablesWithPricing({ id, deliverables, onUpdate }) 
   });
 
   // Calculate total whenever deliverables change
+  /**
+   * Calculates the total price of all deliverables whenever the localDeliverables array changes.
+   * Updates the totalPrice state by summing the product of each deliverable's unit price and count.
+   * Uses a reduce function to iterate through deliverables, handling cases where unitPrice or count might be undefined.
+   * 
+   * @effect Updates totalPrice state when localDeliverables changes
+   */
   useEffect(() => {
     const total = localDeliverables.reduce((acc, item) => acc + (item.unitPrice || 0) * (item.count || 0), 0);
     setTotalPrice(total);
   }, [localDeliverables]);
 
+  /**
+   * Prepares a deliverable for editing by setting the editing state and populating the form.
+   * 
+   * @param {number} index - The index of the deliverable in the localDeliverables array to be edited
+   * @effect Sets editingIndex to the selected index
+   * @effect Enables editing mode
+   * @effect Populates the newDeliverable state with the selected deliverable's details
+   */
   const handleEditClick = (index) => {
     setEditingIndex(index);
     setIsEditing(true);
     setNewDeliverable(localDeliverables[index]);
   };
 
+  /**
+   * Prepares the component for adding a new deliverable by resetting the form and entering edit mode.
+   * 
+   * @description Clears the editing index, resets the new deliverable to default values, 
+   * and sets the component to editing state, enabling the form for a new deliverable entry.
+   * 
+   * @effect Sets editingIndex to null
+   * @effect Resets newDeliverable to initial empty state
+   * @effect Enables editing mode for adding a new deliverable
+   */
   const handleAddDeliverable = () => {
     setEditingIndex(null);
     setNewDeliverable({
@@ -50,6 +103,16 @@ export default function DeliverablesWithPricing({ id, deliverables, onUpdate }) 
     setIsEditing(true);
   };
 
+  /**
+   * Saves a new or edited deliverable to the localDeliverables array.
+   * 
+   * @description If an existing deliverable is being edited (editingIndex is not null),
+   * updates the deliverable at the specified index. If adding a new deliverable,
+   * appends the new deliverable to the end of the localDeliverables array.
+   * 
+   * @effect Updates localDeliverables state with new or modified deliverable
+   * @effect Exits editing mode by setting isEditing to false
+   */
   const handleSaveEdit = () => {
     if (editingIndex !== null) {
       // Update existing deliverable
@@ -63,11 +126,34 @@ export default function DeliverablesWithPricing({ id, deliverables, onUpdate }) 
     setIsEditing(false);
   };
 
+  /**
+   * Removes a deliverable from the localDeliverables array at the specified index.
+   * 
+   * @description Filters out the deliverable at the given index, creating a new array
+   * without that specific deliverable and updating the localDeliverables state.
+   * 
+   * @param {number} index - The index of the deliverable to be deleted
+   * 
+   * @effect Updates localDeliverables state by removing the specified deliverable
+   */
   const handleDeleteDeliverable = (index) => {
     const updated = localDeliverables.filter((_, i) => i !== index);
     setLocalDeliverables(updated);
   };
 
+  /**
+   * Saves the pricing for deliverables in a proposal.
+   * 
+   * @description Handles saving deliverable pricing by first saving the deliverables section,
+   * then saving the pricing details with unit prices and quantities. Maps local deliverables
+   * to server-side deliverable data, matching by ID or item details.
+   * 
+   * @effect Updates the proposal's deliverables and pricing on the server
+   * @effect Calls onUpdate with the updated data upon successful save
+   * @effect Sets isSaving state to track saving progress
+   * 
+   * @throws {Error} Logs and handles errors during saving process
+   */
   const handleSavePricing = () => {
     setIsSaving(true);
 

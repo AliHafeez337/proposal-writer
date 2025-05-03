@@ -1,5 +1,7 @@
 import api from './api';
 
+// AI-related API calls
+
 export const analyzeProposal = async (proposalId, data) => {
   const response = await api.post(`/ai/${proposalId}/process`, data);
   return response.data;

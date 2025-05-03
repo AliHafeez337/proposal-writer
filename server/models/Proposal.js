@@ -165,14 +165,17 @@ ProposalSchema.pre('save', function(next) {
   next();
 });
 
+// Update timestamp before updating
 ProposalSchema.pre('findOneAndUpdate', function() {
   this.set({ updatedAt: Date.now() }); // Update timestamp
 });
 
+// Update timestamp before updating
 ProposalSchema.pre('updateOne', function() {
   this.set({ updatedAt: new Date() });
 });
 
+// Remove files when proposal is deleted
 ProposalSchema.pre('remove', async function(next) {
   // Delete all associated files when proposal is deleted
   try {
@@ -185,6 +188,7 @@ ProposalSchema.pre('remove', async function(next) {
   }
 });
 
+// Data to be returned to the frontend
 ProposalSchema.methods.toJSON = function() {
   const proposal = this.toObject();
   proposal.content?.deliverables.forEach(deliverable => {

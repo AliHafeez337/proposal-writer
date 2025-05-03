@@ -11,6 +11,7 @@ export default function LoginForm() {
   const { setUser } = useAuth();
   const navigate = useNavigate();
 
+  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

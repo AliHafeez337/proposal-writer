@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const logger = require('../utils/logger');
 
+// Middleware to authenticate user using JWT
 const auth = async (req, res, next) => {
   if (!process.env.JWT_SECRET) {
     logger.error('JWT_SECRET is not defined in environment variables');

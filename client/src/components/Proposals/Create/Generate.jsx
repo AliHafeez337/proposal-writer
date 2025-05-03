@@ -12,6 +12,7 @@ export default function GenerateProposal({ data, updateData }) {
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState(null);
 
+  // AI generation function
   const handleGenerate = async () => {
     try {
       setIsGenerating(true);

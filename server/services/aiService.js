@@ -41,7 +41,7 @@ const analyzeScopeAndDeliverables = async (description, userRequirements) => {
     ${userRequirements}
   `;
 
-  const response = await openai.chat.completions.create({
+  const response = await openai.chat.completions.create({ // Using chat completion endpoint
     model: "gpt-3.5-turbo-1106",
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" }
@@ -95,7 +95,7 @@ const analyzeScopeAndDeliverablesWithFeedback = async (scopeOfWork, deliverables
     ${userFeeback}
   `;
 
-  const response = await openai.chat.completions.create({
+  const response = await openai.chat.completions.create({ // Using chat completion endpoint
     model: "gpt-3.5-turbo-1106",
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" }
@@ -150,7 +150,7 @@ const generateFullProposal = async (scopeOfWork, deliverables, userRequirements,
     ${userFeeback}
   `;
 
-  const response = await openai.chat.completions.create({
+  const response = await openai.chat.completions.create({ // Using chat completion endpoint
     model: "gpt-3.5-turbo-1106",
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" }

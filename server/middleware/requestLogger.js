@@ -3,6 +3,7 @@ const logger = require('../utils/logger');
 module.exports = (req, res, next) => {
   const start = Date.now();
 
+  // Log the request details
   res.on('finish', () => {
     const duration = Date.now() - start;
     logger.http(`${req.method} ${req.originalUrl}`, {

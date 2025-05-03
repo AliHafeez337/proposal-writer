@@ -11,18 +11,19 @@ const steps = ['Basic Info', 'Analysis', 'Generate', 'Review'];
 
 export default function CreateProposal() {
   const navigate = useNavigate();
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(0); // Active Page
   const [proposalData, setProposalData] = useState({
-    _id: useParams().id || null,
+    _id: useParams().id || null, // Use null for new proposal
     title: '',
     description: '',
     files: []
   });
   const [isLoading, setIsLoading] = useState(!!proposalData._id); // Loading only in edit mode
-  const [errors, setErrors] = useState({ title: false, description: false, pricing: false });
-  const initialStatusSet = useRef(false);
+  const [errors, setErrors] = useState({ title: false, scopeOfWork: false, pricing: false });
+  const initialStatusSet = useRef(false); // Pages depend on status. There is a check to only show the related page. We have to run this check only first time.
 
   useEffect(() => {
+    // Checks to stop next page if it doesn't meet the requirements.
     if (activeStep === 3) {
       if (proposalData.content.deliverables.some(deliverable => !deliverable.unitPrice)) {
         setActiveStep(2);
@@ -37,6 +38,7 @@ export default function CreateProposal() {
   }, [activeStep]);
 
   useEffect(() => {
+    // Checks to show related page.
     if (!initialStatusSet.current && proposalData.status) {
       if (proposalData.status === 'draft') {
         setActiveStep(1);
@@ -69,7 +71,7 @@ export default function CreateProposal() {
     loadProposal();
   }, [proposalData._id, navigate]);
 
-  const handleCancel = () => navigate('/proposals');
+  const handleCancel = () => navigate('/proposals'); // Move to proposals list
 
   const validate = () => {
     const newErrors = {
@@ -79,6 +81,7 @@ export default function CreateProposal() {
     return Object.values(newErrors).some(Boolean);
   };
 
+  // Move to next page
   const handleNext = async () => {
     if (validate()) return; // Stop if validation fails
 
@@ -88,11 +91,13 @@ export default function CreateProposal() {
       // In create mode, make new proposal
       if (activeStep === 0) {
         if (proposalData._id) {
+          // In edit mode, update proposal
           await updateTitleDescription(proposalData._id, {
             title: proposalData.title,
             description: proposalData.description
           });
         } else {
+          // In create mode, create new proposal
           const { _id } = await createProposal({
             title: proposalData.title,
             description: proposalData.description
@@ -109,6 +114,7 @@ export default function CreateProposal() {
     }
   };
 
+  // Move to previous page
   const handleBack = () => setActiveStep(prev => prev - 1);
 
   if (isLoading) return <CircularProgress sx={{ display: 'block', mx: 'auto', mt: 4 }} />;

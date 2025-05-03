@@ -1,7 +1,7 @@
 // Helper function to delete physical file (add to your utils/fileStorage.js)
 const fs = require('fs').promises;
 
-async function deleteFileFromStorage(filePath) {
+async function deleteFileFromStorage(filePath) { // Function to delete a file from storage
   try {
     await fs.unlink(filePath);
   } catch (error) {

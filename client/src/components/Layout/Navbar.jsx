@@ -7,6 +7,7 @@ export default function Navbar() {
   const { user, setUser, logout } = useAuth();
   const navigate = useNavigate();
 
+  // Function to handle user logout
   const handleLogout = async () => {
     try {
       await api.post('/auth/logout');

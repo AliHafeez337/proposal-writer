@@ -1,3 +1,6 @@
+// server/index.js
+
+// Import necessary modules
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -6,23 +9,24 @@ const connectDB = require('./db/connect');
 const authRoutes = require('./routes/auth');
 const proposalRoutes = require('./routes/proposals');
 const aiRoutes = require('./routes/ai');
-const financialRoutes = require('./routes/financial');
+// const financialRoutes = require('./routes/financial');
 const pricingRoutes = require('./routes/pricing');
 const requestLogger = require('./middleware/requestLogger');
 const logger = require('./utils/logger');
 
+// Initialize express app
 const app = express();
 
+// Catch unhandled promise rejections and uncaught exceptions
 process.on('uncaughtException', (error) => {
   logger.error('Uncaught Exception', error);
   process.exit(1);
 });
-
 process.on('unhandledRejection', (reason) => {
   logger.error('Unhandled Rejection', reason);
 });
 
-// Request logger
+// Middlewares
 app.use(requestLogger);
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path}`);
@@ -38,7 +42,7 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/proposals', proposalRoutes);
 app.use('/api/ai', aiRoutes);
-app.use('/api/financial', financialRoutes);
+// app.use('/api/financial', financialRoutes);
 app.use('/api/pricing', pricingRoutes);
 
 // Add a protected test route

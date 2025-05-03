@@ -23,6 +23,7 @@ export default function EditableWorkPlan({ id, workBreakdown = [], onUpdate }) {
     dependencies: []
   });
 
+  // to add new task
   const handleAddTask = () => {
     setEditingIndex(null);
     setCurrentTask({
@@ -33,18 +34,21 @@ export default function EditableWorkPlan({ id, workBreakdown = [], onUpdate }) {
     setIsEditing(true);
   };
 
+  // to edit task
   const handleEditTask = (index) => {
     setEditingIndex(index);
     setCurrentTask(tasks[index]);
     setIsEditing(true);
   };
 
+  // remove task
   const handleDeleteTask = (index) => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
     setIsEditing(false);
   };
 
+  // update task
   const handleSaveTask = () => {
     let updatedTasks;
     if (editingIndex !== null) {
@@ -59,6 +63,7 @@ export default function EditableWorkPlan({ id, workBreakdown = [], onUpdate }) {
     setIsEditing(false);
   };
 
+  // save work breakdown section
   const handleSave = () => {
     setIsSaving(true);
     saveSection(id, "workBreakdown", tasks)
@@ -72,10 +77,12 @@ export default function EditableWorkPlan({ id, workBreakdown = [], onUpdate }) {
       });
   };
 
+  // Show all the tasks except the one being edited in the dependencies dropdown
   const availableDependencies = tasks
     .filter((_, i) => i !== editingIndex)
     .map((task, i) => ({ id: i, name: task.task }));
 
+  // handle dependencies change
   const handleChangeDependencies = (e) => {
     setCurrentTask({
       ...currentTask,

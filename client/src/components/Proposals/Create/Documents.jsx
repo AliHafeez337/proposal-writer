@@ -41,19 +41,22 @@ export default function ProposalDocuments({ data, updateData }) {
     updateData({ ...data, userFeedback: feedback });
   }, [feedback, updateData]);
 
+  // Handle file upload
   const handleFileChange = (e) => {
     const newFiles = Array.from(e.target.files);
-    if (data.files.length + newFiles.length > 5) {
+    if (data.files.length + newFiles.length > 5) { // Check if total files exceed 5
       alert('Maximum 5 files allowed');
       return;
     }
     setFiles([...files, ...newFiles]);
   };
 
+  // Handle file removal
   const handleRemoveFile = (index) => {
     setFiles(files.filter((_, i) => i !== index));
   };
 
+  // Handle existing file removal
   const handleRemoveExistingFile = async (fileId) => {
     try {
       await deleteProposalFile(data._id, fileId);
@@ -66,6 +69,7 @@ export default function ProposalDocuments({ data, updateData }) {
     }
   };
 
+  // Handle upload files
   const handleUpload = async () => {
     if (files.length === 0) return;
 
@@ -81,6 +85,7 @@ export default function ProposalDocuments({ data, updateData }) {
     }
   };
 
+  // Handle initial AI analysis
   const handleAnalyze = async () => {
     if (!requirements.trim()) {
       alert('Please enter your requirements');
@@ -102,6 +107,7 @@ export default function ProposalDocuments({ data, updateData }) {
     }
   };
 
+  // Handle re-analysis
   const handleReAnalyze = async () => {
     if (!feedback.trim()) {
       alert('Please enter your feedback');

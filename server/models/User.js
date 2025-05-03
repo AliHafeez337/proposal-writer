@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({ // User Schema
 // Hash password before saving
 UserSchema.pre('save', async function(next) {
   if (!this.isModified('password')) return next();
-  this.password = await bcrypt.hash(this.password, 10);
+  this.password = await bcrypt.hash(this.password, 10); // Hash the password
   next();
 });
 
@@ -31,6 +31,7 @@ UserSchema.methods.comparePassword = async function(candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 };
 
+// Method to remove sensitive data before sending response
 UserSchema.methods.toJSON = function() {
   const user = this.toObject();
   delete user.password;

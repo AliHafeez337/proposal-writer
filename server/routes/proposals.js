@@ -56,7 +56,7 @@ router.get('/:id', auth, async (req, res) => {
   }
 });
 
-// Update proposal title
+// Update proposal title and description
 router.patch('/:id/title', auth, async (req, res) => {
   logger.info('Updating proposal title', { userId: req.userId, proposalId: req.params.id });
   try {
@@ -81,7 +81,7 @@ router.patch('/:id/title', auth, async (req, res) => {
 // Upload files to proposal
 router.post('/:id/files', auth, (req, res) => {
   logger.info('Uploading files to proposal', { userId: req.userId, proposalId: req.params.id });
-  upload.array('files')(req, res, async (err) => {
+  upload.array('files')(req, res, async (err) => { // Use multer.array middleware
     try {
       if (err) {
         logger.warn('File upload error', { error: err.message, userId: req.userId, proposalId: req.params.id });
@@ -100,6 +100,7 @@ router.post('/:id/files', auth, (req, res) => {
         return res.status(404).json({ error: 'Proposal not found' });
       }
 
+      // Save files to proposal
       proposal.files.push(...req.files.map(file => ({
         originalName: file.originalname,
         storageName: file.filename,
@@ -117,6 +118,7 @@ router.post('/:id/files', auth, (req, res) => {
   });
 });
 
+// Delete file from proposal
 router.delete('/:id/files/:fileId', auth, async (req, res) => {
   logger.info('Deleting file from proposal', { userId: req.userId, proposalId: req.params.id, fileId: req.params.fileId });
   const { id, fileId } = req.params;
@@ -171,6 +173,7 @@ router.patch('/:id/section/:section', auth, async (req, res) => {
       'timeline'
     ];
 
+    // Validate section
     if (!validSections.includes(req.params.section)) {
       logger.warn('Invalid section for update', { userId: req.userId, section: req.params.section });
       return res.status(400).json({ error: 'Invalid section' });

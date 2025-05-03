@@ -1,5 +1,4 @@
 const multer = require('multer');
-const path = require('path');
 
 // Allowed file types with MIME types
 const allowedFileTypes = {
@@ -10,7 +9,7 @@ const allowedFileTypes = {
 
 // File filter function
 const fileFilter = (req, file, cb) => {
-  if (allowedFileTypes[file.mimetype]) {
+  if (allowedFileTypes[file.mimetype]) { // Check if the file type is allowed
     cb(null, true);
   } else {
     console.log('File type:', file.mimetype);
@@ -20,12 +19,12 @@ const fileFilter = (req, file, cb) => {
 
 // Configure storage
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
+  destination: (req, file, cb) => { // Set the destination folder for file uploads
     cb(null, 'uploads/');
   },
-  filename: (req, file, cb) => {
+  filename: (req, file, cb) => { // Set the filename for the uploaded file
     const ext = allowedFileTypes[file.mimetype];
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9); // Generate a unique suffix
     cb(null, uniqueSuffix + '.' + ext);
   }
 });
@@ -34,7 +33,7 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage,
   fileFilter,
-  limits: {
+  limits: { // Set file size limit
     fileSize: 10 * 1024 * 1024 // 10MB limit
   }
 });

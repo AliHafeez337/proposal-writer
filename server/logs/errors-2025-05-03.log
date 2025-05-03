@@ -3,3 +3,30 @@
     at analyzeScopeAndDeliverables (/Volumes/Office/Mine/proposal-writer/server/services/aiService.js:50:15)
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
     at async /Volumes/Office/Mine/proposal-writer/server/routes/ai.js:42:22
+2025-05-03 12:42:21 [[31merror[39m]: Error: queryTxt EREFUSED cluster0.sq0iohb.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:293:17)
+2025-05-03 12:51:53 [[31merror[39m]: ValidationError: Proposal validation failed: content.deliverables.0.count: Path `count` (0) is less than minimum allowed value (1)., content.deliverables.1.count: Path `count` (0) is less than minimum allowed value (1)., content.deliverables.2.count: Path `count` (0) is less than minimum allowed value (1).
+    at Document.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3343:32)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3104:17
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/schemaType.js:1407:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-03 13:01:00 [[31merror[39m]: ValidationError: Proposal validation failed: content.deliverables.0.count: Path `count` (0) is less than minimum allowed value (1)., content.deliverables.1.count: Path `count` (0) is less than minimum allowed value (1)., content.deliverables.2.count: Path `count` (0) is less than minimum allowed value (1).
+    at Document.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3343:32)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3104:17
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/schemaType.js:1407:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-03 13:01:05 [[31merror[39m]: ValidationError: Proposal validation failed: content.deliverables.0.count: Path `count` (0) is less than minimum allowed value (1)., content.deliverables.1.count: Path `count` (0) is less than minimum allowed value (1)., content.deliverables.2.count: Path `count` (0) is less than minimum allowed value (1).
+    at Document.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3343:32)
+    at Subdocument.invalidate (/Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/types/subdocument.js:229:12)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/document.js:3104:17
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/mongoose/lib/schemaType.js:1407:9
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-03 13:03:37 [[31merror[39m]: ReferenceError: percentage is not defined
+    at /Volumes/Office/Mine/proposal-writer/server/routes/pricing.js:48:57
+    at Proxy.forEach (<anonymous>)
+    at /Volumes/Office/Mine/proposal-writer/server/routes/pricing.js:47:28
+    at Proxy.forEach (<anonymous>)
+    at /Volumes/Office/Mine/proposal-writer/server/routes/pricing.js:46:35
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

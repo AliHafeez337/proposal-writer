@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { getCurrentUser } from '../services/auth';
 
+// Create a context for authentication
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
@@ -15,6 +16,7 @@ export function AuthProvider({ children }) {
       return;
     }
 
+    // Fetch user data from the server if token is present
     const loadUser = async () => {
       try {
         const userData = await getCurrentUser();
@@ -29,6 +31,7 @@ export function AuthProvider({ children }) {
     loadUser();
   }, []);
 
+  // Object to be provided to consuming components (returned by useContext)
   const value = {
     user,
     loading,

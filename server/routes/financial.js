@@ -30,7 +30,7 @@ router.post('/:id/pricing', auth, async (req, res) => {
   }
 });
 
-// Update payment schedule
+// Update payment schedule (might not be used, its also not good to take total price from outside...)
 router.post('/:id/payments', auth, async (req, res) => {
   logger.info('Updating payment schedule for proposal', { userId: req.userId, proposalId: req.params.id });
   try {

@@ -1,4 +1,4 @@
-const parseWorkBreakdown = (workBreakdown) => {
+const parseWorkBreakdown = (workBreakdown) => { // Helper function to parse days from work breakdown
   return workBreakdown.map(task => {
     // Convert string durations like "2 weeks" to days
     if (typeof task.duration === 'string') {
@@ -13,7 +13,7 @@ const parseWorkBreakdown = (workBreakdown) => {
 };
 
 
-const cleanDeliverables = (deliverables) => {
+const cleanDeliverables = (deliverables) => { // Helper function to clean the count (quantity) field in deliverables. Change string to some definative number
   return deliverables.map(item => {
     // Convert string counts to numbers or set default
     if (item.count && typeof item.count === 'string') {

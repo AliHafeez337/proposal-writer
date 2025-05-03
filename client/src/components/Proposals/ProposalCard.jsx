@@ -1,6 +1,5 @@
 import { Card, CardContent, Typography, Button, CardActions, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { deleteProposal } from '../../services/proposals.js';
 
 export default function ProposalCard({ proposal, onDelete }) {
   return (

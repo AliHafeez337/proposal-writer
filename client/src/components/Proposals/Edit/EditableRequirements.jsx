@@ -59,6 +59,7 @@ export default function EditableRequirements({ id, requirements = [], onUpdate }
     handleSave(updatedRequirements);
   };
 
+  // Save this section
   const handleSave = (updatedRequirements) => {
     saveSection(id, "requirements", updatedRequirements)
       .then(data => onUpdate(data))

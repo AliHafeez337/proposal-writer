@@ -9,6 +9,7 @@ export default function RegisterForm() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

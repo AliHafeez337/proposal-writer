@@ -39,11 +39,11 @@ router.post('/:id/process', auth, async (req, res) => {
     const requirements = proposal.userRequirements || '';
 
     logger.info('Analyzing scope and deliverables', { proposalId: req.params.id });
-    const analysis = await analyzeScopeAndDeliverables(description, requirements);
+    const analysis = await analyzeScopeAndDeliverables(description, requirements); // AI analysis
 
     if (analysis.deliverables) {
       logger.info('Cleaning deliverables', { proposalId: req.params.id });
-      analysis.deliverables = cleanDeliverables(analysis.deliverables);
+      analysis.deliverables = cleanDeliverables(analysis.deliverables); // Clean deliverables for count field
     }
     
     proposal.content = analysis;
@@ -83,11 +83,11 @@ router.post('/:id/analyze', auth, async (req, res) => {
       proposal.content.deliverables,
       proposal.userRequirements || '',
       proposal.userFeedback || '',
-    );
+    ); // AI analysis
 
     if (analysis.deliverables) {
       logger.info('Cleaning deliverables', { proposalId: req.params.id });
-      analysis.deliverables = cleanDeliverables(analysis.deliverables);
+      analysis.deliverables = cleanDeliverables(analysis.deliverables); // Clean deliverables for count field
     }
     
     proposal.content = analysis;
@@ -126,11 +126,11 @@ router.post('/:id/generate', auth, async (req, res) => {
       proposal.content.deliverables,
       proposal.userRequirements || '',
       proposal.userFeedback || '',
-    );
+    ); // AI generation
 
     if (fullProposal.workBreakdown) {
       logger.info('Parsing work breakdown', { proposalId: req.params.id });
-      fullProposal.workBreakdown = parseWorkBreakdown(fullProposal.workBreakdown);
+      fullProposal.workBreakdown = parseWorkBreakdown(fullProposal.workBreakdown); // Parse work breakdown for days field
     }
 
     proposal.content = { 

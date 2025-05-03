@@ -14,6 +14,7 @@ import AddIcon from '@mui/icons-material/Add';
 import CircularProgress from '@mui/material/CircularProgress';
 import { saveSection } from '../../../services/proposals.js';
 
+// Helper function to calculate the total percentage of all milestones except the one being edited (if provided)
 const calculateTotalPercentage = (allPhases, currentPhaseIndex = null) => {
   let total = 0;
   
@@ -51,9 +52,9 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
 
   useEffect(() => {
     setPhases(timeline);
-    console.log('timeline:', timeline);
   }, [timeline]);
 
+  // Add a new phase
   const handleAddPhase = () => {
     setEditingIndex(null);
     setCurrentPhase({
@@ -73,12 +74,14 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
     setIsEditing(true);
   };
 
+  // Remove a phase
   const handleDeletePhase = (index) => {
     const updatedPhases = phases.filter((_, i) => i !== index);
     setPhases(updatedPhases);
     setIsEditing(false);
   };
 
+  // Update a phase
   const handleEditPhase = (index) => {
     setEditingIndex(index);
     const phaseToEdit = phases[index];
@@ -101,6 +104,7 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
     setIsEditing(true);
   };
 
+  // Save the phase being edited
   const handleSavePhase = () => {
     const globalTotal = calculateTotalPercentage(phases, editingIndex) +
                        currentPhase.milestones.reduce((sum, m) => sum + m.percentage, 0);
@@ -183,6 +187,10 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
 
         paymentAmount = Number(total * (newValue / 100));
       }
+
+      if (paymentAmount) {
+        paymentAmount = Math.round(paymentAmount * 100) / 100;
+      }
   
       updatedMilestones[index] = {
         ...updatedMilestones[index],
@@ -194,6 +202,7 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
     });
   };
 
+  // Save this section.
   const handleSave = () => {
     setIsSaving(true);
     saveSection(id, "timeline", phases)
@@ -207,12 +216,11 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
       });
   };
 
+  // Available tasks for the dropdown
   const availableTasks = workBreakdown.map((task, index) => ({
     id: index,
     name: task.task
   }));
-
-  console.log('currentPhase', currentPhase);
 
   return (
     <Paper elevation={1} sx={{ p: 3 }}>

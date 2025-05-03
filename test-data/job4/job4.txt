@@ -1,0 +1,35 @@
+We're looking for a reliable developer to support me with a Next.js-based monorepo project that has grown over time and now needs some regular care. The codebase includes:
+• Two separate Next.js 15 applications (built with TypeScript)
+• A few internal shared packages (think: utilities, database access, auth logic, etc.)
+• Infrastructure defined in code using AWS CDK (TypeScript)
+• Tooling managed via Turborepo and npm workspaces
+
+This project is functional and actively used, but since it’s evolved quite a bit, it’s not trivial to jump into without context. I’ll provide documentation, an onboarding video, and direct access to ask questions.
+
+What I need from you:
+
+On-demand development support, such as:
+• Implementing small features in the apps (e.g. new UI components, API routes, user flows)
+• Fixing occasional bugs (especially when they’re buried in shared packages)
+• Adjusting or extending the CDK infrastructure (e.g. adding a new Lambda, tweaking IAM roles, or setting up a new S3 bucket)
+
+Ideal experience:
+• Solid knowledge of Next.js and modern React
+• Familiarity with TypeScript in monorepo environments
+• Experience working with AWS CDK and a good understanding of AWS services (Lambda, API Gateway, S3, etc.)
+• Comfortable with Turborepo and workspaces (or willing to learn quickly)
+• Good communication and ability to work independently (I’ll give you tasks and context, but I don’t want to micromanage)
+
+How we’ll work together:
+This is a long-term, part-time collaboration. I’ll assign tasks occasionally — sometimes it’s a quick fix, other times it might be a new feature. You should be comfortable:
+• Cloning and running a monorepo locally
+• Reviewing and understanding existing code before jumping in
+• Delivering clean, testable code via PRs
+• Communicating transparently if something is unclear
+
+If this sounds like something you could help with, please apply with a short message:
+• Mention any relevant experience with monorepos and CDK
+• Bonus points if you can share code samples or projects you’ve worked on
+
+Looking forward to hearing from you!
+Luis

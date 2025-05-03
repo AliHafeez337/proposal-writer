@@ -10,6 +10,7 @@ export default function EditableText({ id, key1, key2, text1, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
+  // Save this section.
   const handleSave = () => {
     setIsSaving(true);
     saveSection(id, key1, localText)

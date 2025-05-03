@@ -34,6 +34,7 @@ router.post('/:id/items', auth, async (req, res) => {
     // Replace all pricing items
     proposal.pricing.items = req.body.items;
 
+    // Calculate total price
     proposal.pricing.total = proposal.pricing.items.reduce((sum, item) => {
       const deliverable = proposal.content.deliverables.id(item.deliverableId);
       return sum + (item.unitPrice * (deliverable?.count || 0));
@@ -44,7 +45,7 @@ router.post('/:id/items', auth, async (req, res) => {
       if (proposal.content.timeline[0].milestones && proposal.content.timeline[0].milestones.length > 0) { // if milestones exist, update them
         proposal.content.timeline.forEach(phase => {
           phase.milestones.forEach(milestone => {
-            milestone.paymentAmount = Number(milestone.percentage * proposal.pricing.total / 100);
+            milestone.paymentAmount = Math.round(Number(milestone.percentage * proposal.pricing.total / 100) * 100) / 100;
           });
         });
       } else {
@@ -54,15 +55,15 @@ router.post('/:id/items', auth, async (req, res) => {
           phase.milestones = [{
             phaseId: phase._id,
             name: "Initial",
-            percentage: percentage,
-            paymentAmount: Number(percentage * proposal.pricing.total / 100),
+            percentage: Math.round(percentage * 100) / 100,
+            paymentAmount: Math.round(Number(percentage * proposal.pricing.total / 100) * 100) / 100,
             dueDate: phase.endDate,
           }];
         })
       }
     }
 
-    await proposal.save(); // Auto-calculates total
+    await proposal.save(); // Auto-calculates total too... (but we needed it before editing milestones. we can also edit them in .pre("save") and update methods...)
 
     logger.info('Deliverable prices updated successfully', { proposalId: req.params.id });
     res.json(proposal);
