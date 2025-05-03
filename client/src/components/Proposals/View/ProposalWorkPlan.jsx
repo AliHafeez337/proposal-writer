@@ -15,16 +15,20 @@ const ProposalWorkPlan = ({ workBreakdown, sx = {} }) => {
                   primary={`${task.task} (${task.duration} days)`}
                   secondary={
                     task.dependencies?.length > 0 ? (
-                      <Typography 
-                        component="span" 
-                        variant="body2"
-                        sx={{ display: 'inline-flex', alignItems: 'center', gap: 0.5 }}
-                      >
-                        Depends on: 
-                        {task.dependencies.map((dep, i) => (
-                          <Chip key={i} label={dep} size="small" />
-                        ))}
-                      </Typography>
+                      <div>
+                        <Typography variant="caption" component="div">
+                          Depends on:
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, mt: 0.5 }}>
+                          {task.dependencies.map((depIndex, i) => (
+                            <Chip 
+                              key={i}
+                              label={workBreakdown[depIndex]?.task || `Task ${depIndex + 1}`}
+                              size="small"
+                            />
+                          ))}
+                        </Box>
+                      </div>
                     ) : null
                   }
                   primaryTypographyProps={{ fontWeight: 'medium' }}

@@ -31,17 +31,17 @@ const ProposalTimeline = ({ timeline }) => (
                           display="block" 
                           sx={{ mt: 1 }}
                         >
-                          Milestones:
+                          Depends on:
                         </Typography>
                         <Box 
                           component="span" 
                           display="block" 
                           sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 0.5 }}
                         >
-                          {phase.milestones.map((milestone, i) => (
+                          {phase.tasks.map((dep, i) => (
                             <Chip 
                               key={i}
-                              label={`${milestone.name} (${milestone.percentage}%)`}
+                              label={`${timeline[+dep].phase}`}
                               size="small"
                               variant="outlined"
                             />

@@ -1,0 +1,5 @@
+2025-05-03 10:43:55 [[31merror[39m]: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at analyzeScopeAndDeliverables (/Volumes/Office/Mine/proposal-writer/server/services/aiService.js:50:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Volumes/Office/Mine/proposal-writer/server/routes/ai.js:42:22

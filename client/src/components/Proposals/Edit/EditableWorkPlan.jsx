@@ -76,6 +76,13 @@ export default function EditableWorkPlan({ id, workBreakdown = [], onUpdate }) {
     .filter((_, i) => i !== editingIndex)
     .map((task, i) => ({ id: i, name: task.task }));
 
+  const handleChangeDependencies = (e) => {
+    setCurrentTask({
+      ...currentTask,
+      dependencies: e.target.value
+    });
+  }
+
   return (
     <Paper elevation={1} sx={{ p: 3 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
@@ -182,10 +189,7 @@ export default function EditableWorkPlan({ id, workBreakdown = [], onUpdate }) {
             <Select
               multiple
               value={currentTask.dependencies}
-              onChange={(e) => setCurrentTask({
-                ...currentTask,
-                dependencies: e.target.value
-              })}
+              onChange={handleChangeDependencies}
               renderValue={(selected) => (
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                   {selected.map((value) => (

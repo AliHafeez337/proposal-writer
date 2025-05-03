@@ -178,8 +178,19 @@ const ProposalPDF = ({ proposal }) => (
           <View key={i} style={[styles.item, { marginBottom: 10 }]}>
             <Text style={styles.itemTitle}>{task.task} ({task.duration} days)</Text>
             {task.dependencies?.length > 0 && (
-              <Text style={{ fontSize: 10 }}>Depends on: {task.dependencies.join(', ')}</Text>
+              <Text style={{ fontSize: 10 }}>Depends on:</Text>
             )}
+            {
+              task.dependencies?.map((dep, j) => (
+                <View key={j} style={{ fontSize: 10 }}>
+                  <Text>• &nbsp;
+                    {
+                      isNaN(dep) ? dep : proposal.content?.workBreakdown[+dep]?.task || `Task ${+dep + 1}`
+                    }
+                  </Text>
+                </View>
+              ))
+            }
           </View>
         ))}
       </View>
@@ -193,11 +204,16 @@ const ProposalPDF = ({ proposal }) => (
             <Text style={{ fontSize: 10, color: '#666' }}>
               {new Date(phase.startDate).toLocaleDateString()} - {new Date(phase.endDate).toLocaleDateString()}
             </Text>
-            {phase.milestones?.map((m, j) => (
+            {phase.tasks?.map((t, j) => (
+              <View key={j} style={styles.milestone}>
+                <Text>• {proposal.content?.timeline[+t]?.phase}</Text>
+              </View>
+            ))}
+            {/* {phase.milestones?.map((m, j) => (
               <View key={j} style={styles.milestone}>
                 <Text>• {m.name}: {m.percentage}% (${m.paymentAmount?.toFixed(2)}) - Due {new Date(m.dueDate).toLocaleDateString()}</Text>
               </View>
-            ))}
+            ))} */}
           </View>
         ))}
       </View>

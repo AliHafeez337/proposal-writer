@@ -1,0 +1,56 @@
+We’re a fast-moving Canadian AI startup on a mission to disrupt and automate processes in specific industries. We’re looking for a talented Full-Stack Developer to join our agile team and help build cutting-edge products and intelligent backend services.
+
+🔧 Tech Stack (Core Requirements)
+We are looking for someone with strong experience in:
+
+Python
+
+Node.js
+
+TypeScript
+
+Ruby on Rails
+
+Vue.js and ReactNative
+
+PostgreSQL
+
+You don’t need to know everything on this list, but solid experience in several is important. We're particularly interested in developers who are versatile and comfortable across the stack.
+
+💡 Bonus Skills (Nice to Have)
+These are not mandatory, but would be considered strong assets:
+
+Experience with AI assistants and automation frameworks
+
+Familiarity with cloud platforms, especially AWS (Lambda, S3) or Google Cloud
+
+🎯 Responsibilities
+Collaborate with product, design, and AI engineers to deliver robust backend services and intuitive frontend interfaces
+
+Build and maintain APIs, automation workflows, and database systems
+
+Contribute to both MVP development and long-term platform scalability
+
+Participate in sprint planning, code reviews, and architectural discussions
+
+🧠 About You
+You’re a self-starter who thrives in a startup environment
+
+You care about code quality, best practices, and building something meaningful
+
+You’re available for ongoing collaboration and can communicate clearly in English
+
+📍 Location & Time Zone
+Remote work is welcome, but overlap with North American (EST/EDT) time zone is required for team meetings and syncs
+
+Interested? Please apply with:
+
+A brief introduction and why you’re a good fit
+
+Your relevant experience with the listed tech stack
+
+Links to past projects or GitHub (if available)
+
+Your availability and hourly rate
+
+Looking forward to building something great together! 💡

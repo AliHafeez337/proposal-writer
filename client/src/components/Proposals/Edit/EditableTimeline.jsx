@@ -285,6 +285,33 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
                           </Box>
                         </Typography>
                       )}
+
+                      {phase.milestones?.length > 0 && (
+                        <>
+                          <Typography 
+                            variant="caption" 
+                            component="span" 
+                            display="block" 
+                            sx={{ mt: 1 }}
+                          >
+                            Milestones:
+                          </Typography>
+                          <Box 
+                            component="span" 
+                            display="block" 
+                            sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 0.5 }}
+                          >
+                            {phase.milestones.map((milestone, i) => (
+                              <Chip 
+                                key={i}
+                                label={`${milestone.name} (${milestone.percentage}%)`}
+                                size="small"
+                                variant="outlined"
+                              />
+                            ))}
+                          </Box>
+                        </>
+                      )}
                     </>
                   }
                   primaryTypographyProps={{ fontWeight: 'medium' }}
@@ -393,7 +420,7 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
               {currentPhase.milestones?.map((milestone, index) => (
                 <Box key={index} sx={{ p: 2, border: '1px solid #eee', borderRadius: 1 }}>
                   <Grid container spacing={2}>
-                    <Grid xs={12} sm={4}>
+                    <Grid size={{ xs: 12, sm: 4 }}>
                       <TextField
                         label="Milestone Name"
                         value={milestone.name}
@@ -401,7 +428,7 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
                         fullWidth
                       />
                     </Grid>
-                    <Grid xs={12} sm={3}>
+                    <Grid size={{ xs: 12, sm: 3 }}>
                       <DatePicker
                         label="Due Date"
                         value={milestone.dueDate}
@@ -411,7 +438,7 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
                         slotProps={{ textField: { fullWidth: true } }}
                       />
                     </Grid>
-                    <Grid xs={12} sm={2}>
+                    <Grid size={{ xs: 12, sm: 3 }}>
                       <TextField
                         label="Percentage"
                         type="number"
@@ -424,7 +451,7 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
                         fullWidth
                       />
                     </Grid>
-                    <Grid xs={12} sm={2}>
+                    <Grid size={{ xs: 12, sm: 2 }}>
                       <TextField
                         label="Payment Amount"
                         type="number"
@@ -433,7 +460,7 @@ export default function EditableTimeline({ id, timeline = [], workBreakdown = []
                         disabled
                       />
                     </Grid>
-                    <Grid xs={12} sm={1} sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Grid sx={{ display: 'flex', alignItems: 'center' }} size={{ xs: 12, sm: 1 }}>
                       <IconButton 
                         onClick={() => handleDeleteMilestone(index)}
                         color="error"
