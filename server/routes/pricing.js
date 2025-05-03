@@ -11,7 +11,7 @@ router.post('/:id/items', auth, async (req, res) => {
     const proposal = await Proposal.findOne({
       _id: req.params.id,
       user: req.userId,
-      status: 'complete' // Only allow pricing after generation
+      status: 'generated' // Only allow pricing after generation
     });
 
     if (!proposal) {
@@ -62,6 +62,8 @@ router.post('/:id/items', auth, async (req, res) => {
         })
       }
     }
+
+    proposal.status = 'complete'; // Set status to ready after pricing is updated
 
     await proposal.save(); // Auto-calculates total too... (but we needed it before editing milestones. we can also edit them in .pre("save") and update methods...)
 

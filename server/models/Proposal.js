@@ -9,7 +9,7 @@ const ProposalSchema = new mongoose.Schema({ // Proposal Schema
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // User who created the proposal
   status: {
     type: String,
-    enum: ['draft', 'initial_analysis', 'reviewing', 'complete'],
+    enum: ['draft', 'initial_analysis', 'reviewing', 'generated', 'complete'],
     default: 'draft'
   },
   files: [{

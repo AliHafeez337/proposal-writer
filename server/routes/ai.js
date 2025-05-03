@@ -137,7 +137,7 @@ router.post('/:id/generate', auth, async (req, res) => {
       ...proposal.content, // Keep scope/deliverables
       ...fullProposal      // Add new sections
     };
-    proposal.status = 'complete';
+    proposal.status = 'generated';
     await proposal.save();
 
     logger.info('Full proposal generation completed successfully', { proposalId: req.params.id });

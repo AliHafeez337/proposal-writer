@@ -1318,3 +1318,201 @@
 2025-05-03 14:58:10 [[32minfo[39m]: Token
 2025-05-03 14:58:10 [[32minfo[39m]: Fetching all proposals for user
 2025-05-03 15:02:41 [[32minfo[39m]: MongoDB connected successfully
+2025-05-03 18:17:26 [[32minfo[39m]: MongoDB connected successfully
+2025-05-03 18:17:27 [[32minfo[39m]: User login attempt
+2025-05-03 18:17:27 [[32minfo[39m]: User logged in successfully
+2025-05-03 18:17:29 [[32minfo[39m]: Token
+2025-05-03 18:17:29 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:17:29 [[32minfo[39m]: Token
+2025-05-03 18:17:29 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:17:32 [[32minfo[39m]: Token
+2025-05-03 18:17:32 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:17:32 [[32minfo[39m]: Token
+2025-05-03 18:17:32 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:18:23 [[32minfo[39m]: Token
+2025-05-03 18:18:23 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:18:55 [[32minfo[39m]: MongoDB connected successfully
+2025-05-03 18:18:58 [[32minfo[39m]: Token
+2025-05-03 18:18:58 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:18:58 [[32minfo[39m]: Token
+2025-05-03 18:18:58 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:19:00 [[32minfo[39m]: Token
+2025-05-03 18:19:00 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:19:00 [[32minfo[39m]: Token
+2025-05-03 18:19:00 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:19:11 [[32minfo[39m]: Token
+2025-05-03 18:19:11 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:19:11 [[32minfo[39m]: Token
+2025-05-03 18:19:11 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:19:15 [[32minfo[39m]: Token
+2025-05-03 18:19:15 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:19:15 [[32minfo[39m]: Token
+2025-05-03 18:19:15 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:19:23 [[32minfo[39m]: Token
+2025-05-03 18:19:23 [[32minfo[39m]: Creating a new proposal
+2025-05-03 18:19:23 [[32minfo[39m]: Token
+2025-05-03 18:19:23 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:19:57 [[32minfo[39m]: Token
+2025-05-03 18:19:57 [[32minfo[39m]: Starting AI processing for proposal
+2025-05-03 18:19:58 [[32minfo[39m]: Extracting text from proposal files
+2025-05-03 18:19:58 [[32minfo[39m]: Analyzing scope and deliverables
+2025-05-03 18:20:00 [[32minfo[39m]: Cleaning deliverables
+2025-05-03 18:20:00 [[32minfo[39m]: AI processing completed successfully
+2025-05-03 18:20:09 [[32minfo[39m]: Token
+2025-05-03 18:20:09 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-03 18:20:10 [[32minfo[39m]: Generating full proposal content
+2025-05-03 18:20:12 [[32minfo[39m]: Cleaning deliverables
+2025-05-03 18:20:12 [[32minfo[39m]: AI processing completed successfully
+2025-05-03 18:20:16 [[32minfo[39m]: Token
+2025-05-03 18:20:16 [[32minfo[39m]: Starting full proposal generation
+2025-05-03 18:20:16 [[32minfo[39m]: Generating full proposal content
+2025-05-03 18:20:19 [[32minfo[39m]: Parsing work breakdown
+2025-05-03 18:20:19 [[32minfo[39m]: Full proposal generation completed successfully
+2025-05-03 18:20:36 [[32minfo[39m]: Token
+2025-05-03 18:20:36 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:20:36 [[32minfo[39m]: Token
+2025-05-03 18:20:36 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:20:38 [[32minfo[39m]: Token
+2025-05-03 18:20:38 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:20:38 [[32minfo[39m]: Token
+2025-05-03 18:20:38 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:20:42 [[32minfo[39m]: Token
+2025-05-03 18:20:42 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:20:42 [[32minfo[39m]: Token
+2025-05-03 18:20:42 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:20:44 [[32minfo[39m]: Token
+2025-05-03 18:20:44 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:20:44 [[32minfo[39m]: Token
+2025-05-03 18:20:44 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:21:10 [[32minfo[39m]: MongoDB connected successfully
+2025-05-03 18:21:23 [[32minfo[39m]: MongoDB connected successfully
+2025-05-03 18:21:28 [[32minfo[39m]: Token
+2025-05-03 18:21:28 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:21:28 [[32minfo[39m]: Token
+2025-05-03 18:21:28 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:21:29 [[32minfo[39m]: Token
+2025-05-03 18:21:29 [[32minfo[39m]: Deleting proposal
+2025-05-03 18:21:43 [[32minfo[39m]: Token
+2025-05-03 18:21:43 [[32minfo[39m]: Creating a new proposal
+2025-05-03 18:21:43 [[32minfo[39m]: Token
+2025-05-03 18:21:43 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:21:57 [[32minfo[39m]: Token
+2025-05-03 18:21:57 [[32minfo[39m]: Starting AI processing for proposal
+2025-05-03 18:21:57 [[32minfo[39m]: Extracting text from proposal files
+2025-05-03 18:21:57 [[32minfo[39m]: Analyzing scope and deliverables
+2025-05-03 18:22:00 [[32minfo[39m]: Cleaning deliverables
+2025-05-03 18:22:00 [[32minfo[39m]: AI processing completed successfully
+2025-05-03 18:22:09 [[32minfo[39m]: Token
+2025-05-03 18:22:09 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-03 18:22:10 [[32minfo[39m]: Generating full proposal content
+2025-05-03 18:22:13 [[32minfo[39m]: Cleaning deliverables
+2025-05-03 18:22:13 [[32minfo[39m]: AI processing completed successfully
+2025-05-03 18:22:17 [[32minfo[39m]: Token
+2025-05-03 18:22:17 [[32minfo[39m]: Starting full proposal generation
+2025-05-03 18:22:17 [[32minfo[39m]: Generating full proposal content
+2025-05-03 18:22:21 [[32minfo[39m]: Parsing work breakdown
+2025-05-03 18:22:21 [[32minfo[39m]: Full proposal generation completed successfully
+2025-05-03 18:22:28 [[32minfo[39m]: Token
+2025-05-03 18:22:28 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:22:28 [[32minfo[39m]: Token
+2025-05-03 18:22:28 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:22:53 [[32minfo[39m]: MongoDB connected successfully
+2025-05-03 18:22:58 [[32minfo[39m]: Token
+2025-05-03 18:22:58 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:22:58 [[32minfo[39m]: Token
+2025-05-03 18:22:58 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:23:00 [[32minfo[39m]: Token
+2025-05-03 18:23:00 [[32minfo[39m]: Deleting proposal
+2025-05-03 18:23:05 [[32minfo[39m]: Token
+2025-05-03 18:23:05 [[32minfo[39m]: Creating a new proposal
+2025-05-03 18:23:06 [[32minfo[39m]: Token
+2025-05-03 18:23:06 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:23:18 [[32minfo[39m]: Token
+2025-05-03 18:23:18 [[32minfo[39m]: Starting AI processing for proposal
+2025-05-03 18:23:18 [[32minfo[39m]: Extracting text from proposal files
+2025-05-03 18:23:18 [[32minfo[39m]: Analyzing scope and deliverables
+2025-05-03 18:23:21 [[32minfo[39m]: Cleaning deliverables
+2025-05-03 18:23:21 [[32minfo[39m]: AI processing completed successfully
+2025-05-03 18:23:30 [[32minfo[39m]: Token
+2025-05-03 18:23:30 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-03 18:23:30 [[32minfo[39m]: Generating full proposal content
+2025-05-03 18:23:33 [[32minfo[39m]: Cleaning deliverables
+2025-05-03 18:23:33 [[32minfo[39m]: AI processing completed successfully
+2025-05-03 18:23:37 [[32minfo[39m]: Token
+2025-05-03 18:23:37 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:23:37 [[32minfo[39m]: Token
+2025-05-03 18:23:37 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:23:39 [[32minfo[39m]: Token
+2025-05-03 18:23:39 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:23:39 [[32minfo[39m]: Token
+2025-05-03 18:23:39 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:23:42 [[32minfo[39m]: Token
+2025-05-03 18:23:42 [[32minfo[39m]: Starting full proposal generation
+2025-05-03 18:23:42 [[32minfo[39m]: Generating full proposal content
+2025-05-03 18:23:46 [[32minfo[39m]: Parsing work breakdown
+2025-05-03 18:23:46 [[32minfo[39m]: Full proposal generation completed successfully
+2025-05-03 18:23:50 [[32minfo[39m]: Token
+2025-05-03 18:23:50 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:23:50 [[32minfo[39m]: Token
+2025-05-03 18:23:50 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:23:54 [[32minfo[39m]: Token
+2025-05-03 18:23:54 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:23:54 [[32minfo[39m]: Token
+2025-05-03 18:23:54 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:25:09 [[32minfo[39m]: Token
+2025-05-03 18:25:09 [[32minfo[39m]: Updating proposal section
+2025-05-03 18:25:09 [[32minfo[39m]: Token
+2025-05-03 18:25:09 [[32minfo[39m]: Updating deliverable prices
+2025-05-03 18:25:10 [[32minfo[39m]: Deliverable prices updated successfully
+2025-05-03 18:25:13 [[32minfo[39m]: Token
+2025-05-03 18:25:13 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:25:13 [[32minfo[39m]: Token
+2025-05-03 18:25:13 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:25:15 [[32minfo[39m]: Token
+2025-05-03 18:25:15 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:25:15 [[32minfo[39m]: Token
+2025-05-03 18:25:15 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:27:27 [[32minfo[39m]: Token
+2025-05-03 18:27:27 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:27:27 [[32minfo[39m]: Token
+2025-05-03 18:27:27 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:27:34 [[32minfo[39m]: Token
+2025-05-03 18:27:34 [[32minfo[39m]: Creating a new proposal
+2025-05-03 18:27:34 [[32minfo[39m]: Token
+2025-05-03 18:27:34 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:27:48 [[32minfo[39m]: Token
+2025-05-03 18:27:48 [[32minfo[39m]: Starting AI processing for proposal
+2025-05-03 18:27:48 [[32minfo[39m]: Extracting text from proposal files
+2025-05-03 18:27:48 [[32minfo[39m]: Analyzing scope and deliverables
+2025-05-03 18:27:51 [[32minfo[39m]: Cleaning deliverables
+2025-05-03 18:27:51 [[32minfo[39m]: AI processing completed successfully
+2025-05-03 18:28:09 [[32minfo[39m]: Token
+2025-05-03 18:28:09 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:28:09 [[32minfo[39m]: Token
+2025-05-03 18:28:09 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:28:11 [[32minfo[39m]: Token
+2025-05-03 18:28:11 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:28:11 [[32minfo[39m]: Token
+2025-05-03 18:28:11 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:28:15 [[32minfo[39m]: Token
+2025-05-03 18:28:15 [[32minfo[39m]: Starting full proposal generation
+2025-05-03 18:28:15 [[32minfo[39m]: Generating full proposal content
+2025-05-03 18:28:18 [[32minfo[39m]: Parsing work breakdown
+2025-05-03 18:28:19 [[32minfo[39m]: Full proposal generation completed successfully
+2025-05-03 18:28:21 [[32minfo[39m]: Token
+2025-05-03 18:28:21 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:28:21 [[32minfo[39m]: Token
+2025-05-03 18:28:21 [[32minfo[39m]: Fetching all proposals for user
+2025-05-03 18:28:24 [[32minfo[39m]: Token
+2025-05-03 18:28:24 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:28:24 [[32minfo[39m]: Token
+2025-05-03 18:28:24 [[32minfo[39m]: Fetching single proposal
+2025-05-03 18:28:53 [[32minfo[39m]: Token
+2025-05-03 18:28:53 [[32minfo[39m]: Updating proposal section
+2025-05-03 18:28:53 [[32minfo[39m]: Token
+2025-05-03 18:28:53 [[32minfo[39m]: Updating deliverable prices
+2025-05-03 18:28:54 [[32minfo[39m]: Deliverable prices updated successfully
+2025-05-03 18:30:02 [[32minfo[39m]: Token
+2025-05-03 18:30:02 [[32minfo[39m]: Updating proposal section
+2025-05-03 18:30:29 [[32minfo[39m]: Token
+2025-05-03 18:30:29 [[32minfo[39m]: Updating proposal section

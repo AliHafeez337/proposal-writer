@@ -46,6 +46,8 @@ export default function CreateProposal() {
         setActiveStep(1);
       } else if (proposalData.status === 'reviewing') {
         setActiveStep(2);
+      } else if (proposalData.status === 'generated') {
+        setActiveStep(2);
       } else if (proposalData.status === 'complete') {
         setActiveStep(3);
       }
