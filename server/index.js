@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 app.use(cors({
   origin: [
     'http://localhost:5173', // Local frontend
-    'https://proposal-writer-two.vercel.app/' // Production frontend
+    process.env.FRONTEND_URL, // Production frontend
   ],
   credentials: true, // Required for cookies/sessions
   optionsSuccessStatus: 200 // Some legacy browsers choke on 204
