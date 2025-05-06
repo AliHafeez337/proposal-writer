@@ -239,7 +239,7 @@ export default function ProposalDocuments({ data, updateData }) {
               <Button
                 variant="contained"
                 onClick={handleAnalyze}
-                disabled={isAnalyzing}
+                disabled={isAnalyzing || data.content.timeline?.length > 0}
                 startIcon={isAnalyzing ? <CircularProgress size={20} /> : null}
               >
                 {isAnalyzing ? 'Analyzing...' : 'Analyze'}
@@ -283,7 +283,7 @@ export default function ProposalDocuments({ data, updateData }) {
                     <Button
                       variant="contained"
                       onClick={handleReAnalyze}
-                      disabled={isReAnalyzing}
+                      disabled={isReAnalyzing || data.content.timeline?.length > 0}
                       startIcon={isReAnalyzing ? <CircularProgress size={20} /> : null}
                     >
                       {isReAnalyzing ? 'Reanalyzing...' : 'Reanalyze'}

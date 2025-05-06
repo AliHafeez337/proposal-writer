@@ -1,0 +1,177 @@
+2025-05-06 12:56:34 [[32minfo[39m]: MongoDB connected successfully
+2025-05-06 13:02:08 [[31merror[39m]: TokenExpiredError: jwt expired
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/jsonwebtoken/verify.js:190:21
+    at getSecret (/Volumes/Office/Mine/proposal-writer/server/node_modules/jsonwebtoken/verify.js:97:14)
+    at module.exports [as verify] (/Volumes/Office/Mine/proposal-writer/server/node_modules/jsonwebtoken/verify.js:101:10)
+    at auth (/Volumes/Office/Mine/proposal-writer/server/middleware/auth.js:14:25)
+    at Layer.handleRequest (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/layer.js:152:17)
+    at next (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/route.js:117:3)
+    at handle (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/layer.js:152:17)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:295:15
+    at processParams (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:582:12)
+    at next (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:291:5)
+    at Function.handle (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:186:3)
+    at router (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:60:12)
+    at Layer.handleRequest (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:342:13)
+2025-05-06 13:02:08 [[31merror[39m]: TokenExpiredError: jwt expired
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/jsonwebtoken/verify.js:190:21
+    at getSecret (/Volumes/Office/Mine/proposal-writer/server/node_modules/jsonwebtoken/verify.js:97:14)
+    at module.exports [as verify] (/Volumes/Office/Mine/proposal-writer/server/node_modules/jsonwebtoken/verify.js:101:10)
+    at auth (/Volumes/Office/Mine/proposal-writer/server/middleware/auth.js:14:25)
+    at Layer.handleRequest (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/layer.js:152:17)
+    at next (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/route.js:157:13)
+    at Route.dispatch (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/route.js:117:3)
+    at handle (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:435:11)
+    at Layer.handleRequest (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/layer.js:152:17)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:295:15
+    at processParams (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:582:12)
+    at next (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:291:5)
+    at Function.handle (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:186:3)
+    at router (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:60:12)
+    at Layer.handleRequest (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/lib/layer.js:152:17)
+    at trimPrefix (/Volumes/Office/Mine/proposal-writer/server/node_modules/router/index.js:342:13)
+2025-05-06 13:02:38 [[32minfo[39m]: User login attempt
+2025-05-06 13:02:38 [[32minfo[39m]: User logged in successfully
+2025-05-06 13:02:42 [[32minfo[39m]: Token
+2025-05-06 13:02:42 [[32minfo[39m]: Fetching all proposals for user
+2025-05-06 13:02:42 [[32minfo[39m]: Token
+2025-05-06 13:02:42 [[32minfo[39m]: Fetching all proposals for user
+2025-05-06 13:03:02 [[32minfo[39m]: Token
+2025-05-06 13:03:02 [[32minfo[39m]: Fetching single proposal
+2025-05-06 13:03:02 [[32minfo[39m]: Token
+2025-05-06 13:03:02 [[32minfo[39m]: Fetching single proposal
+2025-05-06 13:03:24 [[32minfo[39m]: Token
+2025-05-06 13:03:24 [[32minfo[39m]: Updating proposal title
+2025-05-06 13:04:01 [[32minfo[39m]: Token
+2025-05-06 13:04:01 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-06 13:04:01 [[32minfo[39m]: Generating full proposal content
+2025-05-06 13:04:05 [[32minfo[39m]: Cleaning deliverables
+2025-05-06 13:04:05 [[31merror[39m]: Error: Deliverable 6815bea57b871eeed9560500 not found
+    at /Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:133:13
+    at Proxy.forEach (<anonymous>)
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:131:22)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-06 13:04:26 [[32minfo[39m]: Token
+2025-05-06 13:04:26 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-06 13:04:27 [[32minfo[39m]: Generating full proposal content
+2025-05-06 13:04:29 [[31merror[39m]: TypeError: Cannot read properties of undefined (reading 'id')
+    at /Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:132:36
+    at Proxy.forEach (<anonymous>)
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:131:22)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-06 13:05:56 [[32minfo[39m]: Token
+2025-05-06 13:05:56 [[32minfo[39m]: Updating proposal title
+2025-05-06 13:06:54 [[32minfo[39m]: MongoDB connected successfully
+2025-05-06 13:06:57 [[32minfo[39m]: Token
+2025-05-06 13:06:57 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-06 13:06:58 [[32minfo[39m]: Generating full proposal content
+2025-05-06 13:06:59 [[31merror[39m]: TypeError: Cannot read properties of undefined (reading 'id')
+    at /Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:133:36
+    at Proxy.forEach (<anonymous>)
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:132:22)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-06 13:07:14 [[32minfo[39m]: Token
+2025-05-06 13:07:14 [[32minfo[39m]: Updating proposal title
+2025-05-06 13:07:44 [[32minfo[39m]: Token
+2025-05-06 13:07:44 [[32minfo[39m]: Fetching all proposals for user
+2025-05-06 13:07:44 [[32minfo[39m]: Token
+2025-05-06 13:07:44 [[32minfo[39m]: Fetching all proposals for user
+2025-05-06 13:07:49 [[32minfo[39m]: Token
+2025-05-06 13:07:49 [[32minfo[39m]: Fetching single proposal
+2025-05-06 13:07:49 [[32minfo[39m]: Token
+2025-05-06 13:07:49 [[32minfo[39m]: Fetching single proposal
+2025-05-06 13:08:06 [[32minfo[39m]: Token
+2025-05-06 13:08:06 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-06 13:08:07 [[32minfo[39m]: Generating full proposal content
+2025-05-06 13:08:08 [[31merror[39m]: TypeError: Cannot read properties of undefined (reading 'id')
+    at /Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:133:36
+    at Proxy.forEach (<anonymous>)
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:132:22)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-06 13:08:28 [[32minfo[39m]: MongoDB connected successfully
+2025-05-06 13:09:22 [[32minfo[39m]: MongoDB connected successfully
+2025-05-06 13:09:26 [[32minfo[39m]: Token
+2025-05-06 13:09:26 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-06 13:09:26 [[32minfo[39m]: Generating full proposal content
+2025-05-06 13:09:29 [[32minfo[39m]: Cleaning deliverables
+2025-05-06 13:09:29 [[31merror[39m]: Error: Deliverable 6815bea57b871eeed9560500 not found
+    at /Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:134:13
+    at Proxy.forEach (<anonymous>)
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:132:22)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-06 13:15:19 [[32minfo[39m]: MongoDB connected successfully
+2025-05-06 13:15:23 [[32minfo[39m]: Token
+2025-05-06 13:15:23 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-06 13:15:23 [[32minfo[39m]: Generating full proposal content
+2025-05-06 13:15:24 [[31merror[39m]: TypeError: Cannot read properties of undefined (reading 'forEach')
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:132:21)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-06 13:15:46 [[32minfo[39m]: MongoDB connected successfully
+2025-05-06 13:15:48 [[32minfo[39m]: Token
+2025-05-06 13:15:48 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-06 13:15:49 [[32minfo[39m]: Generating full proposal content
+2025-05-06 13:15:50 [[31merror[39m]: TypeError: Cannot read properties of undefined (reading 'forEach')
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:132:29)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-06 13:16:08 [[32minfo[39m]: MongoDB connected successfully
+2025-05-06 13:16:12 [[32minfo[39m]: Token
+2025-05-06 13:16:12 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-06 13:16:13 [[32minfo[39m]: Generating full proposal content
+2025-05-06 13:16:15 [[31merror[39m]: Error: Deliverable 6815bea57b871eeed9560500 not found
+    at /Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:135:13
+    at Proxy.forEach (<anonymous>)
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:133:22)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-06 13:18:07 [[32minfo[39m]: MongoDB connected successfully
+2025-05-06 13:18:11 [[32minfo[39m]: Token
+2025-05-06 13:18:11 [[32minfo[39m]: Analyzing again with the feeback
+2025-05-06 13:18:11 [[32minfo[39m]: Generating full proposal content
+2025-05-06 13:18:14 [[32minfo[39m]: Cleaning deliverables
+2025-05-06 13:18:14 [[31merror[39m]: Error: Deliverable 6815bea57b871eeed9560500 not found
+    at /Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:135:15
+    at Proxy.forEach (<anonymous>)
+    at model.<anonymous> (/Volumes/Office/Mine/proposal-writer/server/models/Proposal.js:133:24)
+    at callMiddlewareFunction (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:628:27)
+    at model.next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:93:7)
+    at _next (/Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:146:10)
+    at /Volumes/Office/Mine/proposal-writer/server/node_modules/kareem/index.js:653:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2025-05-06 13:18:49 [[32minfo[39m]: MongoDB connected successfully
+2025-05-06 13:19:03 [[32minfo[39m]: MongoDB connected successfully
+2025-05-06 13:20:47 [[32minfo[39m]: MongoDB connected successfully
+2025-05-06 13:20:50 [[32minfo[39m]: MongoDB connected successfully

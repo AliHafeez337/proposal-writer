@@ -128,6 +128,7 @@ ProposalSchema.virtual('pricing.itemsWithDetails').get(function() {
 
 ProposalSchema.pre('save', function(next) {
   // Ensure all deliverableIds exist
+  //// not handling the case where items exists even before deliverables are created (when you have already generated a proposal and you go back to do initial_analysis...) in which case we should delete the items and user should recreate them...
   this.pricing.items.forEach(item => {
     if (!this.content.deliverables.id(item.deliverableId)) {
       throw new Error(`Deliverable ${item.deliverableId} not found`);
