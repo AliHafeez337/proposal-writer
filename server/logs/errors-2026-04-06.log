@@ -1,0 +1,14 @@
+2026-04-06 19:46:41 [[31merror[39m]: Error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+    at APIError.generate (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/node_modules/openai/error.js:63:20)
+    at OpenAI.makeStatusError (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/node_modules/openai/core.js:302:33)
+    at OpenAI.makeRequest (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/node_modules/openai/core.js:346:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async analyzeScopeAndDeliverables (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/services/aiService.js:53:20)
+    at async /Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/routes/ai.js:42:22
+2026-04-06 19:46:55 [[31merror[39m]: Error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+    at APIError.generate (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/node_modules/openai/error.js:63:20)
+    at OpenAI.makeStatusError (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/node_modules/openai/core.js:302:33)
+    at OpenAI.makeRequest (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/node_modules/openai/core.js:346:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async analyzeScopeAndDeliverables (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/services/aiService.js:53:20)
+    at async /Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/routes/ai.js:42:22

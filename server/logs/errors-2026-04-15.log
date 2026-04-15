@@ -1,0 +1,5 @@
+2026-04-15 10:43:40 [[31merror[39m]: MongooseServerSelectionError: connect ECONNREFUSED 127.0.0.1:27018, connect ECONNREFUSED ::1:27018
+    at _handleConnectionErrors (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/node_modules/mongoose/lib/connection.js:1165:11)
+    at NativeConnection.openUri (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/node_modules/mongoose/lib/connection.js:1096:11)
+    at async connectDB (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/db/connect.js:9:5)
+    at async start (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/index.js:67:5)

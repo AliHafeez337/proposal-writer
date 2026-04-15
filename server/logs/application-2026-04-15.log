@@ -1,0 +1,197 @@
+2026-04-15 10:43:40 [[31merror[39m]: MongooseServerSelectionError: connect ECONNREFUSED 127.0.0.1:27018, connect ECONNREFUSED ::1:27018
+    at _handleConnectionErrors (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/node_modules/mongoose/lib/connection.js:1165:11)
+    at NativeConnection.openUri (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/node_modules/mongoose/lib/connection.js:1096:11)
+    at async connectDB (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/db/connect.js:9:5)
+    at async start (/Volumes/Office/Hamah.sa/Assessments/proposal-writer/server/index.js:67:5)
+2026-04-15 10:46:45 [[32minfo[39m]: MongoDB connected successfully
+2026-04-15 10:46:51 [[32minfo[39m]: User registration attempt
+2026-04-15 10:46:51 [[32minfo[39m]: User registered successfully
+2026-04-15 10:46:55 [[32minfo[39m]: User login attempt
+2026-04-15 10:46:55 [[32minfo[39m]: User logged in successfully
+2026-04-15 10:46:58 [[32minfo[39m]: Token
+2026-04-15 10:46:58 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 10:46:58 [[32minfo[39m]: Token
+2026-04-15 10:46:58 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 10:47:45 [[32minfo[39m]: Token
+2026-04-15 10:47:45 [[32minfo[39m]: Creating a new proposal
+2026-04-15 10:47:45 [[32minfo[39m]: Token
+2026-04-15 10:47:45 [[32minfo[39m]: Fetching single proposal
+2026-04-15 10:48:06 [[32minfo[39m]: Token
+2026-04-15 10:48:06 [[32minfo[39m]: Uploading files to proposal
+2026-04-15 10:48:08 [[32minfo[39m]: Token
+2026-04-15 10:48:08 [[32minfo[39m]: Deleting file from proposal
+2026-04-15 10:48:08 [[32minfo[39m]: File deleted successfully
+2026-04-15 10:49:31 [[32minfo[39m]: Token
+2026-04-15 10:49:31 [[32minfo[39m]: Starting AI processing for proposal
+2026-04-15 10:49:31 [[32minfo[39m]: Extracting text from proposal files
+2026-04-15 10:49:31 [[32minfo[39m]: Analyzing scope and deliverables
+2026-04-15 10:49:31 [[32minfo[39m]: Cleaning deliverables
+2026-04-15 10:49:31 [[32minfo[39m]: AI processing completed successfully
+2026-04-15 10:50:19 [[32minfo[39m]: Token
+2026-04-15 10:50:19 [[32minfo[39m]: Analyzing again with the feeback
+2026-04-15 10:50:19 [[32minfo[39m]: Generating full proposal content
+2026-04-15 10:50:19 [[32minfo[39m]: Cleaning deliverables
+2026-04-15 10:50:19 [[32minfo[39m]: AI processing completed successfully
+2026-04-15 10:50:34 [[32minfo[39m]: Token
+2026-04-15 10:50:34 [[32minfo[39m]: Starting full proposal generation
+2026-04-15 10:50:34 [[32minfo[39m]: Generating full proposal content
+2026-04-15 10:50:34 [[32minfo[39m]: Parsing work breakdown
+2026-04-15 10:50:34 [[32minfo[39m]: Full proposal generation completed successfully
+2026-04-15 10:54:42 [[32minfo[39m]: Token
+2026-04-15 10:54:42 [[32minfo[39m]: GET /auth/me initiated by user 69df264b051c8295df61bc7e
+2026-04-15 10:54:42 [[32minfo[39m]: Token
+2026-04-15 10:54:42 [[32minfo[39m]: GET /auth/me initiated by user 69df264b051c8295df61bc7e
+2026-04-15 10:54:42 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2026-04-15 10:54:42 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2026-04-15 10:54:45 [[32minfo[39m]: Token
+2026-04-15 10:54:45 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 10:54:45 [[32minfo[39m]: Token
+2026-04-15 10:54:45 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 10:54:56 [[32minfo[39m]: Token
+2026-04-15 10:54:56 [[32minfo[39m]: Fetching single proposal
+2026-04-15 10:54:56 [[32minfo[39m]: Token
+2026-04-15 10:54:56 [[32minfo[39m]: Fetching single proposal
+2026-04-15 10:55:05 [[32minfo[39m]: Token
+2026-04-15 10:55:05 [[32minfo[39m]: GET /auth/me initiated by user 69df264b051c8295df61bc7e
+2026-04-15 10:55:05 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2026-04-15 10:55:05 [[32minfo[39m]: Token
+2026-04-15 10:55:05 [[32minfo[39m]: GET /auth/me initiated by user 69df264b051c8295df61bc7e
+2026-04-15 10:55:05 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2026-04-15 10:55:09 [[32minfo[39m]: Token
+2026-04-15 10:55:09 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 10:55:09 [[32minfo[39m]: Token
+2026-04-15 10:55:09 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 10:55:14 [[32minfo[39m]: Token
+2026-04-15 10:55:14 [[32minfo[39m]: Deleting proposal
+2026-04-15 11:02:17 [[32minfo[39m]: Token
+2026-04-15 11:02:17 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:02:17 [[32minfo[39m]: Token
+2026-04-15 11:02:17 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:02:30 [[32minfo[39m]: Token
+2026-04-15 11:02:30 [[32minfo[39m]: Creating a new proposal
+2026-04-15 11:02:30 [[32minfo[39m]: Token
+2026-04-15 11:02:30 [[32minfo[39m]: Fetching single proposal
+2026-04-15 11:04:04 [[32minfo[39m]: Token
+2026-04-15 11:04:04 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:04:04 [[32minfo[39m]: Token
+2026-04-15 11:04:04 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:04:12 [[32minfo[39m]: Token
+2026-04-15 11:04:12 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:04:12 [[32minfo[39m]: Token
+2026-04-15 11:04:12 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:04:38 [[32minfo[39m]: Token
+2026-04-15 11:04:38 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:04:38 [[32minfo[39m]: Token
+2026-04-15 11:04:38 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:04:44 [[32minfo[39m]: Token
+2026-04-15 11:04:44 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:04:44 [[32minfo[39m]: Token
+2026-04-15 11:04:44 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:04:53 [[32minfo[39m]: Token
+2026-04-15 11:04:53 [[32minfo[39m]: Creating a new proposal
+2026-04-15 11:04:53 [[32minfo[39m]: Token
+2026-04-15 11:04:53 [[32minfo[39m]: Fetching single proposal
+2026-04-15 11:05:19 [[32minfo[39m]: Token
+2026-04-15 11:05:19 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:05:19 [[32minfo[39m]: Token
+2026-04-15 11:05:19 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:05:24 [[32minfo[39m]: Token
+2026-04-15 11:05:24 [[32minfo[39m]: Deleting proposal
+2026-04-15 11:05:34 [[32minfo[39m]: Token
+2026-04-15 11:05:34 [[32minfo[39m]: Creating a new proposal
+2026-04-15 11:05:34 [[32minfo[39m]: Token
+2026-04-15 11:05:34 [[32minfo[39m]: Fetching single proposal
+2026-04-15 11:05:41 [[32minfo[39m]: Token
+2026-04-15 11:05:41 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:05:41 [[32minfo[39m]: Token
+2026-04-15 11:05:41 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:05:42 [[32minfo[39m]: Token
+2026-04-15 11:05:42 [[32minfo[39m]: Deleting proposal
+2026-04-15 11:05:48 [[32minfo[39m]: Token
+2026-04-15 11:05:48 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:05:48 [[32minfo[39m]: Token
+2026-04-15 11:05:48 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:05:56 [[32minfo[39m]: Token
+2026-04-15 11:05:56 [[32minfo[39m]: Creating a new proposal
+2026-04-15 11:05:56 [[32minfo[39m]: Token
+2026-04-15 11:05:56 [[32minfo[39m]: Fetching single proposal
+2026-04-15 11:06:18 [[32minfo[39m]: Token
+2026-04-15 11:06:18 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:06:18 [[32minfo[39m]: Token
+2026-04-15 11:06:18 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:06:19 [[32minfo[39m]: Token
+2026-04-15 11:06:19 [[32minfo[39m]: Deleting proposal
+2026-04-15 11:06:26 [[32minfo[39m]: Token
+2026-04-15 11:06:26 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:06:26 [[32minfo[39m]: Token
+2026-04-15 11:06:26 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:06:38 [[32minfo[39m]: Token
+2026-04-15 11:06:38 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:06:38 [[32minfo[39m]: Token
+2026-04-15 11:06:38 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:06:50 [[32minfo[39m]: Token
+2026-04-15 11:06:50 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:06:50 [[32minfo[39m]: Token
+2026-04-15 11:06:50 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:06:57 [[32minfo[39m]: Token
+2026-04-15 11:06:57 [[32minfo[39m]: Creating a new proposal
+2026-04-15 11:06:57 [[32minfo[39m]: Token
+2026-04-15 11:06:57 [[32minfo[39m]: Fetching single proposal
+2026-04-15 11:07:03 [[32minfo[39m]: Token
+2026-04-15 11:07:03 [[32minfo[39m]: Starting AI processing for proposal
+2026-04-15 11:07:03 [[32minfo[39m]: Extracting text from proposal files
+2026-04-15 11:07:03 [[32minfo[39m]: Analyzing scope and deliverables
+2026-04-15 11:07:03 [[32minfo[39m]: Cleaning deliverables
+2026-04-15 11:07:03 [[32minfo[39m]: AI processing completed successfully
+2026-04-15 11:07:22 [[32minfo[39m]: Token
+2026-04-15 11:07:22 [[32minfo[39m]: Analyzing again with the feeback
+2026-04-15 11:07:22 [[32minfo[39m]: Generating full proposal content
+2026-04-15 11:07:22 [[32minfo[39m]: Cleaning deliverables
+2026-04-15 11:07:22 [[32minfo[39m]: AI processing completed successfully
+2026-04-15 11:07:35 [[32minfo[39m]: Token
+2026-04-15 11:07:35 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:07:35 [[32minfo[39m]: Token
+2026-04-15 11:07:35 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:07:36 [[32minfo[39m]: Token
+2026-04-15 11:07:36 [[32minfo[39m]: Deleting proposal
+2026-04-15 11:07:41 [[32minfo[39m]: Token
+2026-04-15 11:07:41 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:07:41 [[32minfo[39m]: Token
+2026-04-15 11:07:41 [[32minfo[39m]: Fetching all proposals for user
+2026-04-15 11:07:48 [[32minfo[39m]: Token
+2026-04-15 11:07:48 [[32minfo[39m]: Creating a new proposal
+2026-04-15 11:07:48 [[32minfo[39m]: Token
+2026-04-15 11:07:48 [[32minfo[39m]: Fetching single proposal
+2026-04-15 11:07:53 [[32minfo[39m]: Token
+2026-04-15 11:07:53 [[32minfo[39m]: Starting AI processing for proposal
+2026-04-15 11:07:53 [[32minfo[39m]: Extracting text from proposal files
+2026-04-15 11:07:53 [[32minfo[39m]: Analyzing scope and deliverables
+2026-04-15 11:07:53 [[32minfo[39m]: Cleaning deliverables
+2026-04-15 11:07:53 [[32minfo[39m]: AI processing completed successfully
+2026-04-15 11:08:07 [[32minfo[39m]: Token
+2026-04-15 11:08:07 [[32minfo[39m]: Analyzing again with the feeback
+2026-04-15 11:08:07 [[32minfo[39m]: Generating full proposal content
+2026-04-15 11:08:07 [[32minfo[39m]: Cleaning deliverables
+2026-04-15 11:08:07 [[32minfo[39m]: AI processing completed successfully
+2026-04-15 11:08:12 [[32minfo[39m]: Token
+2026-04-15 11:08:12 [[32minfo[39m]: Starting full proposal generation
+2026-04-15 11:08:12 [[32minfo[39m]: Generating full proposal content
+2026-04-15 11:08:12 [[32minfo[39m]: Parsing work breakdown
+2026-04-15 11:08:12 [[32minfo[39m]: Full proposal generation completed successfully
+2026-04-15 11:08:26 [[32minfo[39m]: Token
+2026-04-15 11:08:26 [[32minfo[39m]: Updating proposal section
+2026-04-15 11:08:53 [[32minfo[39m]: Token
+2026-04-15 11:08:53 [[32minfo[39m]: Updating proposal section
+2026-04-15 12:25:25 [[32minfo[39m]: Token
+2026-04-15 12:25:25 [[32minfo[39m]: GET /auth/me initiated by user 69df264b051c8295df61bc7e
+2026-04-15 12:25:25 [[32minfo[39m]: Token
+2026-04-15 12:25:25 [[32minfo[39m]: GET /auth/me initiated by user 69df264b051c8295df61bc7e
+2026-04-15 12:25:25 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2026-04-15 12:25:25 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2026-04-15 12:27:35 [[32minfo[39m]: Token
+2026-04-15 12:27:35 [[32minfo[39m]: GET /auth/me initiated by user 69df264b051c8295df61bc7e
+2026-04-15 12:27:35 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2026-04-15 12:27:35 [[32minfo[39m]: Token
+2026-04-15 12:27:35 [[32minfo[39m]: GET /auth/me initiated by user 69df264b051c8295df61bc7e
+2026-04-15 12:27:35 [[32minfo[39m]: Successfully fetched user data for ali@ali.ali
+2026-04-15 13:54:03 [[32minfo[39m]: MongoDB connected successfully
