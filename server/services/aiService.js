@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const AI_PROVIDER = (process.env.AI_PROVIDER || 'mock').trim().toLowerCase(); // "openai" | "mock"
 const OPENAI_API_KEY = (process.env.OPENAI_API_KEY || '').trim();
+const OPENAI_MODEL = (process.env.OPENAI_MODEL || 'gpt-4o-mini').trim();
 
 // Default to mock to keep local/dev running without billing surprises.
 // Only call OpenAI when explicitly requested via AI_PROVIDER=openai.
@@ -218,7 +219,7 @@ const analyzeScopeAndDeliverables = async (description, userRequirements) => {
 
   // Send the prompt to OpenAI
   const response = await openai.chat.completions.create({ // Using chat completion endpoint
-    model: "gpt-3.5-turbo-1106",
+    model: OPENAI_MODEL,
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" }
   });
@@ -287,7 +288,7 @@ const analyzeScopeAndDeliverablesWithFeedback = async (scopeOfWork, deliverables
 
   // Send the prompt to OpenAI
   const response = await openai.chat.completions.create({ // Using chat completion endpoint
-    model: "gpt-3.5-turbo-1106",
+    model: OPENAI_MODEL,
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" }
   });
@@ -361,7 +362,7 @@ const generateFullProposal = async (scopeOfWork, deliverables, userRequirements,
 
   // Send the prompt to OpenAI
   const response = await openai.chat.completions.create({ // Using chat completion endpoint
-    model: "gpt-3.5-turbo-1106",
+    model: OPENAI_MODEL,
     messages: [{ role: "user", content: prompt }],
     response_format: { type: "json_object" }
   });
