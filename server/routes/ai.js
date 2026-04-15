@@ -7,6 +7,36 @@ const { extractText } = require('../utils/fileParser');
 const { parseWorkBreakdown, cleanDeliverables } = require('../utils/aiHelper');
 const logger = require('../utils/logger');
 
+function sendAIError(res, error, fallbackMessage) {
+  // openai@4 throws APIError with .status and a human-readable .message
+  const status = Number(error?.status) || Number(error?.response?.status);
+  const messageFromProvider =
+    error?.error?.message ||
+    error?.response?.data?.error?.message ||
+    error?.response?.data?.error ||
+    error?.message;
+
+  if (status === 401) {
+    return res.status(401).json({
+      error: 'OpenAI authentication failed. Check OPENAI_API_KEY.',
+      details: messageFromProvider,
+    });
+  }
+
+  if (status === 429) {
+    return res.status(429).json({
+      error: 'OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing.',
+      details: messageFromProvider,
+    });
+  }
+
+  if (status && status >= 400 && status < 600) {
+    return res.status(status).json({ error: fallbackMessage, details: messageFromProvider });
+  }
+
+  return res.status(500).json({ error: fallbackMessage, details: messageFromProvider });
+}
+
 // Process uploaded files with AI
 router.post('/:id/process', auth, async (req, res) => {
   logger.info('Starting AI processing for proposal', { userId: req.userId, proposalId: req.params.id });
@@ -54,7 +84,7 @@ router.post('/:id/process', auth, async (req, res) => {
     res.json(proposal);
   } catch (error) {
     logger.error('AI processing error', { error: error.message, stack: error.stack, userId: req.userId, proposalId: req.params.id });
-    res.status(500).json({ error: 'AI processing failed' });
+    return sendAIError(res, error, 'AI processing failed');
   }
 });
 
@@ -98,7 +128,7 @@ router.post('/:id/analyze', auth, async (req, res) => {
     res.json(proposal);
   } catch (error) {
     logger.error('AI processing error', { error: error.message, stack: error.stack, userId: req.userId, proposalId: req.params.id });
-    res.status(500).json({ error: 'AI processing failed' });
+    return sendAIError(res, error, 'AI processing failed');
   }
 });
 
@@ -144,7 +174,7 @@ router.post('/:id/generate', auth, async (req, res) => {
     res.json(proposal);
   } catch (error) {
     logger.error('Full generation error', { error: error.message, stack: error.stack, userId: req.userId, proposalId: req.params.id });
-    res.status(500).json({ error: 'Full generation failed' });
+    return sendAIError(res, error, 'Full generation failed');
   }
 });
 

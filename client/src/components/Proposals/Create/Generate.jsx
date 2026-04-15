@@ -23,7 +23,11 @@ export default function GenerateProposal({ data, updateData }) {
       updateData(response);
     } catch (err) {
       console.error('Generation failed:', err);
-      setError('Failed to generate proposal. Please try again.');
+      setError(
+        err?.response?.data?.error ||
+          err?.response?.data?.details ||
+          'Failed to generate proposal. Please try again.'
+      );
     } finally {
       setIsGenerating(false);
     }

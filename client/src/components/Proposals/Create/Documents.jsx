@@ -6,6 +6,7 @@ import {
   TextField, 
   Typography,
   CircularProgress,
+  Alert,
   List,
   ListItem,
   ListItemText,
@@ -25,6 +26,7 @@ export default function ProposalDocuments({ data, updateData }) {
   const [isUploading, setIsUploading] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [isReAnalyzing, setIsReAnalyzing] = useState(false);
+  const [error, setError] = useState(null);
   const fileInputRef = useRef(null);
 
   // Initialize requirements and feedback from props
@@ -74,12 +76,14 @@ export default function ProposalDocuments({ data, updateData }) {
     if (files.length === 0) return;
 
     try {
+      setError(null);
       setIsUploading(true);
       const response = await uploadProposalFiles(data._id, files);
       updateData(response);
       setFiles([]);
     } catch (error) {
       console.error('File upload failed:', error);
+      setError(error?.response?.data?.error || 'File upload failed. Please try again.');
     } finally {
       setIsUploading(false);
     }
@@ -93,6 +97,7 @@ export default function ProposalDocuments({ data, updateData }) {
     }
 
     try {
+      setError(null);
       setIsAnalyzing(true);
       const response = await analyzeProposal(data._id, { userRequirements: requirements });
       // Update with any changes from the analysis
@@ -102,6 +107,11 @@ export default function ProposalDocuments({ data, updateData }) {
       });
     } catch (error) {
       console.error('Analysis failed:', error);
+      setError(
+        error?.response?.data?.error ||
+          error?.response?.data?.details ||
+          'Analysis failed. Please try again.'
+      );
     } finally {
       setIsAnalyzing(false);
     }
@@ -115,6 +125,7 @@ export default function ProposalDocuments({ data, updateData }) {
     }
 
     try {
+      setError(null);
       setIsReAnalyzing(true);
       const response = await analyzeProposal1(data._id, { userFeedback: feedback });
       // Update with any changes from the analysis
@@ -124,6 +135,11 @@ export default function ProposalDocuments({ data, updateData }) {
       });
     } catch (error) {
       console.error('ReAnalysis failed:', error);
+      setError(
+        error?.response?.data?.error ||
+          error?.response?.data?.details ||
+          'Re-analysis failed. Please try again.'
+      );
     } finally {
       setIsReAnalyzing(false);
     }
@@ -131,6 +147,7 @@ export default function ProposalDocuments({ data, updateData }) {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+      {error && <Alert severity="error">{error}</Alert>}
       {/* File Upload Section */}
       <Paper elevation={1} sx={{ p: 3 }}>
         <Typography variant="h6" gutterBottom>
