@@ -1,13 +1,29 @@
 const fs = require('fs').promises;
+const path = require('path');
 const pdf = require('pdf-parse');
 const mammoth = require('mammoth');
-
 const extractText = async (filePath, fileType) => { // Function to extract text from different file types
   // Supported file types: PDF, DOCX, TXT
   try {
-    const buffer = await fs.readFile(filePath);
+    // Resolve path if it's not absolute (for existing entries with relative 'uploads/...' path)
+    const absolutePath = path.isAbsolute(filePath) 
+      ? filePath 
+      : path.join(__dirname, '..', 'uploads', path.basename(filePath));
+
+    let buffer;
+    try {
+      buffer = await fs.readFile(absolutePath);
+    } catch (readError) {
+      if (readError.code === 'ENOENT') {
+        const error = new Error(`File not found: ${filePath}`);
+        error.code = 'FILE_NOT_FOUND';
+        throw error;
+      }
+      throw readError;
+    }
 
     switch(fileType) {
+...
       case 'application/pdf': // PDF file type
         const pdfData = await pdf(buffer);
         return pdfData.text;

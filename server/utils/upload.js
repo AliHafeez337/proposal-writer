@@ -1,4 +1,5 @@
 const multer = require('multer');
+const path = require('path');
 
 // Allowed file types with MIME types
 const allowedFileTypes = {
@@ -20,7 +21,7 @@ const fileFilter = (req, file, cb) => {
 // Configure storage
 const storage = multer.diskStorage({
   destination: (req, file, cb) => { // Set the destination folder for file uploads
-    cb(null, 'uploads/');
+    cb(null, path.join(__dirname, '..', 'uploads'));
   },
   filename: (req, file, cb) => { // Set the filename for the uploaded file
     const ext = allowedFileTypes[file.mimetype];

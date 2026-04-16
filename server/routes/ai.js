@@ -57,16 +57,45 @@ router.post('/:id/process', auth, async (req, res) => {
     }
 
     logger.info('Extracting text from proposal files', { proposalId: req.params.id });
-    const fileContents = await Promise.all(
-      proposal.files.map(async (file) => {
-        return await extractText(file.path, file.fileType);
-      })
-    );
+    
+    const validFiles = [];
+    const fileContents = [];
+    let filesRemoved = false;
+
+    for (const file of proposal.files) {
+      try {
+        const text = await extractText(file.path, file.fileType);
+        fileContents.push(text);
+        validFiles.push(file);
+      } catch (error) {
+        if (error.code === 'FILE_NOT_FOUND') {
+          logger.warn('File missing from storage during AI processing. Removing reference.', { 
+            proposalId: req.params.id, 
+            filePath: file.path 
+          });
+          filesRemoved = true;
+          continue; // Skip this file and remove its reference later
+        }
+        throw error; // Rethrow other parsing errors
+      }
+    }
+
+    // If some files were missing, update the proposal to remove their references
+    if (filesRemoved) {
+      proposal.files = validFiles;
+      await proposal.save();
+    }
 
     const description = [
       ...fileContents
     ].join('\n\n');
     const requirements = proposal.userRequirements || '';
+
+    if (!description.trim() && !requirements.trim()) {
+      return res.status(400).json({ 
+        error: 'No content to analyze. Please upload files or provide requirements.' 
+      });
+    }
 
     logger.info('Analyzing scope and deliverables', { proposalId: req.params.id });
     const analysis = await analyzeScopeAndDeliverables(description, requirements); // AI analysis
