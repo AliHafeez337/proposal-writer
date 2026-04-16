@@ -156,7 +156,10 @@ router.delete('/:id/files/:fileId', auth, async (req, res) => {
     res.json({ message: 'File deleted successfully' });
   } catch (error) {
     logger.error('Failed to delete file', { error: error.message, stack: error.stack, userId: req.userId, proposalId: id, fileId });
-    res.status(500).json({ error: 'Failed to delete file' });
+    res.status(500).json({ 
+      error: 'Failed to delete file', 
+      details: error.message 
+    });
   }
 });
 
