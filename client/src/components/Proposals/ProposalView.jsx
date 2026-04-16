@@ -48,8 +48,8 @@ export default function ProposalView({ proposal }) {
       </Paper>
 
       {/* Requirements */}
-      {proposal.content?.requirements?.length > 0 && (
-        <ProposalRequirements requirements={proposal.content?.requirements} sx={{ mb: 4 }} />
+      {Array.isArray(proposal.content?.requirements) && proposal.content.requirements.length > 0 && (
+        <ProposalRequirements requirements={proposal.content.requirements} sx={{ mb: 4 }} />
       )}
 
       {/* Deliverables */}
