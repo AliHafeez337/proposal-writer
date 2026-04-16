@@ -69,7 +69,11 @@ export default function ProposalView({ proposal }) {
       <ProposalWorkPlan workBreakdown={proposal.content?.workBreakdown} sx={{ mb: 4 }} />
 
       {/* Timeline */}
-      <ProposalTimeline timeline={proposal.content?.timeline} sx={{ mb: 4 }} />
+      <ProposalTimeline 
+        timeline={proposal.content?.timeline} 
+        workBreakdown={proposal.content?.workBreakdown}
+        sx={{ mb: 4 }} 
+      />
 
       {/* Payment Schedule */}
       {proposal.content?.timeline?.some(p => p.milestones?.length > 0) && (
