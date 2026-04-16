@@ -1,6 +1,12 @@
 import { Paper, Typography, List, ListItem, ListItemText, Divider, Box, Chip } from '@mui/material';
 
-const ProposalTimeline = ({ timeline }) => (
+const formatDate = (date) => {
+  if (!date) return 'N/A';
+  const d = new Date(date);
+  return isNaN(d.getTime()) ? 'N/A' : d.toLocaleDateString();
+};
+
+const ProposalTimeline = ({ timeline, workBreakdown = [] }) => (
   <Paper elevation={1} sx={{ p: 3, mb: 4 }}>
     <Typography variant="h6" gutterBottom>
       Project Timeline
@@ -11,47 +17,46 @@ const ProposalTimeline = ({ timeline }) => (
           <Box key={index}>
             <ListItem alignItems="flex-start">
               <ListItemText
-                primary={phase.phase}
+                primary={phase.phase || 'Unnamed Phase'}
                 primaryTypographyProps={{ fontWeight: 'medium' }}
                 secondary={
-                  <>
+                  <Box component="div">
                     <Typography 
                       variant="body2" 
                       component="span" 
                       display="block" 
                       sx={{ mt: 1 }}
                     >
-                      {new Date(phase.startDate).toLocaleDateString()} - {new Date(phase.endDate).toLocaleDateString()}
+                      {formatDate(phase.startDate)} - {formatDate(phase.endDate)}
                     </Typography>
                     {phase.tasks?.length > 0 && (
-                      <>
+                      <Box component="div">
                         <Typography 
                           variant="caption" 
                           component="span" 
                           display="block" 
                           sx={{ mt: 1 }}
                         >
-                          Depends on:
+                          Tasks in this phase:
                         </Typography>
                         <Box 
                           component="span" 
                           display="block" 
                           sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 0.5 }}
                         >
-                          {phase.tasks.map((dep, i) => (
+                          {phase.tasks.map((taskIdx, i) => (
                             <Chip 
                               key={i}
-                              label={`${timeline[+dep].phase}`}
+                              label={workBreakdown[+taskIdx]?.task || `Task ${+taskIdx + 1}`}
                               size="small"
                               variant="outlined"
                             />
                           ))}
                         </Box>
-                      </>
+                      </Box>
                     )}
-                  </>
+                  </Box>
                 }
-                secondaryTypographyProps={{ component: 'div' }}
               />
             </ListItem>
             {index < timeline.length - 1 && <Divider component="li" />}

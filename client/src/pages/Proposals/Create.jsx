@@ -25,17 +25,17 @@ export default function CreateProposal() {
   useEffect(() => {
     // Checks to stop next page if it doesn't meet the requirements.
     if (activeStep === 3) {
-      if (proposalData.content.deliverables.some(deliverable => !deliverable.unitPrice)) {
+      if (proposalData.content?.deliverables?.some(deliverable => !deliverable.unitPrice)) {
         setActiveStep(2);
-        setErrors({ ...errors, pricing: true });
+        setErrors(prev => ({ ...prev, pricing: true }));
       }
     } else if (activeStep === 2) {
-      if (!proposalData.content.scopeOfWork) {
+      if (!proposalData.content?.scopeOfWork) {
         setActiveStep(1);
-        setErrors({ ...errors, scopeOfWork: true });
+        setErrors(prev => ({ ...prev, scopeOfWork: true }));
       }
     }
-  }, [activeStep]);
+  }, [activeStep, proposalData.content]);
 
   useEffect(() => {
     // Checks to show related page.

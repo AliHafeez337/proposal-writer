@@ -48,8 +48,8 @@ export default function ProposalView({ proposal }) {
       </Paper>
 
       {/* Requirements */}
-      {proposal.content?.requirements?.length > 0 && (
-        <ProposalRequirements requirements={proposal.content?.requirements} sx={{ mb: 4 }} />
+      {Array.isArray(proposal.content?.requirements) && proposal.content.requirements.length > 0 && (
+        <ProposalRequirements requirements={proposal.content.requirements} sx={{ mb: 4 }} />
       )}
 
       {/* Deliverables */}
@@ -69,7 +69,11 @@ export default function ProposalView({ proposal }) {
       <ProposalWorkPlan workBreakdown={proposal.content?.workBreakdown} sx={{ mb: 4 }} />
 
       {/* Timeline */}
-      <ProposalTimeline timeline={proposal.content?.timeline} sx={{ mb: 4 }} />
+      <ProposalTimeline 
+        timeline={proposal.content?.timeline} 
+        workBreakdown={proposal.content?.workBreakdown}
+        sx={{ mb: 4 }} 
+      />
 
       {/* Payment Schedule */}
       {proposal.content?.timeline?.some(p => p.milestones?.length > 0) && (

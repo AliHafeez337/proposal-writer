@@ -12,7 +12,7 @@ const ProposalWorkPlan = ({ workBreakdown, sx = {} }) => {
             <Box key={index}>
               <ListItem alignItems="flex-start">
                 <ListItemText
-                  primary={`${task.task} (${task.duration} days)`}
+                  primary={`${task.task || 'Task'} (${task.duration || 0} days)`}
                   secondary={
                     task.dependencies?.length > 0 ? (
                       <div>
@@ -23,7 +23,7 @@ const ProposalWorkPlan = ({ workBreakdown, sx = {} }) => {
                           {task.dependencies.map((depIndex, i) => (
                             <Chip 
                               key={i}
-                              label={workBreakdown[depIndex]?.task || `Task ${depIndex + 1}`}
+                              label={workBreakdown[+depIndex]?.task || `Task ${+depIndex + 1}`}
                               size="small"
                             />
                           ))}
