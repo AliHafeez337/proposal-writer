@@ -93,7 +93,7 @@ router.post('/:id/process', auth, async (req, res) => {
 
     if (!description.trim() && !requirements.trim()) {
       return res.status(400).json({ 
-        error: 'No content to analyze. Please upload files or provide requirements.' 
+        error: 'No content to analyze. File uploads are temporary and have been cleared from our server. Please re-upload your documents or provide text requirements to continue.' 
       });
     }
 

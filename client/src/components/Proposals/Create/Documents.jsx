@@ -147,6 +147,10 @@ export default function ProposalDocuments({ data, updateData }) {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+      <Alert severity="warning">
+        <strong>Important:</strong> File uploads are temporary and will be cleared if the server restarts (standard for free hosting). 
+        Please ensure you analyze your documents promptly. If files are cleared, you can simply re-upload them or use the text requirements field.
+      </Alert>
       {error && <Alert severity="error">{error}</Alert>}
       {/* File Upload Section */}
       <Paper elevation={1} sx={{ p: 3 }}>
