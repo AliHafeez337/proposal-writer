@@ -97,153 +97,166 @@ const styles = StyleSheet.create({
   }
 });
 
-const ProposalPDF = ({ proposal }) => (
-  <Document>
-    <Page size="A4" style={styles.page}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.title}>{proposal.title || 'Project Proposal'}</Text>
-        <Text style={styles.subtitle}>
-          Prepared for: {proposal.user?.email} | Date: {new Date(proposal.createdAt).toLocaleDateString()}
-        </Text>
-      </View>
+const ProposalPDF = ({ proposal = {} }) => {
+  const content = proposal.content || {};
+  const deliverables = content.deliverables || [];
+  const workBreakdown = content.workBreakdown || [];
+  const timeline = content.timeline || [];
+  const requirements = content.requirements || [];
+  const pricing = proposal.pricing || { total: 0 };
 
-      {/* Executive Summary */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Executive Summary</Text>
-        <Text style={styles.item}>{proposal.content?.executiveSummary}</Text>
-      </View>
+  const formatDate = (date) => {
+    if (!date) return 'N/A';
+    const d = new Date(date);
+    return isNaN(d.getTime()) ? 'N/A' : d.toLocaleDateString();
+  };
 
-      {/* Scope of Work */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Scope of Work</Text>
-        <Text style={styles.item}>{proposal.content?.scopeOfWork}</Text>
-      </View>
+  const formatPrice = (price) => {
+    const p = Number(price);
+    return isNaN(p) ? '0.00' : p.toFixed(2);
+  };
 
-      {/* Requirements */}
-      {proposal.content?.requirements?.length > 0 && (
+  return (
+    <Document>
+      <Page size="A4" style={styles.page}>
+        {/* Header */}
+        <View style={styles.header}>
+          <Text style={styles.title}>{proposal.title || 'Project Proposal'}</Text>
+          <Text style={styles.subtitle}>
+            Prepared for: {proposal.user?.email || 'N/A'} | Date: {formatDate(proposal.createdAt || new Date())}
+          </Text>
+        </View>
+
+        {/* Executive Summary */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Requirements</Text>
-          {proposal.content.requirements.map((req, i) => (
-            <Text key={i} style={styles.item}>• {req}</Text>
-          ))}
-        </View>
-      )}
-
-      {/* Two Column Layout for Deliverables and Pricing */}
-      <View style={styles.twoColumn}>
-        {/* Deliverables */}
-        <View style={styles.column}>
-          <Text style={styles.sectionTitle}>Deliverables</Text>
-          {proposal.content?.deliverables?.map((item, i) => (
-            <View key={i} style={[styles.item, { marginBottom: 12 }]}>
-              <Text style={styles.itemTitle}>{item.item} ({item.count} {item.unit})</Text>
-              <Text>{item.description}</Text>
-            </View>
-          ))}
+          <Text style={styles.sectionTitle}>Executive Summary</Text>
+          <Text style={styles.item}>{content.executiveSummary || 'No executive summary provided'}</Text>
         </View>
 
-        {/* Pricing Summary */}
-        <View style={styles.column}>
-          <Text style={styles.sectionTitle}>Pricing Summary</Text>
-          <View style={styles.table}>
-            <View style={[styles.tableRow, styles.tableHeader]}>
-              <Text style={styles.tableCell}>Item</Text>
-              <Text style={styles.tableCell}>Unit Price</Text>
-              <Text style={styles.tableCell}>Qty</Text>
-              <Text style={styles.tableCell}>Total</Text>
-            </View>
-            {proposal.content?.deliverables?.map((item, i) => (
-              <View key={i} style={styles.tableRow}>
-                <Text style={styles.tableCell}>{item.item}</Text>
-                <Text style={styles.tableCell}>${item.unitPrice?.toFixed(2)}</Text>
-                <Text style={styles.tableCell}>{item.count}</Text>
-                <Text style={styles.tableCell}>${(item.unitPrice * item.count).toFixed(2)}</Text>
+        {/* Scope of Work */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Scope of Work</Text>
+          <Text style={styles.item}>{content.scopeOfWork || 'No scope defined'}</Text>
+        </View>
+
+        {/* Requirements */}
+        {requirements.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Requirements</Text>
+            {requirements.map((req, i) => (
+              <Text key={i} style={styles.item}>• {req}</Text>
+            ))}
+          </View>
+        )}
+
+        {/* Two Column Layout for Deliverables and Pricing */}
+        <View style={styles.twoColumn}>
+          {/* Deliverables */}
+          <View style={styles.column}>
+            <Text style={styles.sectionTitle}>Deliverables</Text>
+            {deliverables.map((item, i) => (
+              <View key={i} style={[styles.item, { marginBottom: 12 }]}>
+                <Text style={styles.itemTitle}>{item.item} ({item.count || 0} {item.unit || 'units'})</Text>
+                <Text>{item.description || ''}</Text>
               </View>
             ))}
-            <View style={[styles.tableRow, { borderBottom: 'none' }]}>
-              <Text style={[styles.tableCell, { fontWeight: 'bold' }]}>TOTAL</Text>
-              <Text style={[styles.tableCell, { fontWeight: 'bold' }]}></Text>
-              <Text style={[styles.tableCell, { fontWeight: 'bold' }]}></Text>
-              <Text style={[styles.tableCell, { fontWeight: 'bold' }]}>${proposal.pricing?.total?.toFixed(2)}</Text>
+          </View>
+
+          {/* Pricing Summary */}
+          <View style={styles.column}>
+            <Text style={styles.sectionTitle}>Pricing Summary</Text>
+            <View style={styles.table}>
+              <View style={[styles.tableRow, styles.tableHeader]}>
+                <Text style={styles.tableCell}>Item</Text>
+                <Text style={styles.tableCell}>Unit Price</Text>
+                <Text style={styles.tableCell}>Qty</Text>
+                <Text style={styles.tableCell}>Total</Text>
+              </View>
+              {deliverables.map((item, i) => (
+                <View key={i} style={styles.tableRow}>
+                  <Text style={styles.tableCell}>{item.item || 'Item'}</Text>
+                  <Text style={styles.tableCell}>${formatPrice(item.unitPrice)}</Text>
+                  <Text style={styles.tableCell}>{item.count || 0}</Text>
+                  <Text style={styles.tableCell}>${formatPrice((item.unitPrice || 0) * (item.count || 0))}</Text>
+                </View>
+              ))}
+              <View style={[styles.tableRow, { borderBottom: 'none' }]}>
+                <Text style={[styles.tableCell, { fontWeight: 'bold' }]}>TOTAL</Text>
+                <Text style={styles.tableCell}></Text>
+                <Text style={styles.tableCell}></Text>
+                <Text style={[styles.tableCell, { fontWeight: 'bold' }]}>${formatPrice(pricing.total)}</Text>
+              </View>
             </View>
           </View>
         </View>
-      </View>
 
-      {/* Work Breakdown */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Work Breakdown</Text>
-        {proposal.content?.workBreakdown?.map((task, i) => (
-          <View key={i} style={[styles.item, { marginBottom: 10 }]}>
-            <Text style={styles.itemTitle}>{task.task} ({task.duration} days)</Text>
-            {task.dependencies?.length > 0 && (
-              <Text style={{ fontSize: 10 }}>Depends on:</Text>
-            )}
-            {
-              task.dependencies?.map((dep, j) => (
-                <View key={j} style={{ fontSize: 10 }}>
-                  <Text>• &nbsp;
-                    {
-                      isNaN(dep) ? dep : proposal.content?.workBreakdown[+dep]?.task || `Task ${+dep + 1}`
-                    }
-                  </Text>
-                </View>
-              ))
-            }
-          </View>
-        ))}
-      </View>
-
-      {/* Timeline */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Project Timeline</Text>
-        {proposal.content?.timeline?.map((phase, i) => (
-          <View key={i} style={styles.timelinePhase}>
-            <Text style={{ fontWeight: 'bold' }}>{phase.phase}</Text>
-            <Text style={{ fontSize: 10, color: '#666' }}>
-              {new Date(phase.startDate).toLocaleDateString()} - {new Date(phase.endDate).toLocaleDateString()}
-            </Text>
-            {phase.tasks?.map((t, j) => (
-              <View key={j} style={styles.milestone}>
-                <Text>• {proposal.content?.timeline[+t]?.phase}</Text>
+        {/* Work Breakdown */}
+        {workBreakdown.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Work Breakdown</Text>
+            {workBreakdown.map((task, i) => (
+              <View key={i} style={[styles.item, { marginBottom: 10 }]}>
+                <Text style={styles.itemTitle}>{task.task} ({task.duration || 0} days)</Text>
+                {task.dependencies?.length > 0 && (
+                  <Text style={{ fontSize: 10 }}>Depends on: {
+                    task.dependencies.map(dep => {
+                      if (isNaN(dep)) return dep;
+                      return workBreakdown[+dep]?.task || `Task ${+dep + 1}`;
+                    }).join(', ')
+                  }</Text>
+                )}
               </View>
             ))}
-            {/* {phase.milestones?.map((m, j) => (
-              <View key={j} style={styles.milestone}>
-                <Text>• {m.name}: {m.percentage}% (${m.paymentAmount?.toFixed(2)}) - Due {new Date(m.dueDate).toLocaleDateString()}</Text>
-              </View>
-            ))} */}
           </View>
-        ))}
-      </View>
+        )}
 
-      {/* Payment Schedule */}
-      {proposal.content?.timeline?.some(p => p.milestones?.length > 0) && (
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Payment Schedule</Text>
-          <View style={styles.table}>
-            <View style={[styles.tableRow, styles.tableHeader]}>
-              <Text style={styles.tableCell}>Phase</Text>
-              <Text style={styles.tableCell}>Milestone</Text>
-              <Text style={styles.tableCell}>Due Date</Text>
-              <Text style={styles.tableCell}>Amount</Text>
-            </View>
-            {proposal.content.timeline.flatMap(phase => 
-              phase.milestones?.map((milestone, i) => (
-                <View key={`${phase._id}-${i}`} style={styles.tableRow}>
-                  <Text style={styles.tableCell}>{phase.phase}</Text>
-                  <Text style={styles.tableCell}>{milestone.name}</Text>
-                  <Text style={styles.tableCell}>{new Date(milestone.dueDate).toLocaleDateString()}</Text>
-                  <Text style={styles.tableCell}>${milestone.paymentAmount?.toFixed(2)} ({milestone.percentage}%)</Text>
-                </View>
-              ))
-            )}
+        {/* Timeline */}
+        {timeline.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Project Timeline</Text>
+            {timeline.map((phase, i) => (
+              <View key={i} style={styles.timelinePhase}>
+                <Text style={{ fontWeight: 'bold' }}>{phase.phase}</Text>
+                <Text style={{ fontSize: 10, color: '#666' }}>
+                  {formatDate(phase.startDate)} - {formatDate(phase.endDate)}
+                </Text>
+                {phase.tasks?.map((t, j) => (
+                  <View key={j} style={styles.milestone}>
+                    <Text>• {workBreakdown[+t]?.task || `Task ${+t + 1}`}</Text>
+                  </View>
+                ))}
+              </View>
+            ))}
           </View>
-        </View>
-      )}
-    </Page>
-  </Document>
-);
+        )}
+
+        {/* Payment Schedule */}
+        {timeline.some(p => p.milestones?.length > 0) && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Payment Schedule</Text>
+            <View style={styles.table}>
+              <View style={[styles.tableRow, styles.tableHeader]}>
+                <Text style={styles.tableCell}>Phase</Text>
+                <Text style={styles.tableCell}>Milestone</Text>
+                <Text style={styles.tableCell}>Due Date</Text>
+                <Text style={styles.tableCell}>Amount</Text>
+              </View>
+              {timeline.flatMap(phase => 
+                (phase.milestones || []).map((milestone, i) => (
+                  <View key={`${phase._id || i}-${i}`} style={styles.tableRow}>
+                    <Text style={styles.tableCell}>{phase.phase || 'Phase'}</Text>
+                    <Text style={styles.tableCell}>{milestone.name || 'Milestone'}</Text>
+                    <Text style={styles.tableCell}>{formatDate(milestone.dueDate)}</Text>
+                    <Text style={styles.tableCell}>${formatPrice(milestone.paymentAmount)} ({milestone.percentage}%)</Text>
+                  </View>
+                ))
+              )}
+            </View>
+          </View>
+        )}
+      </Page>
+    </Document>
+  );
+};
 
 export default ProposalPDF;
