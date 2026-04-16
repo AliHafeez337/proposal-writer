@@ -25,7 +25,7 @@ function sendAIError(res, error, fallbackMessage) {
 
   if (status === 429) {
     return res.status(429).json({
-      error: 'OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing.',
+      error: 'OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing. Shifting to MOCK AI.',
       details: messageFromProvider,
     });
   }

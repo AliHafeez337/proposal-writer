@@ -39,6 +39,9 @@ const extractText = async (filePath, fileType) => { // Function to extract text 
         throw new Error(`Unsupported file type: ${fileType}`);
     }
   } catch (error) {
+    if (error.code === 'FILE_NOT_FOUND') {
+      throw error; // Preserve our specific error
+    }
     console.error(`Error parsing ${filePath}:`, error);
     throw new Error(`Failed to parse ${fileType} file`);
   }

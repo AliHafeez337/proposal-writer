@@ -30,7 +30,7 @@ Set these variables in your `server/.env` file or your hosting provider's dashbo
 ## Automatic Fallback (Quota/Rate Limit)
 
 The system is designed to be resilient. If the chosen AI provider (OpenAI or Deepseek) returns a **429 Quota/Rate Limit Exceeded** error, the application will:
-1.  Log a warning message: `OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing. Shifting to MOCK ai`.
+1.  Log a warning message: `OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing. Shifting to MOCK AI.`.
 2.  Automatically fall back to the **Mock** provider for that request.
 3.  Return a structured (but generic) response to ensure the user's workflow is not interrupted.
 
