@@ -2,6 +2,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const pdf = require('pdf-parse');
 const mammoth = require('mammoth');
+
 const extractText = async (filePath, fileType) => { // Function to extract text from different file types
   // Supported file types: PDF, DOCX, TXT
   try {
@@ -23,7 +24,6 @@ const extractText = async (filePath, fileType) => { // Function to extract text 
     }
 
     switch(fileType) {
-...
       case 'application/pdf': // PDF file type
         const pdfData = await pdf(buffer);
         return pdfData.text;
