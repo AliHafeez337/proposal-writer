@@ -1,0 +1,48 @@
+total 208
+-rw-r--r--    1 alihafeez  staff    408 May 16  2025 Readme.md
+drwxr-xr-x    3 alihafeez  staff     96 May 16  2025 db
+-rw-r--r--@   1 alihafeez  staff      0 Apr 15 15:27 files.txt
+-rw-r--r--    1 alihafeez  staff   2176 May 16  2025 index.js
+drwxr-xr-x   21 alihafeez  staff    672 Apr 15 10:43 logs
+drwxr-xr-x    4 alihafeez  staff    128 May 16  2025 middleware
+drwxr-xr-x    4 alihafeez  staff    128 May 16  2025 models
+
+
+./routes:
+total 64
+-rw-r--r--@ 1 alihafeez  staff  6698 Apr 15 14:29 ai.js
+-rw-r--r--  1 alihafeez  staff  3049 May 16  2025 auth.js
+-rw-r--r--  1 alihafeez  staff  2345 May 16  2025 financial.js
+-rw-r--r--  1 alihafeez  staff  3238 May 16  2025 pricing.js
+-rw-r--r--  1 alihafeez  staff  8211 May 16  2025 proposals.js
+
+./services:
+total 32
+-rw-r--r--@ 1 alihafeez  staff  12494 Apr 15 14:12 aiService.js
+
+./uploads:
+total 128
+-rw-r--r--  1 alihafeez  staff  1100 May 16  2025 1745928553595-648587482.txt
+-rw-r--r--  1 alihafeez  staff  1100 May 16  2025 1745932937100-637159572.txt
+-rw-r--r--  1 alihafeez  staff  1100 May 16  2025 1746034251866-798791028.txt
+-rw-r--r--  1 alihafeez  staff  1100 May 16  2025 1746035165649-720982655.txt
+-rw-r--r--  1 alihafeez  staff  1100 May 16  2025 1746035173878-495882746.txt
+-rw-r--r--  1 alihafeez  staff  1100 May 16  2025 1746082990437-347433222.txt
+-rw-r--r--  1 alihafeez  staff  1100 May 16  2025 1746084950269-981370664.txt
+-rw-r--r--  1 alihafeez  staff  1100 May 16  2025 1746085070438-49389682.txt
+-rw-r--r--  1 alihafeez  staff   228 May 16  2025 1746085079721-558844265.txt
+-rw-r--r--  1 alihafeez  staff  1100 May 16  2025 1746087315131-649335640.txt
+-rw-r--r--  1 alihafeez  staff  2447 May 16  2025 1746255906085-590331863.txt
+-rw-r--r--  1 alihafeez  staff  1880 May 16  2025 1746256331165-755035521.txt
+-rw-r--r--  1 alihafeez  staff  2145 May 16  2025 1746258706848-70103719.txt
+-rw-r--r--  1 alihafeez  staff  2145 May 16  2025 1746259109870-979815462.txt
+-rw-r--r--  1 alihafeez  staff  2145 May 16  2025 1746259256276-142442365.txt
+-rw-r--r--@ 1 alihafeez  staff  1100 Apr  6 19:46 1775486793995-99735254.txt
+
+./utils:
+total 40
+-rw-r--r--  1 alihafeez  staff  1147 May 16  2025 aiHelper.js
+-rw-r--r--  1 alihafeez  staff   406 May 16  2025 file.js
+-rw-r--r--  1 alihafeez  staff  1002 May 16  2025 fileParser.js
+-rw-r--r--  1 alihafeez  staff  1445 May 16  2025 logger.js
+-rw-r--r--  1 alihafeez  staff  1212 May 16  2025 upload.js
