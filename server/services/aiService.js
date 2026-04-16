@@ -1,12 +1,15 @@
 require('dotenv').config();
 
-const AI_PROVIDER = (process.env.AI_PROVIDER || 'mock').trim().toLowerCase(); // "openai" | "mock"
+const AI_PROVIDER = (process.env.AI_PROVIDER || 'mock').trim().toLowerCase(); // "openai" | "deepseek" | "mock"
 const OPENAI_API_KEY = (process.env.OPENAI_API_KEY || '').trim();
+const DEEPSEEK_API_KEY = (process.env.DEEPSEEK_API_KEY || '').trim();
 const OPENAI_MODEL = (process.env.OPENAI_MODEL || 'gpt-4o-mini').trim();
+const DEEPSEEK_MODEL = (process.env.DEEPSEEK_MODEL || 'deepseek-chat').trim();
 
-// Default to mock to keep local/dev running without billing surprises.
-// Only call OpenAI when explicitly requested via AI_PROVIDER=openai.
-const isMock = AI_PROVIDER !== 'openai' || !OPENAI_API_KEY;
+// Determine if we should use mock data
+const isMock = (AI_PROVIDER === 'mock') || 
+               (AI_PROVIDER === 'openai' && !OPENAI_API_KEY) || 
+               (AI_PROVIDER === 'deepseek' && !DEEPSEEK_API_KEY);
 
 function parseBullets(text, { max = 8 } = {}) {
   if (!text) return [];
@@ -162,9 +165,20 @@ function mockGenerateFullProposal(scopeOfWork, deliverables, userRequirements, u
 
 function getOpenAIClient() {
   const OpenAI = require('openai');
-  // openai@4 expects { apiKey }
-  return new OpenAI({ apiKey: OPENAI_API_KEY });
+  const config = {
+    apiKey: AI_PROVIDER === 'deepseek' ? DEEPSEEK_API_KEY : OPENAI_API_KEY
+  };
+  
+  if (AI_PROVIDER === 'deepseek') {
+    config.baseURL = 'https://api.deepseek.com';
+  }
+  
+  return new OpenAI(config);
 }
+
+const getModel = () => {
+  return AI_PROVIDER === 'deepseek' ? DEEPSEEK_MODEL : OPENAI_MODEL;
+};
 
 /**
  * Analyzes project documentation and generates a structured scope of work and deliverables
@@ -218,13 +232,20 @@ const analyzeScopeAndDeliverables = async (description, userRequirements) => {
   `;
 
   // Send the prompt to OpenAI
-  const response = await openai.chat.completions.create({ // Using chat completion endpoint
-    model: OPENAI_MODEL,
-    messages: [{ role: "user", content: prompt }],
-    response_format: { type: "json_object" }
-  });
-
-  return JSON.parse(response.choices[0].message.content);
+  try {
+    const response = await openai.chat.completions.create({ // Using chat completion endpoint
+      model: getModel(),
+      messages: [{ role: "user", content: prompt }],
+      response_format: { type: "json_object" }
+    });
+    return JSON.parse(response.choices[0].message.content);
+  } catch (error) {
+    if (error.status === 429 || error.message.toLowerCase().includes('quota')) {
+      console.warn("OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing. Shifting to MOCK ai");
+      return mockAnalyzeScopeAndDeliverables(description, userRequirements);
+    }
+    throw error;
+  }
 };
 
 // Analyze scope and deliverables with feedback
@@ -287,13 +308,20 @@ const analyzeScopeAndDeliverablesWithFeedback = async (scopeOfWork, deliverables
   `;
 
   // Send the prompt to OpenAI
-  const response = await openai.chat.completions.create({ // Using chat completion endpoint
-    model: OPENAI_MODEL,
-    messages: [{ role: "user", content: prompt }],
-    response_format: { type: "json_object" }
-  });
-
-  return JSON.parse(response.choices[0].message.content);
+  try {
+    const response = await openai.chat.completions.create({ // Using chat completion endpoint
+      model: getModel(),
+      messages: [{ role: "user", content: prompt }],
+      response_format: { type: "json_object" }
+    });
+    return JSON.parse(response.choices[0].message.content);
+  } catch (error) {
+    if (error.status === 429 || error.message.toLowerCase().includes('quota')) {
+      console.warn("OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing. Shifting to MOCK ai");
+      return mockAnalyzeScopeAndDeliverablesWithFeedback(scopeOfWork, deliverables, userRequirements, userFeeback);
+    }
+    throw error;
+  }
 };
 
 // Last pass - Full proposal generation
@@ -361,13 +389,20 @@ const generateFullProposal = async (scopeOfWork, deliverables, userRequirements,
   `;
 
   // Send the prompt to OpenAI
-  const response = await openai.chat.completions.create({ // Using chat completion endpoint
-    model: OPENAI_MODEL,
-    messages: [{ role: "user", content: prompt }],
-    response_format: { type: "json_object" }
-  });
-
-  return JSON.parse(response.choices[0].message.content);
+  try {
+    const response = await openai.chat.completions.create({ // Using chat completion endpoint
+      model: getModel(),
+      messages: [{ role: "user", content: prompt }],
+      response_format: { type: "json_object" }
+    });
+    return JSON.parse(response.choices[0].message.content);
+  } catch (error) {
+    if (error.status === 429 || error.message.toLowerCase().includes('quota')) {
+      console.warn("OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing. Shifting to MOCK ai");
+      return mockGenerateFullProposal(scopeOfWork, deliverables, userRequirements, userFeeback);
+    }
+    throw error;
+  }
 };
 
 module.exports = { analyzeScopeAndDeliverables, analyzeScopeAndDeliverablesWithFeedback, generateFullProposal };
