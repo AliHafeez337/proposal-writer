@@ -61,7 +61,7 @@ export default function ProposalView({ proposal }) {
           Pricing Summary
         </Typography>
         <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
-          Total: ${proposal.pricing?.total?.toFixed(2) || '0.00'}
+          Total: ${proposal.pricing?.total !== undefined ? proposal.pricing.total.toFixed(2) : '0.00'}
         </Typography>
       </Paper>
 
