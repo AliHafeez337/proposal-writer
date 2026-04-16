@@ -18,30 +18,35 @@ const logger = winston.createLogger({
   ),
   transports: [ 
     // Console (always enabled)
-    new winston.transports.Console(),
-    new DailyRotateFile({
-      filename: 'logs/application-%DATE%.log',
-      datePattern: 'YYYY-MM-DD',
-      zippedArchive: true,
-      maxSize: '20m',
-      level: 'info' // Only log info and above to file
-    }),
-    new DailyRotateFile({
-      filename: 'logs/errors-%DATE%.log',
-      datePattern: 'YYYY-MM-DD',
-      zippedArchive: true,
-      maxSize: '20m',
-      level: 'error' // Only errors
-    })
-  ],
-  exceptionHandlers: [ // Handle uncaught exceptions
-    new winston.transports.File({ filename: 'logs/exceptions.log' })
+    new winston.transports.Console()
   ]
 });
 
-// Handle promise rejections
-logger.rejections.handle( //  Handle promise rejections
-  new winston.transports.File({ filename: 'logs/rejections.log' })
-);
+// Only add file transports if explicitly requested (e.g., in local dev or with persistent disk)
+if (process.env.LOG_TO_FILE === 'true') {
+  logger.add(new DailyRotateFile({
+    filename: 'logs/application-%DATE%.log',
+    datePattern: 'YYYY-MM-DD',
+    zippedArchive: true,
+    maxSize: '20m',
+    level: 'info'
+  }));
+  
+  logger.add(new DailyRotateFile({
+    filename: 'logs/errors-%DATE%.log',
+    datePattern: 'YYYY-MM-DD',
+    zippedArchive: true,
+    maxSize: '20m',
+    level: 'error'
+  }));
+
+  logger.exceptions.handle(
+    new winston.transports.File({ filename: 'logs/exceptions.log' })
+  );
+
+  logger.rejections.handle(
+    new winston.transports.File({ filename: 'logs/rejections.log' })
+  );
+}
 
 module.exports = logger;
