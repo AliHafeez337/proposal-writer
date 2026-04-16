@@ -241,7 +241,7 @@ const analyzeScopeAndDeliverables = async (description, userRequirements) => {
     return JSON.parse(response.choices[0].message.content);
   } catch (error) {
     if (error.status === 429 || error.message.toLowerCase().includes('quota')) {
-      console.warn("OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing. Shifting to MOCK ai");
+      console.warn("OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing. Shifting to MOCK AI..");
       return mockAnalyzeScopeAndDeliverables(description, userRequirements);
     }
     throw error;
@@ -317,7 +317,7 @@ const analyzeScopeAndDeliverablesWithFeedback = async (scopeOfWork, deliverables
     return JSON.parse(response.choices[0].message.content);
   } catch (error) {
     if (error.status === 429 || error.message.toLowerCase().includes('quota')) {
-      console.warn("OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing. Shifting to MOCK ai");
+      console.warn("OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing. Shifting to MOCK AI.");
       return mockAnalyzeScopeAndDeliverablesWithFeedback(scopeOfWork, deliverables, userRequirements, userFeeback);
     }
     throw error;
@@ -398,7 +398,7 @@ const generateFullProposal = async (scopeOfWork, deliverables, userRequirements,
     return JSON.parse(response.choices[0].message.content);
   } catch (error) {
     if (error.status === 429 || error.message.toLowerCase().includes('quota')) {
-      console.warn("OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing. Shifting to MOCK ai");
+      console.warn("OpenAI quota/rate limit exceeded. Check your OpenAI plan and billing. Shifting to MOCK AI.");
       return mockGenerateFullProposal(scopeOfWork, deliverables, userRequirements, userFeeback);
     }
     throw error;
